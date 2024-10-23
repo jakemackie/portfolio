@@ -3,7 +3,6 @@ export interface ProjectType {
   name: string;
   image: string;
   description: string;
-  body: string;
   technologies: string[];
   url: string;
 }

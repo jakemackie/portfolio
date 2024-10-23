@@ -3,18 +3,16 @@
     "key": "caption-ed",
     "name": "Caption Ed",
     "image": "/caption-ed.png",
-    "description": "Note-taking and captioning software, trusted by 30,000 professionals.",
-    "body": "Caption.Ed offers assistive technology for live captioning and note-taking, designed to enhance accessibility and productivity in education, business, and workplace environments. The software allows users to generate highly accurate captions, take detailed notes, and revisit recordings at their own pace. It's geared toward students, professionals, and assessors, aiming to improve focus, reduce anxiety, and promote independence. The platform is trusted by over 30,000 users and is particularly beneficial for those with hearing loss, neurodivergence, or accessibility needs.",
-    "technologies": ["WordPress", "PHP", "JavaScript", "Tailwind CSS"],
+    "description": "Caption.Ed offers assistive technology for live captioning and note-taking, designed to enhance accessibility and productivity in education, business, and workplace environments. The software allows users to generate highly accurate captions, take detailed notes, and revisit recordings at their own pace. It's geared toward students, professionals, and assessors, aiming to improve focus, reduce anxiety, and promote independence. The platform is trusted by over 30,000 users and is particularly beneficial for those with hearing loss, neurodivergence, or accessibility needs.",
+    "technologies": ["WordPress", "PHP", "JavaScript", "Tailwind"],
     "url": "https://caption-ed.com"
   },
   {
     "key": "together-for-the-ocean",
     "name": "Together for the Ocean",
     "image": "/together-for-the-ocean.png",
-    "description": "A global initiative dedicated to holding governments accountable for protecting and conserving at least 30% of the ocean by 2030.",
-    "body": "The \"Together for the Ocean\" initiative is focused on protecting and conserving 30% of the world's oceans by 2030, as part of the global \"30×30\" target. This effort brings together organizations to address the growing threats to oceans and hold governments accountable for their commitments. It emphasizes the ocean's critical role in sustaining life on Earth and mitigating climate change. Despite global pledges, many countries are falling short in meeting protection goals.",
-    "technologies": ["WordPress", "PHP", "JavaScript", "Tailwind CSS"],
+    "description": "The \"Together for the Ocean\" initiative is focused on protecting and conserving 30% of the world's oceans by 2030, as part of the global \"30×30\" target. This effort brings together organizations to address the growing threats to oceans and hold governments accountable for their commitments. It emphasizes the ocean's critical role in sustaining life on Earth and mitigating climate change. Despite global pledges, many countries are falling short in meeting protection goals.",
+    "technologies": ["WordPress", "PHP", "JavaScript", "Tailwind"],
     "url": "https://for-the-ocean.org/"
   }
 ]

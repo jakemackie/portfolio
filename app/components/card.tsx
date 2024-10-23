@@ -24,7 +24,34 @@ export default function Card({ data }: CardProps) {
           {data.name}
         </h2>
         <div className="text-neutral-600 dark:text-neutral-400 tabular-nums">
-          <p>{data.description}</p>
+          <p>
+            {data.description.length > 70
+              ? (() => {
+                  const truncationPoint = 70;
+                  const nextSpaceIndex = data.description.indexOf(
+                    " ",
+                    truncationPoint
+                  );
+
+                  const cutoffIndex =
+                    nextSpaceIndex !== -1
+                      ? nextSpaceIndex
+                      : data.description.length;
+
+                  let truncatedText = data.description.substring(
+                    0,
+                    cutoffIndex
+                  );
+
+                  if (!/[a-zA-Z]$/.test(truncatedText)) {
+                    truncatedText = truncatedText.slice(0, -1);
+                  }
+
+                  return `${truncatedText}...`;
+                })()
+              : data.description}
+          </p>
+
           <ul className="mt-4 flex gap-2">
             {data.technologies.map((technology, index) => (
               <li

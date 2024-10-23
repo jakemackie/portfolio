@@ -1,4 +1,5 @@
-import { BlogPosts } from 'app/components/posts'
+import Link from "next/link";
+import { BlogPosts } from "app/components/posts";
 
 export default function Page() {
   return (
@@ -6,14 +7,21 @@ export default function Page() {
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
         My Portfolio
       </h1>
-      <p className="mb-4">
-        {`My name is Jake Mackie and I am a 19 year old from the UK. 
-        Currently I work as a fullstack apprentice developer at Hiyield
-        where I help create bespoke websites as part of the WordPress team.`}
-      </p>
+      <span className="mb-4">
+        My name is Jake Mackie and I am a 19 year old from the UK. Currently I
+        work as a fullstack apprentice developer at{" "}
+        <Link
+          href="https://hiyield.co.uk/"
+          target="_blank"
+          className="text-green-400 underline font-medium"
+        >
+          Hiyield
+        </Link>{" "}
+        where I help create bespoke websites as part of the WordPress team.
+      </span>
       <div className="my-8">
         <BlogPosts />
       </div>
     </section>
-  )
+  );
 }

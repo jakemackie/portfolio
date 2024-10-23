@@ -32,7 +32,7 @@ export default function Project({ params }) {
           {project.name}
         </h1>
         <div className="flex flex-col gap-2 text-neutral-600 dark:text-neutral-400 tabular-nums">
-          <p>{project.body}</p>
+          <p>{project.description}</p>
           <Link
             target="_blank"
             href={project.url}
