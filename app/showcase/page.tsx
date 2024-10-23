@@ -1,24 +1,7 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import LoadingShowcase from "app/showcase/loading";
 import Projects from "app/components/projects";
 
 export default function Showcase() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <LoadingShowcase />;
-  }
-
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">Showcase</h1>
