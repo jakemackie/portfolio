@@ -16,7 +16,7 @@ export default function Showcase() {
         an overview of the project itself. Each project has its own page where you
         can find out more.`}
       </p>
-      <div className="my-8">
+      <div className="my-8 lg:my-12">
         <Projects />
       </div>
     </div>

@@ -12,12 +12,12 @@ export async function generateStaticParams() {
   let projects = getProjects();
 
   return projects.map((project) => ({
-    slug: project.key,
+    slug: project.slug,
   }));
 }
 
 export function generateMetadata({ params }) {
-  let project = getProjects().find((project) => project.key === params.slug);
+  let project = getProjects().find((project) => project.slug === params.slug);
   if (!project) {
     return;
   }
@@ -34,7 +34,7 @@ export function generateMetadata({ params }) {
       title,
       description,
       type: "article",
-      url: `${baseUrl}/showcase/${project.key}`,
+      url: `${baseUrl}/showcase/${project.slug}`,
       images: [
         {
           url: ogImage,
@@ -60,7 +60,7 @@ export default function Project({ params }) {
   return (
     <div>
       <div className="flex flex-col gap-4">
-        <div className="w-fit rounded-2xl overflow-hidden">
+        <div className="flex items-stretch rounded-2xl overflow-hidden">
           <Image
             placeholder="blur"
             blurDataURL={project.blurImage}
@@ -68,7 +68,7 @@ export default function Project({ params }) {
             alt={project.name}
             width={500}
             height={200}
-            className="object-cover aspect-video"
+            className="object-cover aspect-video grow"
           />
         </div>
         <h1 className="text-2xl font-semibold tracking-tighter">
@@ -79,7 +79,7 @@ export default function Project({ params }) {
           <ul className="mt-2 flex gap-2">
             {project.technologies.map((technology, index) => (
               <li
-                key={technology}
+                key={index}
                 className="after:content-[','] last:after:content-['']"
               >
                 {technology}

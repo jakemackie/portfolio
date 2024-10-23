@@ -1,5 +1,5 @@
 export interface ProjectType {
-  key: string;
+  slug: string;
   name: string;
   blurImage: string;
   image: string;

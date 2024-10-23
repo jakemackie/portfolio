@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jake Mackie",
     description:
-      "My personal portfolio where I talk about what I do, what I've done, and what I'm interested in, feel free to reach out to me.",
+      "My personal portfolio where I talk about what I do, what I've done and what I'm interested in. Feel free to reach out to me.",
     url: baseUrl,
     siteName: "Jake Mackie",
     locale: "en_US",
@@ -54,7 +54,7 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
-      <body className="antialiased max-w-2xl mx-4 mt-8 lg:mx-auto">
+      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Navbar />
           {children}

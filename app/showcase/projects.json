@@ -1,26 +1,26 @@
 [
   {
-    "key": "caption-ed",
+    "slug": "caption-ed",
     "name": "Caption Ed",
     "blurImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAKCAMAAABlokWQAAAAb1BMVEX////7/Pw4b2/3+fnQ5eXk6+zN4+L+/v7X5+fs7OwubGvp8/P29vbd6utAcXDw7++yzs4mY2Gcub/N0erk7/DE3d2609PX2fLx9PSMr6/j4/S5yODBzOShwMvd3fry8Pjg4ODQ2+XMzMzl5vc0ZmSDvSoDAAAAgElEQVQI11XIxwHDIAwAQAlhhCgxBveatv+MIfnlngdam8EYE5vXepZjOgvoWkZb3z/Kvm37VCBaO6Q06uxU5fIEvu9NGke7dG/nVJdXQCJvo52XTn3nEGCGOHiCrG6VSi1U5JEhND8kNVAoPEnuFLhFEEDmgChIMyIT17kI/sgH+sMG4fkgdZgAAAAASUVORK5CYII=",
     "image": "/caption-ed.png",
-    "description": "Caption-Ed is one of my favourite projects I’ve been a part of so far. It’s a pretty site that highlights all the key values of the software. I was responsible for building various frontend blocks for the site’s theme.",
+    "description": "Caption-Ed is one of my favourite projects I’ve been a part of so far. It’s a pretty site that highlights all the key values of the software. I was responsible for building various customisable blocks for the site's theme that could both get and set data in the WordPress backend.",
     "technologies": ["WordPress", "PHP", "JavaScript", "Tailwind"],
     "url": "https://caption-ed.com",
     "publishedAt": "2024-10-23"
   },
   {
-    "key": "together-for-the-ocean",
+    "slug": "together-for-the-ocean",
     "name": "Together for the Ocean",
     "blurImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAKCAMAAABlokWQAAAAjVBMVEUAT8kAT8oBUMkJVsoHTrsRW80FUspbj91jlN4ojLAKUb49d4hsmeApa9IZYM5Vi9xznuEUV653oeIygqMQTqh9puQgZdFjmp4EgL0ja7Ngi85HXI6JalFBfNcAjMWNseeHqNl+cVhvl9VMhNmBeXk2b8JPhdo6bqcCUMd+lrFPgHCHgXFYrJ8QZa9xfX9WY7eVAAAAgElEQVQI1z3OVw7CQAxFUZd4SmbSO7132P/yCBPgfllHepIhSRWMITADMjsHwvSRobP9cyiAYpi6dI9V724WcBIWOVfW3rcVYBQk8eVuc30dFnP8Ci0b0xzruoj/ItqYFsd+KyWSthzOURSRIlAcviKgCHJfrnNtvD7ts0xrM3sDQgsGR5VbXj4AAAAASUVORK5CYII=",
     "image": "/together-for-the-ocean.png",
-    "description": "The \"Together for the Ocean\" initiative is focused on protecting and conserving 30% of the world's oceans by 2030, as part of the global \"30×30\" target. This effort brings together organizations to address the growing threats to oceans and hold governments accountable for their commitments. It emphasizes the ocean's critical role in sustaining life on Earth and mitigating climate change. Despite global pledges, many countries are falling short in meeting protection goals.",
+    "description": "Together for the ocean was great fun to help build. They have a strong brand which I helped convey with some frontend work such as the footer and other blocks.",
     "technologies": ["WordPress", "PHP", "JavaScript", "Tailwind"],
     "url": "https://for-the-ocean.org/",
     "publishedAt": "2024-10-23"
   },
   {
-    "key": "portfolio",
+    "slug": "portfolio",
     "name": "Portfolio",
     "blurImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAKCAMAAABlokWQAAAAb1BMVEX////7/Pw4b2/3+fnQ5eXk6+zN4+L+/v7X5+fs7OwubGvp8/P29vbd6utAcXDw7++yzs4mY2Gcub/N0erk7/DE3d2609PX2fLx9PSMr6/j4/S5yODBzOShwMvd3fry8Pjg4ODQ2+XMzMzl5vc0ZmSDvSoDAAAAgElEQVQI11XIxwHDIAwAQAlhhCgxBveatv+MIfnlngdam8EYE5vXepZjOgvoWkZb3z/Kvm37VCBaO6Q06uxU5fIEvu9NGke7dG/nVJdXQCJvo52XTn3nEGCGOHiCrG6VSi1U5JEhND8kNVAoPEnuFLhFEEDmgChIMyIT17kI/sgH+sMG4fkgdZgAAAAASUVORK5CYII=",
     "image": "/portfolio.svg",

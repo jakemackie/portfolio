@@ -3,9 +3,9 @@ import Card from "app/components/card";
 
 export default function Projects() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-16">
-      {allProjects.map((project) => (
-        <Card key={project.key} data={project} />
+    <div className="flex flex-col gap-10">
+      {allProjects.map((project, index) => (
+        <Card key={index} data={project} />
       ))}
     </div>
   );

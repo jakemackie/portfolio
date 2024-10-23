@@ -9,7 +9,7 @@ interface CardProps {
 
 export default function Card({ data }: CardProps) {
   return (
-    <Link href={`/showcase/${data.key}`} className="group">
+    <Link href={`/showcase/${data.slug}`} className="group">
       <div className="flex flex-col gap-4">
         <div className="flex items-stretch rounded-2xl overflow-hidden">
           <Image
@@ -57,7 +57,7 @@ export default function Card({ data }: CardProps) {
           <ul className="mt-2 flex gap-2">
             {data.technologies.map((technology, index) => (
               <li
-                key={technology}
+                key={index}
                 className="after:content-[','] last:after:content-['']"
               >
                 {technology}

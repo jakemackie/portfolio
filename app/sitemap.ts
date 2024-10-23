@@ -10,7 +10,7 @@ export default async function sitemap() {
   }));
 
   let projects = getProjects().map((project) => ({
-    url: `${baseUrl}/showcase/${project.key}`,
+    url: `${baseUrl}/showcase/${project.slug}`,
     lastModified: project.publishedAt,
   }));
 
