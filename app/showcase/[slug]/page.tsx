@@ -1,13 +1,14 @@
 import { notFound } from "next/navigation";
 import allProjects from "app/showcase/projects.json";
 import { ProjectType } from "app/showcase/projectType";
+import { getProject } from "app/showcase/utils";
 
 import Image from "next/image";
 import Link from "next/link";
 
-function getProject(key: string): ProjectType | undefined {
-  return allProjects.find((project) => project.key === key);
-}
+export async function generateStaticParams() {}
+
+export function generateMetadata() {}
 
 export default function Project({ params }) {
   let project = getProject(params.slug);
