@@ -1,14 +1,54 @@
 import { notFound } from "next/navigation";
+import { getProjects, getProject } from "app/showcase/utils";
+import { baseUrl } from "app/sitemap";
+
 import allProjects from "app/showcase/projects.json";
 import { ProjectType } from "app/showcase/projectType";
-import { getProject } from "app/showcase/utils";
 
 import Image from "next/image";
 import Link from "next/link";
 
-export async function generateStaticParams() {}
+export async function generateStaticParams() {
+  let projects = getProjects();
 
-export function generateMetadata() {}
+  return projects.map((project) => ({
+    slug: project.key,
+  }));
+}
+
+export function generateMetadata({ params }) {
+  let project = getProjects().find((project) => project.key === params.slug);
+  if (!project) {
+    return;
+  }
+
+  let { name: title, description, image } = project;
+  let ogImage = image
+    ? image
+    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url: `${baseUrl}/showcase/${project.key}`,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
+}
 
 export default function Project({ params }) {
   let project = getProject(params.slug);
