@@ -11,13 +11,13 @@ export default function Card({ data }: CardProps) {
   return (
     <Link href={`/showcase/${data.key}`} className="group">
       <div className="flex flex-col gap-4">
-        <div className="w-fit rounded-2xl overflow-hidden">
+        <div className="flex items-stretch rounded-2xl overflow-hidden">
           <Image
             src={data.image}
             alt={data.name}
             width={500}
             height={200}
-            className="object-cover aspect-video"
+            className="object-cover aspect-video grow"
           />
         </div>
         <h2 className="text-xl font-medium tracking-tighter group-hover:text-blue-500 group-hover:underline">

@@ -14,5 +14,13 @@
     "description": "The \"Together for the Ocean\" initiative is focused on protecting and conserving 30% of the world's oceans by 2030, as part of the global \"30×30\" target. This effort brings together organizations to address the growing threats to oceans and hold governments accountable for their commitments. It emphasizes the ocean's critical role in sustaining life on Earth and mitigating climate change. Despite global pledges, many countries are falling short in meeting protection goals.",
     "technologies": ["WordPress", "PHP", "JavaScript", "Tailwind"],
     "url": "https://for-the-ocean.org/"
+  },
+  {
+    "key": "portfolio",
+    "name": "Portfolio",
+    "image": "/portfolio.svg",
+    "description": "My personal portfolio.",
+    "technologies": ["Next.js", "React", "TypeScript", "Tailwind"],
+    "url": "https://example.com"
   }
 ]

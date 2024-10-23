@@ -13,11 +13,11 @@ export default function Page() {
         <Link
           href="https://hiyield.co.uk/"
           target="_blank"
-          className="text-green-400 underline font-medium"
+          className="text-green-400 underline"
         >
           Hiyield
         </Link>{" "}
-        where I help create bespoke websites as part of the WordPress team.
+        where I create bespoke websites as part of the WordPress team.
       </span>
       <div className="my-8">
         <BlogPosts />
