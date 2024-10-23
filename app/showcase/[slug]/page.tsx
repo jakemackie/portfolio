@@ -17,7 +17,7 @@ export default function Project({ params }) {
   }
 
   return (
-    <section>
+    <div>
       <div className="flex flex-col gap-4">
         <div className="w-fit rounded-2xl overflow-hidden">
           <Image
@@ -42,6 +42,6 @@ export default function Project({ params }) {
           </Link>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

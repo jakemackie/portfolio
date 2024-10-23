@@ -3,7 +3,7 @@ import Projects from "app/components/projects";
 
 export default function Showcase() {
   return (
-    <section>
+    <div>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">Showcase</h1>
       <p className="mb-4">
         {`An overview of the projects I've made contributions to.
@@ -15,6 +15,6 @@ export default function Showcase() {
       <div className="my-8">
         <Projects />
       </div>
-    </section>
+    </div>
   );
 }

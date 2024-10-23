@@ -1,6 +1,6 @@
 export default function LoadingShowcase() {
   return (
-    <section>
+    <div>
       <div className="flex flex-col gap-4">
         <div className="flex items-stretch">
           <div className="aspect-video bg-neutral-400 animate-pulse grow max-w-[500px] rounded-2xl"></div>
@@ -16,6 +16,6 @@ export default function LoadingShowcase() {
           <div className="h-4 w-1/6 bg-neutral-400 animate-pulse"></div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
