@@ -13,6 +13,8 @@ export default function Card({ data }: CardProps) {
       <div className="flex flex-col gap-4">
         <div className="flex items-stretch rounded-2xl overflow-hidden">
           <Image
+            placeholder="blur"
+            blurDataURL={data.blurImage}
             src={data.image}
             alt={data.name}
             width={500}
@@ -21,7 +23,6 @@ export default function Card({ data }: CardProps) {
           />
         </div>
         <h2 className="text-xl font-medium tracking-tighter group-hover:text-blue-500 group-hover:underline">
-          {data.name}
         </h2>
         <div className="text-neutral-600 dark:text-neutral-400 tabular-nums">
           <p>
@@ -52,7 +53,7 @@ export default function Card({ data }: CardProps) {
               : data.description}
           </p>
 
-          <ul className="mt-4 flex gap-2">
+          <ul className="mt-2 flex gap-2">
             {data.technologies.map((technology, index) => (
               <li
                 key={technology}

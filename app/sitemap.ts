@@ -11,6 +11,7 @@ export default async function sitemap() {
 
   let projects = getProjects().map((project) => ({
     url: `${baseUrl}/showcase/${project.key}`,
+    lastModified: project.publishedAt,
   }));
 
   let routes = ["", "/blog", "/showcase"].map((route) => ({

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Jake Mackie",
   },
   description:
-    "My personal portfolio where I talk about what I do, what I've done, and what I'm interested in, feel free to reach out to me.",
+    "My personal portfolio where I talk about what I do, what I've done and what I'm interested in. Feel free to reach out to me.",
   openGraph: {
     title: "Jake Mackie",
     description:

@@ -62,6 +62,8 @@ export default function Project({ params }) {
       <div className="flex flex-col gap-4">
         <div className="w-fit rounded-2xl overflow-hidden">
           <Image
+            placeholder="blur"
+            blurDataURL={project.blurImage}
             src={project.image}
             alt={project.name}
             width={500}
@@ -74,6 +76,16 @@ export default function Project({ params }) {
         </h1>
         <div className="flex flex-col gap-2 text-neutral-600 dark:text-neutral-400 tabular-nums">
           <p>{project.description}</p>
+          <ul className="mt-2 flex gap-2">
+            {project.technologies.map((technology, index) => (
+              <li
+                key={technology}
+                className="after:content-[','] last:after:content-['']"
+              >
+                {technology}
+              </li>
+            ))}
+          </ul>
           <Link
             target="_blank"
             href={project.url}

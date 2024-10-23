@@ -1,5 +1,9 @@
-import LoadingShowcase from "app/showcase/loading";
 import Projects from "app/components/projects";
+
+export const metadata = {
+  title: "Showcase",
+  description: "An overview of the projects I've made contributions to.",
+};
 
 export default function Showcase() {
   return (
