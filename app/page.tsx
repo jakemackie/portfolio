@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Technologies from "app/components/technologies";
 
 export default function Page() {
   return (
@@ -16,12 +17,24 @@ export default function Page() {
         >
           Hiyield
         </Link>{" "}
-        where I contribute to creating bespoke websites as part of the WordPress 
+        where I contribute to creating bespoke websites as part of the WordPress
         team. I like to consider my time building websites as me doibg something
-        I love, which is why I made this one. Here you can find out all about what
-        I get up to, whether it's tech-related or personal, with a specfic section
-        to showcase projects.
+        I love, which is why I made this one. Here you can find out all about
+        what I get up to, whether it's tech-related or personal, with a specfic
+        section to showcase projects.
       </span>
+
+      <div className="mt-12 space-y-4">
+        <h2 className="text-xl font-semibold tracking-tighter">
+          Familiar technologies
+        </h2>
+        <p>
+          Below you can find a list of technologies that I am familiar with and
+          have used in the past. You can find real world use cases of these
+          technologies in the showcase section.
+        </p>
+        <Technologies />
+      </div>
     </div>
   );
 }
