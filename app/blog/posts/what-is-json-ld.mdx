@@ -20,17 +20,18 @@ So I defined a person type that I can give to the schema.
   }
 ```
 
-...along with a `.json` to match.
+...along with `me.json` to match those types I've defined.
 
 ```json
-{
+  {
     "name": "Jake Mackie",
     "description": "Jake Mackie is a 19-year-old apprentice fullstack developer for Hiyield based in Cornwall.",
     "birthDate": "2005-08-04"
-}
+  }
 ```
 
-I passed that to a looks something like this:
+Then, on a page we can use both to pass the valid JSON-LD data! 
+
 ```tsx
   import { Person } from "app/types/personType";
   import Me from "app/json/me.json";
