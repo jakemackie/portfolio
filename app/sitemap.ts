@@ -1,7 +1,7 @@
 import { getBlogPosts } from "app/blog/utils";
 import { getProjects } from "app/showcase/utils";
 
-export const baseUrl = "https://portfolio-git-main-osrocks-projects.vercel.app/";
+export const baseUrl = "https://portfolio-git-main-osrocks-projects.vercel.app";
 
 export default async function sitemap() {
   let blogs = getBlogPosts().map((post) => ({
