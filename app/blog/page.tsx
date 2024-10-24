@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "A collection of posts I've written about various topics. From tech to personal, I write about what interests me.",
 };
 
-export default function Page() {
+export default function Blog() {
   return (
     <div>
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter">Latest posts</h1>
