@@ -1,6 +1,7 @@
+import type { Metadata } from 'next'
 import Projects from "app/components/projects";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Showcase",
   description: "An overview of the projects I've made contributions to.",
 };

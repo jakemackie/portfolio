@@ -2,9 +2,6 @@ import { notFound } from "next/navigation";
 import { getProjects, getProject } from "app/showcase/utils";
 import { baseUrl } from "app/sitemap";
 
-import allProjects from "app/showcase/projects.json";
-import { ProjectType } from "app/showcase/projectType";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -22,13 +19,14 @@ export function generateMetadata({ params }) {
     return;
   }
 
-  let { name: title, description, image } = project;
+  let { name: title, description, image, publishedAt } = project;
   let ogImage = image
     ? image
     : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
+    publishedAt,
     description,
     openGraph: {
       title,

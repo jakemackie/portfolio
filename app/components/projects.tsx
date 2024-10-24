@@ -1,4 +1,4 @@
-import allProjects from "app/showcase/projects.json";
+import allProjects from "app/json/projects.json";
 import Card from "app/components/card";
 
 export default function Projects() {

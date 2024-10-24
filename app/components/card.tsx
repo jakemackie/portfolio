@@ -1,4 +1,4 @@
-import { ProjectType } from "app/showcase/projectType";
+import { ProjectType } from "app/types/projectType";
 
 import Image from "next/image";
 import Link from "next/link";
