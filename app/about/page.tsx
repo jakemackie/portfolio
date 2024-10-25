@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Person } from "app/types/personType";
 import Me from "app/json/me.json";
+import Image from "next/image";
 
 
 export const metadata: Metadata = {
@@ -23,7 +24,17 @@ export default function About() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <p>Hey!</p>
+      <p className="mb-8">
+        Hey! This is unfinished if you know, you couldn't tell.
+        Here's my dog for the time being.
+      </p>
+      <Image
+        src="/dog.jpg"
+        alt="Picture of my dog"
+        width={200}
+        height={200}
+        className="object-contain rounded-xl"
+      />
     </div>
   )
 }  
