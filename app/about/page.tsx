@@ -1,12 +1,12 @@
-import type { Metadata } from "next"
+import type { Metadata } from "next";
 import { Person } from "app/types/personType";
 import Me from "app/json/me.json";
 import Image from "next/image";
 
-
 export const metadata: Metadata = {
   title: "About",
-  description: "All about myself! Find below a brief description of my journey so far and feel free to contact me using any one of the listed contact methods.",
+  description:
+    "All about myself! Find below a brief description of my journey so far and feel free to contact me using any one of the listed contact methods.",
   openGraph: {
     title: "About",
     images: [
@@ -14,16 +14,16 @@ export const metadata: Metadata = {
         url: "/dog.jpg",
         alt: "Picture of my dog",
       },
-    ]
-  }
-}
+    ],
+  },
+};
 
 export default function About() {
   const jsonLd: Person = {
     "@context": "https://schema.org",
     "@type": "Person",
-    ...Me
-  }
+    ...Me,
+  };
 
   return (
     <div className="">
@@ -32,10 +32,10 @@ export default function About() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
+      <h1 className="font-semibold text-6xl mb-8 tracking-tighter">About</h1>
       <p className="mb-8">
-        Hey! This is unfinished if you know, you couldn't tell.
-        Here's my dog for the time being.
+        Hey! This is unfinished if you know, you couldn't tell. Here's my dog
+        for the time being.
       </p>
       <Image
         src="/dog.jpg"
@@ -45,6 +45,5 @@ export default function About() {
         className="object-contain rounded-xl"
       />
     </div>
-  )
-}  
-
+  );
+}

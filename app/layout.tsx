@@ -1,6 +1,6 @@
 import "./global.css";
 import type { Metadata } from "next";
-import { Figtree } from "next/font/google"
+import { Figtree } from "next/font/google";
 import { Navbar } from "./components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -32,7 +32,8 @@ export const metadata: Metadata = {
       default: "Jake Mackie — Fullstack Developer",
       template: "%s | Jake Mackie",
     },
-    description: "My personal portfolio where I talk about what I do, what I've done and what I'm interested in. Feel free to reach out to me."
+    description:
+      "My personal portfolio where I talk about what I do, what I've done and what I'm interested in. Feel free to reach out to me.",
   },
   robots: {
     index: true,
@@ -59,12 +60,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cx(
-        "text-foreground bg-background",
-        figtree.className
-      )}
+      className={cx("text-foreground bg-background", figtree.className)}
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
+      <body className="antialiased max-w-xl mx-4 mt-8 sm:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 leading-loose">
           <Navbar />
           {children}
