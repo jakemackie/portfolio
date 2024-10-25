@@ -59,8 +59,8 @@ export default async function Project(props) {
 
   return (
     <div>
-      <div className="flex flex-col gap-4">
-        <div className="flex items-stretch bg-zinc-900 border border-neutral-800 p-2 rounded-xl hover:bg-zinc-800 hover:border-neutral-700 duration-200 ease-in-out">
+      <div className="flex flex-col">
+        <div className="mb-8 flex items-stretch bg-zinc-900 border border-neutral-800 p-2 rounded-xl hover:bg-zinc-800 hover:border-neutral-700 duration-200 ease-in-out">
           <Image
             placeholder="blur"
             blurDataURL={project.blurImage}
@@ -71,7 +71,7 @@ export default async function Project(props) {
             className="object-cover rounded-lg aspect-video grow"
           />
         </div>
-        <h1 className="text-2xl font-semibold tracking-tighter">
+        <h1 className="mb-2 text-4xl font-semibold tracking-tighter">
           {project.name}
         </h1>
         <div className="flex flex-col gap-2 text-neutral-600 dark:text-neutral-400 tabular-nums">

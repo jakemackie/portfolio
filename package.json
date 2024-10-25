@@ -12,6 +12,7 @@
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "@vercel/analytics": "^1.1.3",
     "@vercel/speed-insights": "^1.0.9",
+    "aos": "^2.3.4",
     "geist": "1.2.2",
     "next": "15.0.1",
     "next-mdx-remote": "^4.4.1",
