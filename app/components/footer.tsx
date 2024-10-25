@@ -6,11 +6,11 @@ import Devto from "../../public/icons/devto.svg";
 
 export default function Footer() {
   return (
-    <footer className="mt-8 mb-16 flex items-center gap-8">
+    <footer className="mt-8 mb-16 flex flex-col sm:flex-row justify-center sm:justify-start sm:items-center gap-4 sm:gap-8">
       <p className="text-neutral-300">
         © {new Date().getFullYear()} Jake Mackie. All rights reserved.
       </p>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 shrink-0">
         <Link
           aria-label="Github"
           href="https://github.com/jakemackie"
