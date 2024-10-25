@@ -8,7 +8,10 @@ export default function Page() {
       <h1 className="mb-8 text-6xl font-semibold tracking-tighter">
         Jake Mackie
       </h1>
-      <p>19 year old apprentice fullstack developer based in Cornwall.</p>
+      <p>
+        19 year old apprentice fullstack developer based in Cornwall, United
+        Kingdom.
+      </p>
 
       <div className="mt-12 space-y-8">
         <h2 className="text-xl font-semibold tracking-tighter">
@@ -19,8 +22,8 @@ export default function Page() {
             <h3 className="text-lg font-semibold tracking-tighter">
               2024 - Current
             </h3>
-            <p>
-              I am currently working as a fullstack developer apprentice at{" "}
+            <p className="text-neutral-400">
+              I am currently working as an apprentice fullstack developer at{" "}
               <Link
                 href="https://hiyield.co.uk/"
                 target="_blank"
@@ -34,7 +37,7 @@ export default function Page() {
 
           <div className="h-full border-l-2 pl-4 border-zinc-600">
             <h3 className="text-lg font-semibold tracking-tighter">2023</h3>
-            <p>
+            <p className="text-neutral-400">
               Work experience at{" "}
               <Link
                 href="https://cits.royalcornwallhospitals.nhs.uk/"
@@ -54,7 +57,7 @@ export default function Page() {
         <h2 className="text-xl font-semibold tracking-tighter">
           Familiar technologies
         </h2>
-        <p>
+        <p className="text-neutral-400">
           Below you can find a list of technologies that I am familiar with. You
           can explore use cases of these technologies in the{" "}
           <Link href="/showcase" className="text-blue-500 underline">

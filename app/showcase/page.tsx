@@ -4,7 +4,8 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Showcase",
-  description: "An overview of the projects I've made contributions to.",
+  description:
+    "An overview of both personal and professional projects I've made contributions to.",
   openGraph: {
     title: "Showcase",
   },

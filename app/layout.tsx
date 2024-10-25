@@ -13,15 +13,14 @@ export const metadata: Metadata = {
     default: "Jake Mackie — Fullstack Developer",
     template: "%s | Jake Mackie",
   },
-  description:
-    "My personal portfolio where I talk about what I do, what I've done and what I'm interested in. Feel free to reach out to me.",
+  description: "19 year old apprentice fullstack developer based in Cornwall.",
   openGraph: {
     title: {
       default: "Jake Mackie — Fullstack Developer",
       template: "%s | Jake Mackie",
     },
     description:
-      "My personal portfolio where I talk about what I do, what I've done and what I'm interested in. Feel free to reach out to me.",
+      "19 year old apprentice fullstack developer based in Cornwall, United Kingdom.",
     url: baseUrl,
     siteName: "Jake Mackie",
     locale: "en_US",
@@ -33,7 +32,7 @@ export const metadata: Metadata = {
       template: "%s | Jake Mackie",
     },
     description:
-      "My personal portfolio where I talk about what I do, what I've done and what I'm interested in. Feel free to reach out to me.",
+      "19 year old apprentice fullstack developer based in Cornwall, United Kingdom.",
   },
   robots: {
     index: true,
