@@ -58,7 +58,7 @@ export default function Project({ params }) {
   return (
     <div>
       <div className="flex flex-col gap-4">
-        <div className="flex items-stretch rounded-2xl overflow-hidden">
+        <div className="flex items-stretch bg-zinc-900 border border-neutral-800 p-2 rounded-xl hover:bg-zinc-800 hover:border-neutral-700 duration-200 ease-in-out">
           <Image
             placeholder="blur"
             blurDataURL={project.blurImage}
@@ -66,7 +66,7 @@ export default function Project({ params }) {
             alt={project.name}
             width={500}
             height={200}
-            className="object-cover aspect-video grow"
+            className="object-cover rounded-lg aspect-video grow"
           />
         </div>
         <h1 className="text-2xl font-semibold tracking-tighter">
