@@ -27,6 +27,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  twitter: {
+    title: {
+      default: "Jake Mackie — Fullstack Developer",
+      template: "%s | Jake Mackie",
+    },
+    description: "My personal portfolio where I talk about what I do, what I've done and what I'm interested in. Feel free to reach out to me."
+  },
   robots: {
     index: true,
     follow: true,

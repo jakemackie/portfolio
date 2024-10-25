@@ -8,7 +8,13 @@ export const metadata: Metadata = {
   title: "About",
   description: "All about myself! Find below a brief description of my journey so far and feel free to contact me using any one of the listed contact methods.",
   openGraph: {
-    title: "About"
+    title: "About",
+    images: [
+      {
+        url: "/dog.jpg",
+        alt: "Picture of my dog",
+      },
+    ]
   }
 }
 
