@@ -16,7 +16,10 @@ export const metadata: Metadata = {
   description:
     "My personal portfolio where I talk about what I do, what I've done and what I'm interested in. Feel free to reach out to me.",
   openGraph: {
-    title: "Jake Mackie — Fullstack Developer",
+    title: {
+      default: "Jake Mackie — Fullstack Developer",
+      template: "%s | Jake Mackie",
+    },
     description:
       "My personal portfolio where I talk about what I do, what I've done and what I'm interested in. Feel free to reach out to me.",
     url: baseUrl,

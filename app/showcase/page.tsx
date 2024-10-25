@@ -3,7 +3,10 @@ import Projects from "app/components/projects";
 
 export const metadata: Metadata = {
   title: "Showcase",
-  description: "An overview of the projects I've made contributions to."
+  description: "An overview of the projects I've made contributions to.",
+  openGraph: {
+    title: "Showcase",
+  }
 };
 
 export default function Showcase() {
