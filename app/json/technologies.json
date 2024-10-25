@@ -19,8 +19,8 @@
   },
   {
     "icon": "icons/nextjs.svg",
-    "highlight": "bg-zinc-500/20",
-    "name": "Next.js",
+    "highlight": "bg-slate-400/20",
+    "name": "Next",
     "type": "Fullstack Framework"
   },
   {
@@ -45,7 +45,7 @@
     "icon": "icons/wordpress.svg",
     "highlight": "bg-blue-300/20",
     "name": "WordPress",
-    "type": "Content Management System"
+    "type": "Content Management"
   },
   {
     "icon": "icons/python.svg",

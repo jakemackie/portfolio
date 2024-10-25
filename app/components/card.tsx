@@ -25,7 +25,7 @@ export default function Card({ data }: CardProps) {
         <h2 className="text-xl font-medium tracking-tighter group-hover:text-blue-500 group-hover:underline">
           {data.name}
         </h2>
-        <div className="text-neutral-600 dark:text-neutral-400 tabular-nums">
+        <div className="text-neutral-600 dark:text-neutral-400 tabular-nums leading-normal">
           <p>
             {data.description.length > 70
               ? (() => {
