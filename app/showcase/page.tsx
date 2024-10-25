@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Projects from "app/components/projects";
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: "Showcase",
@@ -13,11 +14,19 @@ export default function Showcase() {
   return (
     <div>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">Showcase</h1>
-      <p className="mb-4">
-        {`An overview of the projects I've made contributions to.
-        These projects are a mix of personal projects and ones I've worked on 
-        as part of my role at Hiyield. Click on a project to see more information.`}
-      </p>
+      <span className="mb-4">
+        Here's an overview of the projects I've contributed to. These include a mix of personal initiatives and my work at Hiyield. 
+        All these projects are live and available for you to explore. Any in-development personal work can be found open-sourced
+        on my{" "}
+        <Link
+          href="https://github.com/jakemackie"
+          target="_blank"
+          className="text-blue-500 underline"
+        >
+          GitHub
+        </Link>
+        {" "}profile.
+      </span>
       <div className="my-8 lg:my-12">
         <Projects />
       </div>

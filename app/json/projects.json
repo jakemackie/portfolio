@@ -25,7 +25,7 @@
     "blurImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAKCAMAAABlokWQAAAAb1BMVEX////7/Pw4b2/3+fnQ5eXk6+zN4+L+/v7X5+fs7OwubGvp8/P29vbd6utAcXDw7++yzs4mY2Gcub/N0erk7/DE3d2609PX2fLx9PSMr6/j4/S5yODBzOShwMvd3fry8Pjg4ODQ2+XMzMzl5vc0ZmSDvSoDAAAAgElEQVQI11XIxwHDIAwAQAlhhCgxBveatv+MIfnlngdam8EYE5vXepZjOgvoWkZb3z/Kvm37VCBaO6Q06uxU5fIEvu9NGke7dG/nVJdXQCJvo52XTn3nEGCGOHiCrG6VSi1U5JEhND8kNVAoPEnuFLhFEEDmgChIMyIT17kI/sgH+sMG4fkgdZgAAAAASUVORK5CYII=",
     "image": "/portfolio.svg",
     "description": "My personal portfolio.",
-    "technologies": ["Next.js", "React", "TypeScript", "Tailwind"],
+    "technologies": ["Next", "React", "TypeScript", "Tailwind"],
     "url": "https://example.com",
     "publishedAt": "2024-10-23"
   },
@@ -44,7 +44,7 @@
     "name": "Mintmech",
     "blurImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAKCAMAAABlokWQAAAARVBMVEUAAAAGBgYCAwMKCgoPDg4UFBUZGR0jHh5cWlk9PD0uKy82NTVIMj9gR1VQTU5sbGxQPT+FhYVEIBaFQEV8fHyQgXmYZmW8y6niAAAAbUlEQVQI1y2OSRbDMAhDDcgGz0mb9P5HrU0CG+k/MQRw2EWqkMAUs1sm4mpWEiBwUqfRuO7eQCROxnlaHb/eIzM5yTZnOb6t4SHM+gE0H0XlIYQoa16EmN/M0m9tuddIrrq9YKf9u5Sid1rXyx8mQQMFvENbvAAAAABJRU5ErkJggg==",
     "image": "/mintmech.png",
-    "description": "No description",
+    "description": "Mintmech's design was an interesting challenge. I worked with the topography backgrounds and other design elements to create a unique look across multiple pages on the site.",
     "technologies": ["WordPress", "PHP", "JavaScript", "Tailwind"],
     "url": "https://mintmech.com/",
     "publishedAt": "2024-10-24"
@@ -54,7 +54,7 @@
     "name": "1energy",
     "blurImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAKCAMAAABlokWQAAAAP1BMVEUCKScILSoFKikKNDAKMSwYOjYWLS8zP0MuRkQuOD8XMzJEREpPU1hSXV1va24uMjeJenuilpSRfYCLgYE3MzeKAn1kAAAAYklEQVQI11WNSxbAIAgDAbWI2trf/c/aSNuFs2AxeQnEIPqJIURAAkJKqSygaFY3GWg362tTIxJe1mymtV3nXm91g4pp2/bj2GolRwTTpWBOxAW+ME0MI/zFv4mzCWkYfpsPOEQCymasW7MAAAAASUVORK5CYII=",
     "image": "/1energy.png",
-    "description": "No description",
+    "description": "For this project I worked on loading lottie animations into the WordPress theme, as they aren't natively supported. I also worked on the design of footer and other frontend areas.",
     "technologies": ["WordPress", "PHP", "JavaScript", "Tailwind"],
     "url": "https://1energy.uk/",
     "publishedAt": "2024-10-24"
