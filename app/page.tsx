@@ -1,12 +1,17 @@
+
 import Link from "next/link";
 import Technologies from "app/components/technologies";
 
 export default function Page() {
+  const words = `Apprentice Fullstack Developer`
   return (
     <div>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        Jake Mackie
-      </h1>
+      <div className="min-h-[calc(100vh-11.5rem)] flex flex-col justify-center mb-8 text-left">
+        <h1 className="text-6xl font-semibold tracking-tighter">
+          Jake Mackie
+        </h1>
+        <p>Apprentice Fullstack Developer</p>
+      </div>
       <span className="mb-4">
         I am a 19 year old from the UK. Currently I work as a fullstack 
         apprentice developer at{" "}
