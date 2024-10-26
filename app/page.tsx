@@ -8,16 +8,16 @@ export default function Page() {
       <h1 className="mb-2 text-6xl font-semibold tracking-tighter text-center sm:text-left">
         Jake Mackie
       </h1>
-      <p className="mb-2 text-center sm:text-left">
+      <p className="mb-2">
         19 year old apprentice fullstack developer based in Cornwall, United
         Kingdom.
       </p>
       <Link
         href="mailto:jake.wmackie@gmail.com"
         className={`
-          mx-auto sm:mx-0 my-4 group w-fit flex items-stretch bg-zinc-900 border border-neutral-700 
-          px-4 py-2 rounded-xl hover:bg-zinc-800 hover:border-neutral-600 duration-200 ease-in-out
-          outline-2 outline-transparent focus:outline-blue-500
+          my-4 group w-fit flex items-stretch bg-zinc-900 border border-neutral-700 
+          px-4 py-2 rounded-xl hover:bg-zinc-800 hover:border-neutral-600 duration-200 
+          ease-in-out outline-2 outline-transparent focus:outline-blue-500
         `}
       >
         Contact me
