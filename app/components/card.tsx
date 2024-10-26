@@ -10,8 +10,8 @@ interface CardProps {
 export default function Card({ data }: CardProps) {
   return (
     <Link href={`/showcase/${data.slug}`} className="group">
-      <div className="flex flex-col gap-4">
-        <div className="flex items-stretch bg-zinc-900 border border-neutral-700 p-2 rounded-xl hover:bg-zinc-800 hover:border-neutral-600 duration-200 ease-in-out">
+      <div className="flex flex-col">
+        <div className="mb-4 flex items-stretch bg-zinc-900 border border-neutral-700 p-2 rounded-xl hover:bg-zinc-800 hover:border-neutral-600 duration-200 ease-in-out">
           <Image
             placeholder="blur"
             blurDataURL={data.blurImage}
@@ -22,10 +22,10 @@ export default function Card({ data }: CardProps) {
             className="object-cover rounded-lg aspect-video grow"
           />
         </div>
-        <h2 className="text-xl font-medium tracking-tighter group-hover:text-blue-500 group-hover:underline">
+        <h2 className="w-fit mb-2 text-xl font-medium tracking-tighter group-hover:text-blue-500 group-hover:underline outline-2 outline-transparent group-focus:outline-blue-500">
           {data.name}
         </h2>
-        <div className="text-neutral-400 tabular-nums leading-normal">
+        <div className="mb-2 text-neutral-400 tabular-nums leading-normal">
           <p>
             {data.description.length > 70
               ? (() => {

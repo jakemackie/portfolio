@@ -16,6 +16,7 @@ export default function Footer() {
           href="https://github.com/jakemackie"
           target="_blank"
           rel="noopener noreferrer"
+          className="outline-2 outline-transparent focus:outline-blue-500"
         >
           <Image
             src={Github}
@@ -31,6 +32,7 @@ export default function Footer() {
           href="https://www.linkedin.com/in/jakemackie/"
           target="_blank"
           rel="noopener noreferrer"
+          className="outline-2 outline-transparent focus:outline-blue-500"
         >
           <Image
             src={LinkedIn}
@@ -46,6 +48,7 @@ export default function Footer() {
           href="https://dev.to/jakemackie"
           target="_blank"
           rel="noopener noreferrer"
+          className="outline-2 outline-transparent focus:outline-blue-500"
         >
           <Image
             src={Devto}

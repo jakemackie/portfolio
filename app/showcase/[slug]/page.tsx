@@ -71,12 +71,12 @@ export default async function Project(props) {
             className="object-cover rounded-lg aspect-video grow"
           />
         </div>
-        <h1 className="mb-2 text-4xl font-semibold tracking-tighter">
+        <h1 className="text-4xl font-semibold tracking-tighter">
           {project.name}
         </h1>
-        <div className="flex flex-col gap-2 text-neutral-400 tabular-nums">
-          <p>{project.description}</p>
-          <ul className="mt-2 flex gap-2">
+        <div className="flex flex-col text-neutral-400 tabular-nums">
+          <p className="mb-8">{project.description}</p>
+          <ul className="flex gap-2">
             {project.technologies.map((technology, index) => (
               <li
                 key={index}
@@ -89,7 +89,7 @@ export default async function Project(props) {
           <Link
             target="_blank"
             href={project.url}
-            className="text-blue-500 underline"
+            className="w-fit text-blue-500 underline outline-2 outline-transparent focus:outline-blue-500"
           >
             Visit the project
           </Link>
