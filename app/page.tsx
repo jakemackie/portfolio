@@ -1,29 +1,35 @@
+"use client";
+
 import Link from "next/link";
 import Technologies from "app/components/technologies";
+import DotPattern from "app/components/ui/dot-pattern";
+import { cn } from "lib/utils";
 
 export default function Page() {
   const words = `Apprentice Fullstack Developer`;
   return (
     <div>
-      <h1 className="mb-2 text-6xl font-semibold tracking-tighter">
-        Jake Mackie
-      </h1>
-      <p className="mb-2">
-        19 year old apprentice fullstack developer based in Cornwall, United
-        Kingdom.
-      </p>
-      <Link
-        href="mailto:jake.wmackie@gmail.com"
-        className={`
-          my-4 group w-fit flex items-stretch bg-zinc-900 border border-neutral-700 
-          px-4 py-2 rounded-xl hover:bg-zinc-800 hover:border-neutral-600 duration-200 
-          ease-in-out outline-2 outline-transparent focus:outline-blue-500
-        `}
-      >
-        Contact me
-      </Link>
+      <div className="my-12">
+        <h1 className="mb-2 text-5xl md:text-5xl md:text-6xl font-semibold tracking-tighter text-center">
+          Jake Mackie
+        </h1>
+        <p className="mx-auto max-w-sm mb-2 text-center font-medium">
+          19 year old apprentice fullstack developer based in Cornwall, United
+          Kingdom.
+        </p>
+        <Link
+          href="mailto:jake.wmackie@gmail.com"
+          className={`
+            mx-auto my-8 group w-fit flex items-stretch bg-zinc-950 border border-neutral-700 
+            px-4 py-1.5 rounded-xl hover:bg-zinc-900 hover:border-neutral-600 duration-200 
+            ease-in-out outline-2 outline-transparent focus:outline-blue-500 font-medium
+          `}
+        >
+          Contact me
+        </Link>
+      </div>
 
-      <div className="mt-16 lg:mt-20 space-y-8">
+      <div className="mt-40 space-y-8">
         <h2 className="text-xl font-semibold tracking-tighter">
           My experience
         </h2>
@@ -80,6 +86,12 @@ export default function Page() {
         </p>
         <Technologies />
       </div>
+
+      <DotPattern
+        className={cn(
+          "-z-10 opacity-50 [mask-image:radial-gradient(300px_circle_at_center,white,transparent)]"
+        )}
+      />
     </div>
   );
 }

@@ -14,7 +14,9 @@ export const metadata: Metadata = {
 export default function Showcase() {
   return (
     <div>
-      <h1 className="mb-8 text-6xl font-semibold tracking-tighter">Showcase</h1>
+      <h1 className="mb-8 text-5xl md:text-6xl font-semibold tracking-tighter">
+        Showcase
+      </h1>
       <span className="mb-4">
         Here's an overview of the projects I've contributed to. These include a
         mix of personal initiatives and my work at Hiyield. All these projects

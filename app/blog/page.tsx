@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function Blog() {
   return (
     <div>
-      <h1 className="font-semibold text-6xl mb-8 tracking-tighter">
+      <h1 className="font-semibold text-5xl md:text-6xl mb-8 tracking-tighter">
         Latest posts
       </h1>
       <p className="mb-4">
