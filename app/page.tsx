@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Technologies from "app/components/technologies";
 import DotPattern from "app/components/ui/dot-pattern";
