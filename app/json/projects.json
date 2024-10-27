@@ -22,11 +22,11 @@
   {
     "slug": "portfolio",
     "name": "Portfolio",
-    "blurImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAKCAMAAABlokWQAAAAb1BMVEX////7/Pw4b2/3+fnQ5eXk6+zN4+L+/v7X5+fs7OwubGvp8/P29vbd6utAcXDw7++yzs4mY2Gcub/N0erk7/DE3d2609PX2fLx9PSMr6/j4/S5yODBzOShwMvd3fry8Pjg4ODQ2+XMzMzl5vc0ZmSDvSoDAAAAgElEQVQI11XIxwHDIAwAQAlhhCgxBveatv+MIfnlngdam8EYE5vXepZjOgvoWkZb3z/Kvm37VCBaO6Q06uxU5fIEvu9NGke7dG/nVJdXQCJvo52XTn3nEGCGOHiCrG6VSi1U5JEhND8kNVAoPEnuFLhFEEDmgChIMyIT17kI/sgH+sMG4fkgdZgAAAAASUVORK5CYII=",
-    "image": "/portfolio.svg",
+    "blurImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAKBAMAAABLZROSAAAAD1BMVEUTExMcHB0XFxgjJikzNzr+6pfVAAAAOElEQVQI12NgYGBQAmIGRiBmMnFUgLAYBIVgLCGYLIOgkhKGrKASTFZYCKiSCcQyFIaymIxFQCwAiusCz4F6xhsAAAAASUVORK5CYII=",
+    "image": "/portfolio.png",
     "description": "My personal portfolio.",
     "technologies": ["Next", "React", "TypeScript", "Tailwind"],
-    "url": "https://example.com",
+    "url": "https://jakemackie.co.uk",
     "publishedAt": "2024-10-23"
   },
   {
