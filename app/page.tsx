@@ -7,8 +7,8 @@ export default function Page() {
   const words = `Apprentice Fullstack Developer`;
   return (
     <div>
-      <div className="my-12">
-        <h1 className="mb-2 text-5xl md:text-5xl md:text-6xl font-semibold tracking-tighter text-center">
+      <div className="my-28">
+        <h1 className="mb-2 text-6xl font-semibold tracking-tighter text-center">
           Jake Mackie
         </h1>
         <p className="mx-auto max-w-sm mb-2 text-center font-medium">
