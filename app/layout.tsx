@@ -19,6 +19,11 @@ export const metadata: Metadata = {
       default: "Jake Mackie — Fullstack Developer",
       template: "%s | Jake Mackie",
     },
+    images: [
+      {
+        url: "/ogimage.png",
+      },
+    ],
     description:
       "19 year old apprentice fullstack developer based in Cornwall, United Kingdom.",
     url: baseUrl,

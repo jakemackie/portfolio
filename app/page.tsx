@@ -2,6 +2,7 @@ import Link from "next/link";
 import Technologies from "app/components/technologies";
 import DotPattern from "app/components/ui/dot-pattern";
 import { cn } from "lib/utils";
+import Aos from "app/components/aos";
 
 export default function Page() {
   const words = `Apprentice Fullstack Developer`;
@@ -15,6 +16,7 @@ export default function Page() {
           19 year old apprentice fullstack developer based in Cornwall, United
           Kingdom.
         </p>
+        <Aos />
         <Link
           href="mailto:jake.wmackie@gmail.com"
           className={`
@@ -22,6 +24,7 @@ export default function Page() {
             px-4 py-1.5 rounded-xl hover:bg-zinc-900 hover:border-neutral-600 duration-200 
             ease-in-out outline-2 outline-transparent focus:outline-blue-500 font-medium
           `}
+          data-aos="zoom-out"
         >
           Contact me
         </Link>
