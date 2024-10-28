@@ -84,7 +84,7 @@ export default async function Post(props) {
           }),
         }}
       />
-      <h1 className="font-semibold text-6xl tracking-tighter">
+      <h1 className="font-semibold text-5xl md:text-6xl tracking-tighter">
         {post.metadata.title}
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
