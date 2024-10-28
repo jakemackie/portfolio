@@ -5,7 +5,6 @@ import { cn } from "lib/utils";
 import Aos from "app/components/aos";
 
 export default function Page() {
-  const words = `Apprentice Fullstack Developer`;
   return (
     <div>
       <div className="h-[calc(100vh-15rem)] flex flex-col justify-center">

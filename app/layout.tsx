@@ -32,12 +32,14 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    card: "summary_large_image",
     title: {
       default: "Jake Mackie — Fullstack Developer",
       template: "%s | Jake Mackie",
     },
     description:
       "19 year old apprentice fullstack developer based in Cornwall, United Kingdom.",
+    images: ["/ogimage.png"],
   },
   robots: {
     index: true,
