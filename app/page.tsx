@@ -7,7 +7,7 @@ export default function Page() {
   const words = `Apprentice Fullstack Developer`;
   return (
     <div>
-      <div className="my-24 lg:my-44">
+      <div className="h-[calc(100vh-15rem)] flex flex-col justify-center">
         <h1 className="mb-2 text-6xl font-semibold tracking-tighter text-center">
           Jake Mackie
         </h1>
@@ -27,7 +27,7 @@ export default function Page() {
         </Link>
       </div>
 
-      <div className="mt-40 space-y-8">
+      <div className="space-y-8">
         <h2 className="text-xl font-semibold tracking-tighter">
           My experience
         </h2>
