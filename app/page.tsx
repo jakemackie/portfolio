@@ -8,10 +8,10 @@ export default function Page() {
   return (
     <div>
       <div className="h-[calc(100vh-15rem)] flex flex-col justify-center">
-        <h1 className="mb-2 text-6xl font-semibold tracking-tighter text-center">
+        <h1 className="mb-2 text-6xl sm:text-7xl font-semibold tracking-tighter text-center">
           Jake Mackie
         </h1>
-        <p className="mx-auto max-w-sm mb-2 text-center font-medium">
+        <p className="mx-auto max-w-sm sm:max-w-md mb-2 text-center font-medium sm:text-xl">
           19 year old apprentice fullstack developer based in Cornwall, United
           Kingdom.
         </p>
@@ -19,8 +19,8 @@ export default function Page() {
         <Link
           href="mailto:jake.wmackie@gmail.com"
           className={`
-            mx-auto my-8 group w-fit flex items-stretch bg-zinc-950 border border-neutral-700 
-            px-4 py-1.5 rounded-xl hover:bg-zinc-900 hover:border-neutral-600 duration-200 
+            mx-auto my-4 sm:my-6 group w-fit flex items-stretch bg-zinc-950 border border-neutral-700 
+            px-4 sm:px-6 py-2 rounded-xl hover:bg-zinc-900 hover:border-neutral-600 duration-200 
             ease-in-out outline-2 outline-transparent focus:outline-blue-500 font-medium
           `}
           data-aos="zoom-out"
