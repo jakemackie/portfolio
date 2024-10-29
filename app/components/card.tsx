@@ -56,7 +56,7 @@ export default function Card({ data }: CardProps) {
             </p>
           </div>
         </div>
-        <div className="ml-6 text-neutral-400 tabular-nums leading-normal">
+        <div className="ml-2 text-neutral-400 tabular-nums leading-normal">
           <ul className="flex flex-wrap gap-2">
             {data.technologies.map((technology, index) => (
               <li
