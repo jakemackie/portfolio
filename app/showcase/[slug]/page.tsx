@@ -60,7 +60,14 @@ export default async function Project(props) {
   return (
     <div>
       <div className="flex flex-col">
-        <div className="mb-8 flex items-stretch bg-zinc-900 border border-neutral-700 p-2 rounded-xl hover:bg-zinc-800 hover:border-neutral-600 duration-200 ease-in-out">
+        <h1 className="mb-6 text-5xl md:text-6xl font-semibold tracking-tighter text-center">
+          {project.name}
+        </h1>
+        <Link
+          href={project.url}
+          target="_blank"
+          className="group relative mb-4 flex items-stretch bg-zinc-900 border border-neutral-700 p-2 rounded-xl hover:bg-zinc-800 hover:border-neutral-600 duration-200 ease-in-out"
+        >
           <Image
             placeholder="blur"
             blurDataURL={project.blurImage}
@@ -70,29 +77,23 @@ export default async function Project(props) {
             height={200}
             className="object-cover rounded-lg aspect-video grow"
           />
-        </div>
-        <h1 className="text-4xl font-semibold tracking-tighter">
-          {project.name}
-        </h1>
+
+          <h2 className="absolute inset-0 flex items-center justify-center text-2xl font-semibold tracking-tighter text-white bg-black/80 opacity-100 md:opacity-0 rounded-xl opacity-0 md:group-hover:opacity-100 duration-200 ease-in-out">
+            View project
+          </h2>
+        </Link>
         <div className="flex flex-col text-neutral-400 tabular-nums">
-          <p className="mb-8">{project.description}</p>
-          <ul className="flex gap-2">
+          <p className="mb-4">{project.description}</p>
+          <ul className="mb-4 flex flex-wrap gap-2 text-neutral-400">
             {project.technologies.map((technology, index) => (
               <li
                 key={index}
-                className="after:content-[','] last:after:content-['']"
+                className="after:content-[','] last:after:content-[''] text-sm"
               >
                 {technology}
               </li>
             ))}
           </ul>
-          <Link
-            target="_blank"
-            href={project.url}
-            className="w-fit text-blue-500 underline outline-2 outline-transparent focus:outline-blue-500"
-          >
-            Visit the project
-          </Link>
         </div>
       </div>
     </div>

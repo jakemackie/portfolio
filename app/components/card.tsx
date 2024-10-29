@@ -54,11 +54,11 @@ export default function Card({ data }: CardProps) {
               : data.description}
           </p>
 
-          <ul className="mt-2 flex gap-2">
+          <ul className="mt-4 flex flex-wrap gap-2">
             {data.technologies.map((technology, index) => (
               <li
                 key={index}
-                className="after:content-[','] last:after:content-['']"
+                className="after:content-[','] last:after:content-[''] text-sm"
               >
                 {technology}
               </li>
