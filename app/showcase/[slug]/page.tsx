@@ -79,7 +79,7 @@ export default async function Project(props) {
           />
 
           <h2 className="absolute inset-0 flex items-center justify-center text-2xl font-semibold tracking-tighter text-white bg-black/80 opacity-100 md:opacity-0 rounded-xl opacity-0 md:group-hover:opacity-100 duration-200 ease-in-out">
-            View project
+            Visit project
           </h2>
         </Link>
         <div className="flex flex-col text-neutral-400 tabular-nums">

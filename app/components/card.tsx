@@ -11,7 +11,7 @@ export default function Card({ data }: CardProps) {
   return (
     <Link href={`/showcase/${data.slug}`} className="group">
       <div className="flex flex-col">
-        <div className="mb-4 flex items-stretch bg-zinc-900 border border-neutral-700 p-2 rounded-xl hover:bg-zinc-800 hover:border-neutral-600 duration-200 ease-in-out">
+        <div className="relative mb-4 flex items-stretch bg-zinc-900 border border-neutral-700 p-2 rounded-xl group-hover:bg-zinc-800 group-hover:border-neutral-600 duration-200 ease-in-out">
           <Image
             placeholder="blur"
             blurDataURL={data.blurImage}
@@ -21,8 +21,12 @@ export default function Card({ data }: CardProps) {
             height={200}
             className="object-cover rounded-lg aspect-video grow"
           />
+
+          <h2 className="absolute inset-0 flex items-center justify-center text-2xl font-semibold tracking-tighter text-white bg-black/80 opacity-100 md:opacity-0 rounded-xl opacity-0 md:group-hover:opacity-100 duration-200 ease-in-out">
+            Read More
+          </h2>
         </div>
-        <h2 className="w-fit mb-2 text-xl font-medium tracking-tighter group-hover:text-blue-500 group-hover:underline outline-2 outline-transparent group-focus:outline-blue-500">
+        <h2 className="w-fit mb-2 text-xl font-medium tracking-tighter">
           {data.name}
         </h2>
         <div className="mb-2 text-neutral-400 tabular-nums leading-normal">
