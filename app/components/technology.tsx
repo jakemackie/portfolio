@@ -21,7 +21,7 @@ export default function Technology({
           alt={name}
           width={48}
           height={48}
-          className="object-cover rounded-lg"
+          className="object-cover rounded-md"
           draggable={false}
         />
       </div>
