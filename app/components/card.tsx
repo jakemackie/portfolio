@@ -23,11 +23,13 @@ export default function Card({ data }: CardProps) {
           />
 
           <div
-            className="absolute inset-0 flex flex-col items-start justify-end px-5 pb-8 tracking-tighter bg-black/80 group-hover:bg-black/90 
+            className="absolute inset-0 flex flex-col items-start justify-end px-5 pb-7 tracking-tighter bg-black/80 group-hover:bg-black/90 
           rounded-xl duration-200 ease-in-out"
           >
-            <h2 className="text-white text-2xl font-semibold">{data.name}</h2>
-            <p className="text-base font-medium text-neutral-300 tabular-nums leading-normal">
+            <h2 className="text-white text-xl sm:text-2xl font-semibold">
+              {data.name}
+            </h2>
+            <p className="text-sm md:text-base font-medium text-neutral-300 tabular-nums leading-normal">
               {data.description.length > 70
                 ? (() => {
                     const truncationPoint = 70;
@@ -61,7 +63,7 @@ export default function Card({ data }: CardProps) {
             {data.technologies.map((technology, index) => (
               <li
                 key={index}
-                className="after:content-[','] last:after:content-[''] text-sm"
+                className="after:content-[','] last:after:content-[''] text-xs md:text-sm"
               >
                 {technology}
               </li>
