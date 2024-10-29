@@ -24,6 +24,9 @@ export default function Page() {
             ease-in-out outline-2 outline-transparent focus:outline-blue-500 font-medium
           `}
           data-aos="zoom-out"
+          data-aos-delay="150"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="300"
         >
           Contact me
         </Link>
