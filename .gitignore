@@ -35,12 +35,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# posts
-/app/blog/posts/*.mdx
-
-# post archive
-/app/blog/posts/archive/
-
-# keep the example folder
-!/app/blog/posts/example
