@@ -35,3 +35,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore everything in the posts folder
+/app/blog/posts/*.mdx
+
+# Do not ignore the example folder within posts
+!/app/blog/posts/example
+
+# Ignore everything inside the example folder except .mdx files
+/app/blog/posts/example/*
+!/app/blog/posts/example/*.mdx
