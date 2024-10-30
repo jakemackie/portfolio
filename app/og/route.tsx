@@ -7,7 +7,10 @@ export function GET(request: Request) {
 
   return new ImageResponse(
     (
-      <div tw="flex flex-col w-full h-full items-center justify-center bg-[#0c0c0c] text-[#e2e8f0]">
+      <div
+        style={{ fontFamily: "Figtree, sans-serif" }}
+        tw="flex flex-col w-full h-full items-center justify-center bg-[#0c0c0c] text-[#e2e8f0]"
+      >
         <h3 tw="absolute top-10 left-10 text-xl font-semibold">
           jakemackie.co.uk
         </h3>
