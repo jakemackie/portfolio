@@ -2,5 +2,5 @@
 - [ ] Actually write good docs for this repo haha
 - [ ] Write good blog posts to get google crawling more pages
 - [ ] See what I can do to improve SEO
-- [ ] Poissibly add a more personal page like /me or something where I can just post pics of my dog
+- [ ] Possibly add a more personal page like `/me` or something where I can just post pics of my dog because it's my site and I can do what I want
 - [ ] Anything else open a PR and lmk!
