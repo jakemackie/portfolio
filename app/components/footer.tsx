@@ -2,8 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Github from "../../public/icons/github.svg";
 import LinkedIn from "../../public/icons/linkedin.svg";
-import Devto from "../../public/icons/devto.svg";
-import Instagram from "../../public/icons/instagram.svg";
 
 export default function Footer() {
   return (
@@ -38,38 +36,6 @@ export default function Footer() {
           <Image
             src={LinkedIn}
             alt="LinkedIn"
-            width={32}
-            height={32}
-            className="opacity-50 hover:opacity-100 duration-300 ease-in-out"
-          />
-        </Link>
-
-        <Link
-          aria-label="Dev.to"
-          href="https://dev.to/jakemackie"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="outline-2 outline-transparent focus:outline-blue-500"
-        >
-          <Image
-            src={Devto}
-            alt="Dev.to"
-            width={32}
-            height={32}
-            className="opacity-50 hover:opacity-100 duration-300 ease-in-out"
-          />
-        </Link>
-
-        <Link
-          aria-label="Instagram"
-          href="https://www.instagram.com/jakemackiee/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="outline-2 outline-transparent focus:outline-blue-500"
-        >
-          <Image
-            src={Instagram}
-            alt="Instagram"
             width={32}
             height={32}
             className="opacity-50 hover:opacity-100 duration-300 ease-in-out"
