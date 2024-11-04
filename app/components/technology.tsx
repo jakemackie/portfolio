@@ -28,7 +28,7 @@ export default function Technology({
         </div>
       </div>
 
-      <div className="pointer-events-none z-10 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-300 ease-in-out absolute left-0 right-0 w-fit justify-center py-1 px-4 bg-zinc-950 border border-neutral-800 rounded-xl">
+      <div className="pointer-events-none z-10 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out absolute left-0 right-0 w-fit justify-center py-1 px-4 bg-zinc-950 border border-neutral-800 rounded-xl">
         {name}
       </div>
     </div>

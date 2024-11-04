@@ -34,7 +34,7 @@ export default function Page() {
       </div>
 
       <div className="space-y-8">
-        <h2 className="text-2xl lg:text-3xl font-semibold tracking-tighter">
+        <h2 className="text-2xl lg:text-3xl font-semibold tracking-tighter text-center sm:text-left">
           My experience
         </h2>
         <div className="flex flex-col gap-8">
@@ -93,13 +93,13 @@ export default function Page() {
       </div>
 
       <div className="mt-16 lg:mt-20">
-        <h2 className="text-xl font-semibold tracking-tighter">
+        <h2 className="text-2xl lg:text-3xl font-semibold tracking-tighter text-center sm:text-left">
           Familiar technologies
         </h2>
-        <p className="text-neutral-400">
+        <p className="mt-2 text-neutral-400 text-center sm:text-left">
           <span className="inline-block sm:hidden">Tap</span>
           <span className="hidden sm:inline-block">Hover</span> on an icon to
-          see its name.
+          view its name.
         </p>
         <Technologies />
       </div>
