@@ -93,9 +93,14 @@ export default function Page() {
       </div>
 
       <div className="mt-16 lg:mt-20">
-        <h2 className="text-xl font-semibold tracking-tighter text-center sm:text-left">
+        <h2 className="text-xl font-semibold tracking-tighter">
           Familiar technologies
         </h2>
+        <p className="text-neutral-400">
+          <span className="inline-block sm:hidden">Tap</span>
+          <span className="hidden sm:inline-block">Hover</span> on an icon to
+          see its name.
+        </p>
         <Technologies />
       </div>
 
