@@ -2,6 +2,7 @@ import Link from "next/link";
 import Technologies from "app/components/technologies";
 import DotPattern from "app/components/ui/dot-pattern";
 import { cn } from "lib/utils";
+import { baseUrl } from "./sitemap";
 import Aos from "app/components/aos";
 
 export default function Page() {
@@ -12,7 +13,7 @@ export default function Page() {
           Jake Mackie
         </h1>
         <p className="mx-auto max-w-sm sm:max-w-md mb-2 text-center font-medium sm:text-xl">
-          19 year old apprentice fullstack developer based in Cornwall, United
+          19 year old Apprentice Full Stack Developer based in Cornwall, United
           Kingdom.
         </p>
         <Aos />
@@ -33,60 +34,68 @@ export default function Page() {
       </div>
 
       <div className="space-y-8">
-        <h2 className="text-xl font-semibold tracking-tighter">
+        <h2 className="text-2xl lg:text-3xl font-semibold tracking-tighter">
           My experience
         </h2>
         <div className="flex flex-col gap-8">
-          <div className="h-full border-l-2 pl-4 border-zinc-600">
-            <h3 className="text-lg font-semibold tracking-tighter">
-              2024 - Current
+          <div className="flex flex-col">
+            <h3 className="text-xl lg:text-2xl font-semibold tracking-tighter mb-4">
+              Hiyield
             </h3>
-            <p className="text-neutral-400">
-              I am currently working as an apprentice fullstack developer at{" "}
-              <Link
-                href="https://hiyield.co.uk/"
-                target="_blank"
-                className="text-blue-500 underline outline-2 outline-transparent focus:outline-blue-500"
-              >
-                Hiyield
-              </Link>
-              {","} where I contribute to various real-world projects.
-            </p>
+            <div className="h-full border-l-2 pl-4 border-zinc-600">
+              <p className="text-lg font-semibold tracking-tighter">
+                2024 - Current
+              </p>
+              <p className="text-neutral-400">
+                I am currently working at{" "}
+                <Link
+                  href="https://hiyield.co.uk/"
+                  target="_blank"
+                  className="text-blue-500 underline outline-2 outline-transparent focus:outline-blue-500"
+                >
+                  Hiyield
+                </Link>
+                {","} where I contribute to various real-world projects. You can
+                find these on the{" "}
+                <Link
+                  href={`${baseUrl}/showcase`}
+                  className="text-blue-500 underline outline-2 outline-transparent focus:outline-blue-500"
+                >
+                  showcase
+                </Link>{" "}
+                page. Where I explain my involvement in each project and provide
+                a link to the live site.
+              </p>
+            </div>
           </div>
 
-          <div className="h-full border-l-2 pl-4 border-zinc-600">
-            <h3 className="text-lg font-semibold tracking-tighter">2023</h3>
-            <p className="text-neutral-400">
-              Work experience at{" "}
-              <Link
-                href="https://cits.royalcornwallhospitals.nhs.uk/"
-                target="_blank"
-                className="text-blue-500 underline outline-2 outline-transparent focus:outline-blue-500"
-              >
-                CITS
-              </Link>
-              {" (NHS), "} where I made JavaScript assesments for patients,
-              conforming to the NHS design system.
-            </p>
+          <div className="flex flex-col">
+            <h3 className="text-xl lg:text-2xl font-semibold tracking-tighter mb-4">
+              Cornwall IT Services (NHS)
+            </h3>
+            <div className="h-full border-l-2 pl-4 border-zinc-600">
+              <p className="text-lg font-semibold tracking-tighter">2023</p>
+              <p className="text-neutral-400">
+                Work experience at{" "}
+                <Link
+                  href="https://cits.royalcornwallhospitals.nhs.uk/"
+                  target="_blank"
+                  className="text-blue-500 underline outline-2 outline-transparent focus:outline-blue-500"
+                >
+                  CITS
+                </Link>
+                {" (NHS), "} where I made JavaScript assesments for patients,
+                conforming to the NHS design system.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="mt-16 lg:mt-20 space-y-4">
-        <h2 className="text-xl font-semibold tracking-tighter">
+      <div className="mt-16 lg:mt-20">
+        <h2 className="text-xl font-semibold tracking-tighter text-center sm:text-left">
           Familiar technologies
         </h2>
-        <p className="text-neutral-400">
-          Below you can find a list of technologies that I am familiar with. You
-          can explore use cases of these technologies in the{" "}
-          <Link
-            href="/showcase"
-            className="text-blue-500 underline outline-2 outline-transparent focus:outline-blue-500"
-          >
-            showcase section
-          </Link>
-          {", "}featuring a mix of personal and professional projects.
-        </p>
         <Technologies />
       </div>
 
