@@ -8,7 +8,7 @@ import Aos from "app/components/aos";
 export default function Page() {
   return (
     <div>
-      <div className="h-[calc(100vh-15rem)] flex flex-col justify-center">
+      <div className="h-[calc(100vh-9rem)] flex flex-col justify-center">
         <h1 className="mb-2 text-6xl sm:text-7xl font-semibold tracking-tighter text-center">
           Jake Mackie
         </h1>
