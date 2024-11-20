@@ -13,7 +13,7 @@ export default function Page() {
           Jake Mackie
         </h1>
         <p className="mx-auto max-w-sm sm:max-w-md mb-2 text-center font-medium sm:text-xl">
-          19 year old Apprentice Full Stack Developer based in Cornwall, United
+          19-year-old apprentice full stack developer based in Cornwall, United
           Kingdom.
         </p>
         <Aos />
