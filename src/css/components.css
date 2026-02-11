@@ -1,0 +1,27 @@
+/*
+ * Shared component styles.
+ */
+
+.btn {
+	@apply inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold transition-colors;
+}
+
+.btn--primary {
+	@apply bg-primary text-white hover:opacity-90;
+}
+
+.btn--accent {
+	@apply bg-accent text-white hover:opacity-90;
+}
+
+.btn--outline {
+	@apply border border-current bg-transparent text-black hover:bg-black hover:text-white;
+}
+
+.card {
+	@apply rounded-xl border border-grey bg-white p-6 transition-shadow hover:shadow-lg;
+}
+
+.badge {
+	@apply inline-block rounded-full bg-grey/40 px-3 py-1 text-xs font-medium text-neutral-600;
+}

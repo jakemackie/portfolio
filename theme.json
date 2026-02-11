@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": false,
+		"color": {
+			"defaultPalette": false,
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"duotone": [],
+			"gradients": [],
+			"link": false,
+			"background": true,
+			"text": true,
+			"palette": [
+				{ "slug": "transparent", "color": "transparent", "name": "None" },
+				{ "slug": "black", "color": "#000000", "name": "Black" },
+				{ "slug": "white", "color": "#FFFFFF", "name": "White" },
+				{ "slug": "grey", "color": "#D3D3D3", "name": "Grey" },
+				{ "slug": "primary", "color": "#1e40af", "name": "Primary" },
+				{ "slug": "accent", "color": "#06b6d4", "name": "Accent" }
+			]
+		},
+		"spacing": {
+			"padding": false,
+			"margin": false,
+			"customSpacingSize": false,
+			"defaultSpacingSizes": false,
+			"spacingSizes": []
+		},
+		"typography": {
+			"fluid": true,
+			"customFontSize": false,
+			"defaultFontSizes": false,
+			"letterSpacing": false,
+			"lineHeight": false,
+			"dropCap": false,
+			"writingMode": false,
+			"textTransform": false,
+			"textColumns": false,
+			"textDecoration": false,
+			"fontStyle": false,
+			"fontWeight": false,
+			"fontFamilies": [
+				{
+					"fontFamily": "\"Inter\", system-ui, -apple-system, sans-serif",
+					"name": "Inter",
+					"slug": "inter"
+				}
+			],
+			"fontSizes": []
+		},
+		"blocks": {}
+	},
+	"styles": {
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--inter)"
+		}
+	}
+}

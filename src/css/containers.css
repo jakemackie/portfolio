@@ -1,0 +1,46 @@
+/*
+ * Container & layout spacing utilities.
+ * Defines the main content container and vertical rhythm helpers.
+ */
+
+.site-main {
+	@apply mx-auto w-full max-w-4xl px-6 py-12;
+}
+
+.section {
+	@apply py-16;
+}
+
+.section--sm {
+	@apply py-8;
+}
+
+.section--lg {
+	@apply py-24;
+}
+
+.container {
+	@apply mx-auto w-full max-w-6xl px-6;
+}
+
+.container--narrow {
+	@apply max-w-3xl;
+}
+
+.container--wide {
+	@apply max-w-7xl;
+}
+
+/*
+ * Vertical rhythm for Gutenberg content blocks.
+ * Targets common blocks rendered inside .entry-content.
+ */
+.entry-content > * + * {
+	@apply mt-6;
+}
+
+.entry-content > h1 + *,
+.entry-content > h2 + *,
+.entry-content > h3 + * {
+	@apply mt-3;
+}

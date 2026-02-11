@@ -1,0 +1,23 @@
+/*
+ * Design tokens — single source of truth.
+ *
+ * These @theme values generate Tailwind utilities (bg-primary, text-accent, …)
+ * AND CSS custom properties (--color-primary, --color-accent, …).
+ *
+ * Keep theme.json palette slugs in sync with these names so that
+ * Gutenberg color pickers and Tailwind utilities resolve to the same values.
+ */
+
+@theme {
+	/* Colors */
+	--color-transparent: transparent;
+	--color-black: #000000;
+	--color-white: #FFFFFF;
+	--color-grey: #D3D3D3;
+	--color-primary: #1e40af;
+	--color-accent: #06b6d4;
+
+	/* Font families */
+	--font-sans: "Inter", system-ui, -apple-system, sans-serif;
+	--font-mono: "JetBrains Mono", ui-monospace, monospace;
+}

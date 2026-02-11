@@ -1,0 +1,33 @@
+/*
+ * Base reset & global defaults.
+ */
+
+*,
+*::before,
+*::after {
+	@apply box-border;
+}
+
+html {
+	@apply scroll-smooth antialiased;
+}
+
+body {
+	@apply m-0 min-h-screen bg-white text-black font-sans;
+	line-height: 1.5;
+}
+
+img,
+picture,
+video,
+svg {
+	@apply block max-w-full;
+}
+
+a {
+	@apply text-primary no-underline;
+}
+
+a:hover {
+	@apply underline;
+}

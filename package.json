@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "blocks": "wp-scripts build --webpack-src-dir=src/blocks --output-path=build/blocks",
+    "blocks:watch": "wp-scripts start --webpack-src-dir=src/blocks --output-path=build/blocks"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,11 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^25.2.3",
+    "@wordpress/block-editor": "*",
+    "@wordpress/blocks": "*",
+    "@wordpress/components": "*",
+    "@wordpress/i18n": "*",
+    "@wordpress/scripts": "*",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3",
     "vite": "^7.3.1"

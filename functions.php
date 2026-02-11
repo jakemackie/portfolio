@@ -1,52 +1,30 @@
 <?php
 
-function theme_assets() {
-    $theme_dir = get_template_directory();
-    $theme_uri = get_template_directory_uri();
+/**
+ * Enqueue theme CSS + JS on the frontend.
+ */
+add_action( 'wp_enqueue_scripts', function () {
+    wp_enqueue_style( 'theme', get_theme_file_uri( 'dist/style.css' ), [], null );
+    wp_enqueue_script( 'theme', get_theme_file_uri( 'dist/main.js' ), [], null, true );
+});
 
-    $dev_server = 'http://localhost:5173';
-    $is_dev = false;
+/**
+ * Enqueue theme CSS in the block editor (inside the iframe).
+ */
+add_action( 'after_setup_theme', function () {
+    add_theme_support( 'editor-styles' );
+    add_editor_style( 'dist/style.css' );
+});
 
-    $response = @file_get_contents($dev_server . '/@vite/client', false, stream_context_create([
-        'http' => ['timeout' => 1]
-    ]));
+/**
+ * Register all custom blocks found in build/blocks/.
+ */
+add_action( 'init', function () {
+    $blocks_dir = get_template_directory() . '/build/blocks';
 
-    if ($response !== false) {
-        $is_dev = true;
+    if ( ! is_dir( $blocks_dir ) ) return;
+
+    foreach ( glob( $blocks_dir . '/*/block.json' ) as $block_json ) {
+        register_block_type( dirname( $block_json ) );
     }
-
-    if ($is_dev) {
-        add_action('wp_head', function () use ($dev_server) {
-            echo '<script type="module" src="' . esc_url($dev_server . '/@vite/client') . '"></script>' . "\n";
-            echo '<script type="module" src="' . esc_url($dev_server . '/src/main.ts') . '"></script>' . "\n";
-        });
-    } else {
-        $manifest_path = $theme_dir . '/dist/.vite/manifest.json';
-
-        if (file_exists($manifest_path)) {
-            $manifest = json_decode(file_get_contents($manifest_path), true);
-            $entry = $manifest['src/main.ts'];
-
-            wp_enqueue_script(
-                'theme-js',
-                $theme_uri . '/dist/' . $entry['file'],
-                [],
-                null,
-                true
-            );
-
-            if (!empty($entry['css'])) {
-                foreach ($entry['css'] as $css) {
-                    wp_enqueue_style(
-                        'theme-css',
-                        $theme_uri . '/dist/' . $css,
-                        [],
-                        null
-                    );
-                }
-            }
-        }
-    }
-}
-
-add_action('wp_enqueue_scripts', 'theme_assets');
+});
