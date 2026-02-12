@@ -1,6 +1,7 @@
 {
   "key": "cpt_project_key",
   "title": "Project",
+  "position": "side",
   "fields": [
     {
       "key": "cpt_project_url_key",
@@ -19,6 +20,5 @@
         "value": "project"
       }
     ]
-  ],
-  "position": "side"
+  ]
 }
