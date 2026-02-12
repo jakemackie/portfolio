@@ -2,6 +2,14 @@
 
 $project_post_ids = get_field("block_projects_post_ids");
 
+if (!$project_post_ids) {
+    $project_post_ids = get_posts([
+        "post_type" => "project",
+        "posts_per_page" => -1,
+        "fields" => "ids"
+    ]);
+}
+
 if (empty($project_post_ids)) {
     return;
 }

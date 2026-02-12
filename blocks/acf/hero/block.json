@@ -9,6 +9,7 @@
 		"renderTemplate": "hero.php"
     },
     "supports": {
+        "align": "false",
         "color": {
             "text": true,
             "background": false
@@ -24,15 +25,15 @@
             "default": {
                 "spacing": {
                     "padding": {
-                        "top": "var:preset|spacing|112",
-                        "bottom": "var:preset|spacing|112"
+                        "top": "var:preset|spacing|224",
+                        "bottom": "var:preset|spacing|224"
                     }
                 }
             }
         },
         "textColor": {
             "type": "string",
-            "default": "white"
+            "default": "black"
         }
     }
 }

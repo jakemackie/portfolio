@@ -54,6 +54,11 @@
 					"slug": "112",
 					"size": "var(--spacing-112)",
 					"name": "Extra Large (112px)"
+				},
+				{
+					"slug": "224",
+					"size": "var(--spacing-224)",
+					"name": "Huge (224px)"
 				}
 			]
 		},
@@ -82,13 +87,79 @@
 					"slug": "lora"
 				}
 			],
-			"fontSizes": []
+			"fontSizes": [
+				{
+					"name": "9XL (128px)",
+					"slug": "text-9xl",
+					"size": "clamp(4.5rem, 5.5vw, 8rem)"
+				},
+				{
+					"name": "8XL (96px)",
+					"slug": "text-8xl",
+					"size": "clamp(3.75rem, 4.5vw, 6rem)"
+				},
+				{
+					"name": "7XL (72px)",
+					"slug": "text-7xl",
+					"size": "clamp(3rem, 3.75vw, 4.5rem)"
+				},
+				{
+					"name": "6XL (60px)",
+					"slug": "text-6xl",
+					"size": "clamp(2.625rem, 3.25vw, 3.75rem)"
+				},
+				{
+					"name": "5XL (48px)",
+					"slug": "text-5xl",
+					"size": "clamp(2.25rem, 2.75vw, 3rem)"
+				},
+				{
+					"name": "4XL (36px)",
+					"slug": "text-4xl",
+					"size": "clamp(1.875rem, 2.25vw, 2.25rem)"
+				},
+				{
+					"name": "3XL (30px)",
+					"slug": "text-3xl",
+					"size": "clamp(1.5rem, 1.875vw, 1.875rem)"
+				},
+				{
+					"name": "2XL (24px)",
+					"slug": "text-2xl",
+					"size": "clamp(1.25rem, 1.5vw, 1.5rem)"
+				},
+				{
+					"name": "XL (20px)",
+					"slug": "text-xl",
+					"size": "clamp(1.125rem, 1.25vw, 1.25rem)"
+				},
+				{
+					"name": "LG (18px)",
+					"slug": "text-lg",
+					"size": "clamp(1.0625rem, 1.125vw, 1.125rem)"
+				},
+				{
+					"name": "Base (16px)",
+					"slug": "text-base",
+					"size": "1rem"
+				},
+				{
+					"name": "SM (14px)",
+					"slug": "text-sm",
+					"size": "0.875rem"
+				},
+				{
+					"name": "XS (12px)",
+					"slug": "text-xs",
+					"size": "0.75rem"
+				}
+			]
 		}
 	},
 	"styles": {
 		"color": {
-			"background": "var(--wp--preset--color--black)",
-			"text": "var(--wp--preset--color--white)"
+			"background": "var(--wp--preset--color--white)",
+			"text": "var(--wp--preset--color--black)"
 		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--inter)"

@@ -1,6 +1,7 @@
 .edit-post-visual-editor,
 .interface-interface-skeleton__content {
 	background-color: black;
+	overflow-x: hidden;
 }
 
 .editor-styles-wrapper .container {
