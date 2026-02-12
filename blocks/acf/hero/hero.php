@@ -35,7 +35,11 @@ $image_id = get_field("block_hero_background_image");
             echo wp_get_attachment_image(
                 attachment_id: $image_id,
                 size: "full",
-                attr: ["class" => "opacity-50 absolute inset-0 !size-full object-cover pointer-events-none"]
+                attr: [
+                    "class" => "opacity-50 absolute inset-0 !size-full object-cover pointer-events-none",
+                    "loading" => "eager",
+                    "aria-hidden" => "true"
+                ]
             );
         }
     ?>
