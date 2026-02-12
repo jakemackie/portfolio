@@ -6,6 +6,7 @@
  *
  * Keep theme.json palette slugs in sync with these names so that
  * Gutenberg color pickers and Tailwind utilities resolve to the same values.
+ * Used to reflect WordPress block classes.
  */
 
 @theme {
