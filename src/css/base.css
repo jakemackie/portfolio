@@ -17,17 +17,6 @@ body {
 	line-height: 1.5;
 }
 
-img,
-picture,
-video,
-svg {
-	@apply block max-w-full;
-}
-
 a {
-	@apply text-primary no-underline;
-}
-
-a:hover {
-	@apply underline;
+	@apply no-underline;
 }
