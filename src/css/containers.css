@@ -4,14 +4,9 @@
  * Used to reflect WordPress block classes.
  */
 
-.site-main,
-.block-editor-iframe__body > div {
+.site-main {
 	@apply mx-auto w-full max-w-4xl px-6 py-12;
 };
-
-.block-editor-iframe__body {
-    @apply bg-black;
-}
 
 .section {
 	@apply py-16;

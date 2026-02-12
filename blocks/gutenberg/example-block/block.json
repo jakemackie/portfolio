@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "portfolio/example-block",
+	"title": "Example Block",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "A minimal example block.",
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

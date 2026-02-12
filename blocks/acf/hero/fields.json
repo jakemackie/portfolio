@@ -1,0 +1,23 @@
+{
+    "key": "block_hero",
+    "title": "Hero",
+    "fields": [
+        {
+            "key": "block_hero_background_image_key",
+            "name": "block_hero_background_image",
+            "label": "Background Image",
+            "type": "image",
+            "return_format": "id",
+            "instructions": "Background image displayed behind content."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "hero"
+            }
+        ]
+    ]
+}

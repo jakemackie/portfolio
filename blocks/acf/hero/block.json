@@ -1,0 +1,52 @@
+{
+    "name": "hero",
+    "title": "Hero",
+    "description": "This is a placeholder description for the \"Hero\" block.",
+    "category": "custom-layout",
+    "icon": "welcome-view-site",
+    "keywords": ["hero"],
+    "acf": {
+        "mode": "preview",
+		"renderTemplate": "hero.php"
+    },
+    "supports": {
+        "align": true,
+        "anchor": true,
+        "color": {
+            "text": true,
+            "background": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "style": {
+            "type": "object",
+            "default": {
+                "spacing": {
+                    "padding": {
+                        "top": "var:preset|spacing|366",
+                        "bottom": "var:preset|spacing|366"
+                    }
+                }
+            }
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "black"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "white"
+        }
+    },
+    "example": {
+        "attributes": {
+            "data": {
+                "preview": true
+            }
+        }
+    }
+}

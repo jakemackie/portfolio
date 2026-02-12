@@ -6,10 +6,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     rollupOptions: {
-      input: 'src/main.ts',
+      input: {
+        main: 'src/main.ts',
+        editor: 'src/editor.ts',
+      },
       output: {
-        entryFileNames: 'main.js',
-        assetFileNames: 'style[extname]',
+        entryFileNames: '[name].js',
+        assetFileNames: '[name][extname]',
       },
     },
   },
