@@ -1,0 +1,4 @@
+- WordPress
+- Vite
+- Tailwind
+- React (via Gutenberg)
