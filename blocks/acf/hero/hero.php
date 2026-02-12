@@ -21,7 +21,7 @@ $image_id = get_field("block_hero_background_image");
 
 ?>
 
-<section <?php echo get_block_wrapper_attributes(['class' => is_admin() ? 'static' : 'relative']); ?>>
+<section <?php echo get_block_wrapper_attributes(['class' => is_admin() ? 'static' : 'relative opacity-0 animate-[hero-fade_0.8s_ease-out_forwards]']); ?>>
     <div class="container mx-auto grid-design">
         <InnerBlocks
             class="z-10 col-span-full lg:col-start-4 lg:col-end-10 text-balance"
