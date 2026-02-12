@@ -1,8 +1,7 @@
 {
-    "name": "hero",
+    "name": "acf/hero",
     "title": "Hero",
     "description": "This is a placeholder description for the \"Hero\" block.",
-    "category": "custom-layout",
     "icon": "welcome-view-site",
     "keywords": ["hero"],
     "acf": {
@@ -10,11 +9,9 @@
 		"renderTemplate": "hero.php"
     },
     "supports": {
-        "align": true,
-        "anchor": true,
         "color": {
             "text": true,
-            "background": true
+            "background": false
         },
         "spacing": {
             "margin": true,
@@ -27,26 +24,15 @@
             "default": {
                 "spacing": {
                     "padding": {
-                        "top": "var:preset|spacing|366",
-                        "bottom": "var:preset|spacing|366"
+                        "top": "var:preset|spacing|112",
+                        "bottom": "var:preset|spacing|112"
                     }
                 }
             }
         },
-        "backgroundColor": {
-            "type": "string",
-            "default": "black"
-        },
         "textColor": {
             "type": "string",
             "default": "white"
-        }
-    },
-    "example": {
-        "attributes": {
-            "data": {
-                "preview": true
-            }
         }
     }
 }
