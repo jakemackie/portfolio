@@ -49,6 +49,11 @@
 					"fontFamily": "\"Inter\", system-ui, -apple-system, sans-serif",
 					"name": "Inter",
 					"slug": "inter"
+				},
+				{
+					"fontFamily": "\"Lora\", serif",
+					"name": "Lora",
+					"slug": "lora"
 				}
 			],
 			"fontSizes": []
@@ -56,8 +61,19 @@
 		"blocks": {}
 	},
 	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--black)",
+			"text": "var(--wp--preset--color--white)"
+		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--inter)"
+		},
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--lora)"
+				}
+			}
 		}
 	}
 }

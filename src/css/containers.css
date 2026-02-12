@@ -3,8 +3,13 @@
  * Defines the main content container and vertical rhythm helpers.
  */
 
-.site-main {
+.site-main,
+.block-editor-iframe__body > div {
 	@apply mx-auto w-full max-w-4xl px-6 py-12;
+};
+
+.block-editor-iframe__body {
+    @apply bg-black;
 }
 
 .section {
