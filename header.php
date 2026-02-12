@@ -6,4 +6,7 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
+<?php
+    get_template_part(slug: "template-parts/global/header");
+    wp_body_open();
+?>

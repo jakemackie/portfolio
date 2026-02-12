@@ -1,12 +1,12 @@
 {
-    "name": "acf/hero",
-    "title": "Hero",
-    "description": "A full-width hero block with a background image.",
-    "icon": "welcome-view-site",
-    "keywords": ["hero"],
+    "name": "acf/projects",
+    "title": "Projects",
+    "description": "Show off your projects in grid of cards.",
+    "icon": "cover-image",
+    "keywords": ["projects"],
     "acf": {
         "mode": "preview",
-		"renderTemplate": "hero.php"
+		"renderTemplate": "projects.php"
     },
     "supports": {
         "color": {
@@ -24,8 +24,8 @@
             "default": {
                 "spacing": {
                     "padding": {
-                        "top": "var:preset|spacing|112",
-                        "bottom": "var:preset|spacing|112"
+                        "top": "var:preset|spacing|64",
+                        "bottom": "var:preset|spacing|64"
                     }
                 }
             }
