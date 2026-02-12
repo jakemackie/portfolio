@@ -1,0 +1,24 @@
+{
+  "key": "cpt_project_key",
+  "title": "Project",
+  "fields": [
+    {
+      "key": "cpt_project_url_key",
+      "name": "cpt_project_url",
+      "type": "url",
+      "label": "Project URL",
+      "instructions": "Used for project cards when set.",
+      "placeholder": "https://example.com"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "project"
+      }
+    ]
+  ],
+  "position": "side"
+}

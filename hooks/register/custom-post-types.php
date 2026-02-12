@@ -5,11 +5,12 @@ function portfolio_register_post_types(): void {
         'labels' => [
             'name' => 'Projects',
             'singular_name' => 'Project',
+            'add_new_item' => 'Add Project'
         ],
         'public' => true,
         'has_archive' => true,
         'rewrite' => [ 'slug' => 'projects' ],
-        'supports' => [ 'title', 'editor', 'thumbnail' ],
+        'supports' => [ 'title', 'excerpt', 'thumbnail', 'editor' ],
         'show_in_rest' => true,
     ] );
 }
