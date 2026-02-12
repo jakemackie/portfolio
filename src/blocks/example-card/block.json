@@ -15,10 +15,21 @@
 		},
 		"spacing": {
 			"padding": true,
-			"margin": true
+			"margin": ["top", "bottom"]
 		}
 	},
 	"attributes": {
+        "style": {
+            "type": "object",
+            "default": {
+                "spacing": {
+                    "margin": {
+                        "top": "var:preset|spacing|64",
+                        "bottom": "var:preset|spacing|64"
+                    }
+                }
+            }
+        },
 		"heading": {
 			"type": "string",
 			"default": ""

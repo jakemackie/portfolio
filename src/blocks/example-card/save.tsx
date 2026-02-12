@@ -27,7 +27,7 @@ export default function Save({
 			/>
 			<RichText.Content
 				tagName="p"
-				className="text-base leading-relaxed opacity-70 mb-5"
+				className="text-base leading-relaxed mb-5"
 				value={description}
 			/>
 			{linkUrl && (
