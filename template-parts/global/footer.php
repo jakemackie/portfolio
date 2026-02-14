@@ -1,9 +1,9 @@
-<footer class="bg-white text-black">
+<footer>
     <section class="container mx-auto grid-design">
         <ul class="col-span-full py-6">
-            <div class="w-full py-4 px-8">
+            <li class="w-full">
                 Footer
-            </div>
+            </li>
         </ul>
     </section>
 </footer>

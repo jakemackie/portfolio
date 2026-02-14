@@ -8,24 +8,6 @@
  * That said cannot change the default within theme.json
  * So we do need to include one base style here
  */
-
-/* Keep theme.json font size values available as CSS variables. */
-:root {
-	--wp--preset--font-size--text-9xl: clamp(4.5rem, 5.5vw, 8rem);
-	--wp--preset--font-size--text-8xl: clamp(3.75rem, 4.5vw, 6rem);
-	--wp--preset--font-size--text-7xl: clamp(3rem, 3.75vw, 4.5rem);
-	--wp--preset--font-size--text-6xl: clamp(2.625rem, 3.25vw, 3.75rem);
-	--wp--preset--font-size--text-5xl: clamp(2.25rem, 2.75vw, 3rem);
-	--wp--preset--font-size--text-4xl: clamp(1.875rem, 2.25vw, 2.25rem);
-	--wp--preset--font-size--text-3xl: clamp(1.5rem, 1.875vw, 1.875rem);
-	--wp--preset--font-size--text-2xl: clamp(1.25rem, 1.5vw, 1.5rem);
-	--wp--preset--font-size--text-xl: clamp(1.125rem, 1.25vw, 1.25rem);
-	--wp--preset--font-size--text-lg: clamp(1.0625rem, 1.125vw, 1.125rem);
-	--wp--preset--font-size--text-base: 1rem;
-	--wp--preset--font-size--text-sm: 0.875rem;
-	--wp--preset--font-size--text-xs: 0.75rem;
-}
-
 ::selection {
 	@apply bg-gray-700 text-white;
 }
@@ -34,31 +16,35 @@
 	Utility classes for theme-json-typography font sizes.
 	These are renamed to text-* to avoid conflict with Tailwind classes.
 */
-.text-9xl { font-size: var(--wp--preset--font-size--text-9xl); }
-.text-8xl { font-size: var(--wp--preset--font-size--text-8xl); }
-.text-7xl { font-size: var(--wp--preset--font-size--text-7xl); }
-.text-6xl { font-size: var(--wp--preset--font-size--text-6xl); }
-.text-5xl { font-size: var(--wp--preset--font-size--text-5xl); }
-.text-4xl { font-size: var(--wp--preset--font-size--text-4xl); }
-.text-3xl { font-size: var(--wp--preset--font-size--text-3xl); }
-.text-2xl { font-size: var(--wp--preset--font-size--text-2xl); }
+.text-9xl { font-size: var(--wp--preset--font-size--text-9-xl); }
+.text-8xl { font-size: var(--wp--preset--font-size--text-8-xl); }
+.text-7xl { font-size: var(--wp--preset--font-size--text-7-xl); }
+.text-6xl { font-size: var(--wp--preset--font-size--text-6-xl); }
+.text-5xl { font-size: var(--wp--preset--font-size--text-5-xl); }
+.text-4xl { font-size: var(--wp--preset--font-size--text-4-xl); }
+.text-3xl { font-size: var(--wp--preset--font-size--text-3-xl); }
+.text-2xl { font-size: var(--wp--preset--font-size--text-2-xl); }
 .text-xl { font-size: var(--wp--preset--font-size--text-xl); }
 .text-lg { font-size: var(--wp--preset--font-size--text-lg); }
 .text-base { font-size: var(--wp--preset--font-size--text-base); }
 .text-sm { font-size: var(--wp--preset--font-size--text-sm); }
 .text-xs { font-size: var(--wp--preset--font-size--text-xs); }
 
+h1, h2 {
+	@apply font-bold;
+}
+
 h1, h2, h3, h4, h5, h6 {
-	@apply font-bold leading-tight;
+	@apply leading-tight;
 }
 
 /*
  * HEADING BLOCK DEFAULT SIZING
  * If no size is set in the CMS then use these defaults for each heading level.
  */
-h1.wp-block-heading:not([class*="-font-size"]) { font-size: var(--wp--preset--font-size--text-6xl); }
-h2.wp-block-heading:not([class*="-font-size"]) { font-size: var(--wp--preset--font-size--text-4xl); }
-h3.wp-block-heading:not([class*="-font-size"]) { font-size: var(--wp--preset--font-size--text-2xl); }
+h1.wp-block-heading:not([class*="-font-size"]) { font-size: var(--wp--preset--font-size--text-6-xl); }
+h2.wp-block-heading:not([class*="-font-size"]) { font-size: var(--wp--preset--font-size--text-4-xl); }
+h3.wp-block-heading:not([class*="-font-size"]) { font-size: var(--wp--preset--font-size--text-2-xl); }
 h4.wp-block-heading:not([class*="-font-size"]) { font-size: var(--wp--preset--font-size--text-xl); }
 h5.wp-block-heading:not([class*="-font-size"]) { font-size: var(--wp--preset--font-size--text-lg); }
 h6.wp-block-heading:not([class*="-font-size"]) { font-size: var(--wp--preset--font-size--text-base); }

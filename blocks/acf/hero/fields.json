@@ -3,12 +3,20 @@
     "title": "Hero",
     "fields": [
         {
-            "key": "block_hero_background_image_key",
-            "name": "block_hero_background_image",
-            "label": "Background Image",
+            "key": "block_hero_front_image_key",
+            "name": "block_hero_front_image",
+            "label": "Front Image",
             "type": "image",
             "return_format": "id",
-            "instructions": "Background image displayed behind content."
+            "instructions": "Front image displayed in the hero section."
+        },
+        {
+            "key": "block_hero_hover_image_key",
+            "name": "block_hero_hover_image",
+            "label": "Hover Image",
+            "type": "image",
+            "return_format": "id",
+            "instructions": "Hover image displayed in the hero section."
         }
     ],
     "location": [
