@@ -91,32 +91,32 @@
 				{
 					"name": "9XL (128px)",
 					"slug": "text-9xl",
-					"size": "clamp(3.5rem, 7.32vw, 5rem)"
+					"size": "clamp(2.75rem, 7.32vw, 5rem)"
 				},
 				{
 					"name": "8XL (96px)",
 					"slug": "text-8xl",
-					"size": "clamp(3.25rem, 6.61vw, 4.5rem)"
+					"size": "clamp(2.5rem, 6.61vw, 4.5rem)"
 				},
 				{
 					"name": "7XL (72px)",
 					"slug": "text-7xl",
-					"size": "clamp(3rem, 5.36vw, 4rem)"
+					"size": "clamp(2.25rem, 5.36vw, 4rem)"
 				},
 				{
 					"name": "6XL (60px)",
 					"slug": "text-6xl",
-					"size": "clamp(2.625rem, 4.55vw, 3.75rem)"
+					"size": "clamp(2.0625rem, 4.55vw, 3.75rem)"
 				},
 				{
 					"name": "5XL (48px)",
 					"slug": "text-5xl",
-					"size": "clamp(2.25rem, 3.75vw, 3rem)"
+					"size": "clamp(2rem, 3.75vw, 3rem)"
 				},
 				{
 					"name": "4XL (36px)",
 					"slug": "text-4xl",
-					"size": "clamp(1.875rem, 2.95vw, 2.25rem)"
+					"size": "clamp(1.75rem, 2.95vw, 2.25rem)"
 				},
 				{
 					"name": "3XL (30px)",

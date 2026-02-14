@@ -19,6 +19,7 @@ $template = [
 
 $front_image_id = get_field("block_hero_front_image");
 $hover_image_id = get_field("block_hero_hover_image");
+$image_caption = get_field("block_hero_image_caption");
 
 ?>
 
@@ -32,7 +33,7 @@ $hover_image_id = get_field("block_hero_hover_image");
             />
     
             <?php if ($front_image_id): ?>
-                <div class="relative w-full lg:w-3/4 aspect-4/3 grayscale-100 hover:grayscale-0 drop-shadow-2xl drop-shadow-black/40 transition duration-500 ease-in-out group">
+                <div class="relative w-full lg:w-3/4 aspect-4/3 grayscale-100 hover:grayscale-0 shadow-lg shadow-black/40 transition duration-500 ease-in-out group">
                     <?php
                         echo wp_get_attachment_image(
                             attachment_id: $front_image_id,
@@ -56,6 +57,12 @@ $hover_image_id = get_field("block_hero_hover_image");
                             );
                         }
                     ?>
+
+                    <?php if ($image_caption): ?>
+                        <figcaption class="absolute -bottom-8 opacity-60 w-full text-sm italic">
+                            <?php echo esc_html($image_caption); ?>
+                        </figcaption>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
         </div>

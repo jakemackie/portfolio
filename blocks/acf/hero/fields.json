@@ -17,6 +17,13 @@
             "type": "image",
             "return_format": "id",
             "instructions": "Hover image displayed in the hero section."
+        },
+        {
+            "key": "block_hero_image_caption_key",
+            "name": "block_hero_image_caption",
+            "label": "Image Caption",
+            "type": "text",
+            "instructions": "Caption for the hero images."
         }
     ],
     "location": [
