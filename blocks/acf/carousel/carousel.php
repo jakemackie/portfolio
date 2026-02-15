@@ -10,7 +10,7 @@ if (empty($image_ids)) {
 
 <section <?php echo block_classes(); ?>>
 
-    <?php if (is_admin()) : ?>
+    <?php if (is_admin()): ?>
 
         <!-- Admin Preview -->
         <div class="container flex gap-6 overflow-x-auto pb-4">
@@ -30,11 +30,11 @@ if (empty($image_ids)) {
             <?php endforeach; ?>
         </div>
 
-    <?php else : ?>
+    <?php else: ?>
 
         <!-- Frontend Swiper -->
         <div class="container">
-            <div class="swiper js-carousel">
+            <div class="swiper js-carousel rounded-2xl overflow-hidden">
                 <div class="swiper-wrapper">
                     <?php foreach ($image_ids as $image_id) : ?>
                         <div class="swiper-slide aspect-3/2 rounded-2xl overflow-hidden">
