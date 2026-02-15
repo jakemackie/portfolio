@@ -17,9 +17,9 @@
 			"text": true,
 			"palette": [
 				{ "slug": "transparent", "color": "transparent", "name": "None" },
-				{ "slug": "black", "color": "#000000", "name": "Black" },
 				{ "slug": "white", "color": "#FFFFFF", "name": "White" },
-				{ "slug": "grey", "color": "#D3D3D3", "name": "Grey" },
+				{ "slug": "grey", "color": "#F4F4F9", "name": "Grey" },
+				{ "slug": "black", "color": "#000000", "name": "Black" },
 				{ "slug": "primary", "color": "#1e40af", "name": "Primary" },
 				{ "slug": "accent", "color": "#06b6d4", "name": "Accent" }
 			]
@@ -89,54 +89,54 @@
 			],
 			"fontSizes": [
 				{
-					"name": "9XL (128px)",
+					"name": "9XL (80px)",
 					"slug": "text-9xl",
-					"size": "clamp(2.75rem, 7.32vw, 5rem)"
+					"size": "clamp(2.5rem, 6.25vw, 5rem)"
 				},
 				{
-					"name": "8XL (96px)",
+					"name": "8XL (72px)",
 					"slug": "text-8xl",
-					"size": "clamp(2.5rem, 6.61vw, 4.5rem)"
+					"size": "clamp(2.25rem, 5.625vw, 4.5rem)"
 				},
 				{
-					"name": "7XL (72px)",
+					"name": "7XL (64px)",
 					"slug": "text-7xl",
-					"size": "clamp(2.25rem, 5.36vw, 4rem)"
+					"size": "clamp(2rem, 5vw, 4rem)"
 				},
 				{
-					"name": "6XL (60px)",
+					"name": "6XL (56px)",
 					"slug": "text-6xl",
-					"size": "clamp(2.0625rem, 4.55vw, 3.75rem)"
+					"size": "clamp(1.75rem, 4.375vw, 3.5rem)"
 				},
 				{
 					"name": "5XL (48px)",
 					"slug": "text-5xl",
-					"size": "clamp(2rem, 3.75vw, 3rem)"
+					"size": "clamp(1.5rem, 3.75vw, 3rem)"
 				},
 				{
-					"name": "4XL (36px)",
+					"name": "4XL (40px)",
 					"slug": "text-4xl",
-					"size": "clamp(1.75rem, 2.95vw, 2.25rem)"
+					"size": "clamp(1.25rem, 3.125vw, 2.5rem)"
 				},
 				{
-					"name": "3XL (30px)",
+					"name": "3XL (32px)",
 					"slug": "text-3xl",
-					"size": "clamp(1.5rem, 2.41vw, 1.875rem)"
+					"size": "clamp(1.125rem, 2.5vw, 2rem)"
 				},
 				{
 					"name": "2XL (24px)",
 					"slug": "text-2xl",
-					"size": "clamp(1.25rem, 1.96vw, 1.5rem)"
+					"size": "clamp(1rem, 1.875vw, 1.5rem)"
 				},
 				{
 					"name": "XL (20px)",
 					"slug": "text-xl",
-					"size": "clamp(1.125rem, 1.70vw, 1.25rem)"
+					"size": "clamp(1rem, 1.5625vw, 1.25rem)"
 				},
 				{
 					"name": "LG (18px)",
 					"slug": "text-lg",
-					"size": "clamp(1.0625rem, 1.56vw, 1.125rem)"
+					"size": "clamp(1rem, 1.40625vw, 1.125rem)"
 				},
 				{
 					"name": "Base (16px)",

@@ -4,6 +4,6 @@
 	overflow-x: hidden;
 }
 
-.editor-styles-wrapper {
+.editor-styles-wrapper .container {
 	padding-inline: 10rem;
 }

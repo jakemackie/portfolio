@@ -26,7 +26,7 @@ $subtext = get_field("block_hero_subtext");
 ?>
 
 <section <?php echo block_classes(['class' => 'opacity-0 animate-[hero-fade_0.8s_ease-out_forwards]']); ?>>
-    <div class="container mx-auto">
+    <div class="container">
         <div class="grid-design">
             <div class="col-span-full lg:col-span-7">
                 <InnerBlocks

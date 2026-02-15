@@ -1,17 +1,18 @@
 {
-    "name": "acf/projects",
-    "title": "Projects",
-    "description": "Show off your projects in grid of cards.",
-    "icon": "cover-image",
-    "keywords": ["projects"],
+    "name": "acf/quote",
+    "title": "Quote",
+    "description": "A block for displaying quotes.",
+    "icon": "format-quote",
+    "keywords": ["quote"],
     "acf": {
         "mode": "preview",
-		"renderTemplate": "projects.php"
+		"renderTemplate": "quote.php"
     },
     "supports": {
+        "align": "false",
         "color": {
             "text": true,
-            "background": false
+            "background": true
         },
         "spacing": {
             "margin": true,
@@ -24,11 +25,15 @@
             "default": {
                 "spacing": {
                     "padding": {
-                        "top": "var:preset|spacing|64",
-                        "bottom": "var:preset|spacing|64"
+                        "top": "var:preset|spacing|96",
+                        "bottom": "var:preset|spacing|96"
                     }
                 }
             }
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "black"
         },
         "textColor": {
             "type": "string",
