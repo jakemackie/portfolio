@@ -2,11 +2,16 @@
 
 require_once get_template_directory() . '/hooks/actions/index.php';
 
-function block_classes(array $args = []): string {
+function block_classes(array $args = []) {
+
+    // In the block editor
     if (is_admin()) {
-        return '';
+        return isset($args['class'])
+            ? 'class="' . esc_attr($args['class']) . '"'
+            : '';
     }
 
+    // On frontend
     return get_block_wrapper_attributes($args);
 }
 

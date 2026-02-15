@@ -26,7 +26,7 @@
                 "spacing": {
                     "padding": {
                         "top": "var:preset|spacing|64",
-                        "bottom": "var:preset|spacing|64"
+                        "bottom": "var:preset|spacing|112"
                     }
                 }
             }

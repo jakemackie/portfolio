@@ -14,9 +14,7 @@
 	--color-transparent: transparent;
 	--color-black: #000000;
 	--color-white: #FFFFFF;
-	--color-grey: #D3D3D3;
-	--color-primary: #1e40af;
-	--color-accent: #06b6d4;
+	--color-cobalt: #0E18C8;
 
 	/* Font families */
 	--font-sans: "Inter", system-ui, -apple-system, sans-serif;

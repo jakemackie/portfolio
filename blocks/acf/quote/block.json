@@ -25,15 +25,15 @@
             "default": {
                 "spacing": {
                     "padding": {
-                        "top": "var:preset|spacing|96",
-                        "bottom": "var:preset|spacing|96"
+                        "top": "var:preset|spacing|64",
+                        "bottom": "var:preset|spacing|64"
                     }
                 }
             }
         },
         "backgroundColor": {
             "type": "string",
-            "default": "black"
+            "default": "cobalt"
         },
         "textColor": {
             "type": "string",

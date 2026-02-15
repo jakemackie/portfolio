@@ -18,10 +18,14 @@
 			"palette": [
 				{ "slug": "transparent", "color": "transparent", "name": "None" },
 				{ "slug": "white", "color": "#FFFFFF", "name": "White" },
-				{ "slug": "grey", "color": "#F4F4F9", "name": "Grey" },
 				{ "slug": "black", "color": "#000000", "name": "Black" },
-				{ "slug": "primary", "color": "#1e40af", "name": "Primary" },
-				{ "slug": "accent", "color": "#06b6d4", "name": "Accent" }
+				{ "slug": "cobalt", "color": "#0E18C8", "name": "Cobalt" },
+				{ "slug": "indigo", "color": "#2A1BFF", "name": "Indigo" },
+				{ "slug": "violet", "color": "#5B00FF", "name": "Violet" },
+				{ "slug": "hyper-pink", "color": "#FF006E", "name": "Hyper Pink" },
+				{ "slug": "acid", "color": "#B4FF00", "name": "Acid Lime" },
+				{ "slug": "signal-red", "color": "#D6002F", "name": "Signal Red" },
+				{ "slug": "teal", "color": "#005F5B", "name": "Deep Teal" }
 			]
 		},
 		"spacing": {

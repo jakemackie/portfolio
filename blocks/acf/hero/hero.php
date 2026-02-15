@@ -89,7 +89,7 @@ $subtext = get_field("block_hero_subtext");
                     );
                 ?>
 
-                <div class="col-span-full lg:col-span-5 h-full flex flex-col gap-8 lg:text-right">
+                <div class="col-span-full lg:col-span-5 h-full flex flex-col gap-8">
                     <ul class="flex flex-col list-none!">
 
                         <?php foreach ($links as $link): ?>
@@ -104,8 +104,8 @@ $subtext = get_field("block_hero_subtext");
                                         href="<?php echo esc_url($url); ?>"
                                         class="flex lg:justify-end items-center gap-2 group-hover:bg-gray-100 border-b border-b-gray-200 px-4 py-6 transition-colors duration-150 ease-in-out text-lg outline-none focus:ring"
                                     >
-                                        <span class="group-hover:underline underline-offset-6"><?php echo esc_html($title); ?></span>
-                                        <span class="group-hover:translate-x-1 transition-transform duration-150 ease-in-out pointer-events-none">
+                                        <span class="group-focus-within:underline group-hover:underline underline-offset-6"><?php echo esc_html($title); ?></span>
+                                        <span class="group-focus-within:translate-x-1 group-hover:translate-x-1 transition-transform duration-150 ease-in-out pointer-events-none">
                                             <?php echo get_icon('arrow-right'); ?>
                                         </span>
                                     </a>
@@ -116,7 +116,7 @@ $subtext = get_field("block_hero_subtext");
                     </ul>
 
                     <?php if ($subtext): ?>
-                        <div class="mt-auto text-base">
+                        <div class="mt-auto flex items-center justify-end gap-2 text-base">
                             <?php echo esc_html($subtext); ?>
                         </div>
                     <?php endif; ?>

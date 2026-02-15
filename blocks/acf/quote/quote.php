@@ -4,13 +4,30 @@ $template = [
     [
         "core/paragraph",
         [
-            "placeholder" => "Add some text"
+            "placeholder" => "Est elit commodo mollit amet et culpa. Elit pariatur occaecat commodo quis qui anim. Exercitation aliqua culpa ut magna ullamco reprehenderit nisi. Tempor et ex sunt sint ipsum aliqua irure exercitation cupidatat sit.",
+            "style" => [
+                "spacing" => [
+                    "margin" => [
+                        "top" => "0",
+                        "bottom" => "0"
+                    ]
+                ]
+            ]
         ]
     ],
     [
         "core/heading",
         [
-            "placeholder" => "Add a heading",
+            "textAlign" => "right",
+            "placeholder" => "Add your quote heading",
+            "style" => [
+                "spacing" => [
+                    "margin" => [
+                        "top" => "0",
+                        "bottom" => "0"
+                    ]
+                ]
+            ],
             "level" => 2
         ]
     ]
@@ -18,9 +35,9 @@ $template = [
 
 ?>
 
-<section <?php echo block_classes(); ?>>
+<section <?php echo block_classes(['class' => 'm-4 lg:container lg:mx-auto rounded-2xl']); ?>>
     <InnerBlocks
-        class="container grid grid-cols-1 lg:grid-cols-2 gap-5.5 lg:gap-72"
+        class="px-8 grid grid-cols-1 lg:grid-cols-2 gap-5.5 lg:gap-64 items-center"
         allowedBlocks='<?php echo esc_attr(wp_json_encode(["core/paragraph", "core/heading"])); ?>'
         template='<?php echo esc_attr(wp_json_encode($template)); ?>'
     />
