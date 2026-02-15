@@ -3,6 +3,12 @@
     "title": "Hero",
     "fields": [
         {
+            "key": "block_hero_images_tab_key",
+            "name": "block_hero_images_tab",
+            "label": "Images",
+            "type": "tab"
+        },
+        {
             "key": "block_hero_front_image_key",
             "name": "block_hero_front_image",
             "label": "Front Image",
@@ -24,6 +30,34 @@
             "label": "Image Caption",
             "type": "text",
             "instructions": "Caption for the hero images."
+        },
+        {
+            "key": "block_hero_content_tab_key",
+            "name": "block_hero_content_tab",
+            "label": "Content",
+            "type": "tab"
+        },
+        {
+            "key": "block_hero_links_repeater_key",
+            "name": "block_hero_links_repeater",
+            "label": "Links",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "key": "block_hero_link_key",
+                    "name": "block_hero_link",
+                    "label": "Link",
+                    "type": "link",
+                    "instructions": "Add a link to be displayed in the hero section."
+                }
+            ],
+            "instructions": "Add links to be displayed in the hero section."
+        },
+        {
+            "key": "block_hero_subtext_key",
+            "name": "block_hero_subtext",
+            "label": "Subtext",
+            "type": "text"
         }
     ],
     "location": [
