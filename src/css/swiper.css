@@ -1,0 +1,25 @@
+/* Pagination container */
+.swiper-pagination {
+    @apply
+        absolute
+        left-1/2!
+        -translate-x-1/2
+        bottom-6
+        z-10
+        w-fit!
+        flex items-center gap-2
+        px-4 py-2 lg:px-6 lg:py-4
+        rounded-full
+        border border-white/20
+        bg-neutral-900/30
+        backdrop-blur-xl
+        shadow-[inset_0_1px_0_rgba(255,255,255,0.35)];
+}
+
+.swiper-pagination-bullet {
+    @apply w-2 h-2 rounded-full bg-white! transition-all duration-300 mix-blend-difference opacity-60;
+}
+
+.swiper-pagination-bullet-active {
+    @apply scale-125 opacity-100;
+}

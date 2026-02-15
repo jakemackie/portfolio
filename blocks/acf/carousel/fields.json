@@ -1,0 +1,22 @@
+{
+    "key": "block_carousel",
+    "title": "Carousel",
+    "fields": [
+        {
+            "key": "block_carousel_images_key",
+            "name": "block_carousel_images",
+            "type": "gallery",
+            "return_format": "ids",
+            "instructions": "Add images to the carousel"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/carousel"
+            }
+        ]
+    ]
+}

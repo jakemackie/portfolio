@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         main: 'src/main.ts',
         editor: 'src/editor.ts',
+        carousel: 'blocks/acf/carousel/carousel.ts',
       },
       output: {
         entryFileNames: '[name].js',
