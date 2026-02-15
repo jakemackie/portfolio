@@ -13,7 +13,7 @@ if (empty($image_ids)) {
     <?php if (is_admin()): ?>
 
         <!-- Admin Preview -->
-        <div class="container flex gap-6 overflow-x-auto pb-4">
+        <div class="container flex gap-6 overflow-x-auto pb-4 rounded-2xl overflow-hidden">
             <?php foreach ($image_ids as $image_id) : ?>
                 <div class="shrink-0 w-1/3 aspect-3/2 rounded-2xl overflow-hidden">
                     <?php
