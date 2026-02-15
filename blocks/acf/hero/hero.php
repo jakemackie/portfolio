@@ -43,7 +43,7 @@ $subtext = get_field("block_hero_subtext");
                 <?php if ($front_image_id): ?>
                     <figure class="m-0! relative w-full lg:w-3/4">
 
-                        <div class="relative aspect-4/3 grayscale-100 hover:grayscale-0 shadow-lg shadow-black/40 transition duration-500 ease-in-out overflow-hidden group">
+                        <div class="relative aspect-3/2 grayscale-100 hover:grayscale-0 shadow-lg shadow-black/40 transition duration-500 ease-in-out overflow-hidden group">
                             <?php
                                 echo wp_get_attachment_image(
                                     attachment_id: $front_image_id,
@@ -99,12 +99,15 @@ $subtext = get_field("block_hero_subtext");
                             ?>
 
                             <?php if ($url && $title): ?>
-                                <li>
+                                <li class="group">
                                     <a 
                                         href="<?php echo esc_url($url); ?>"
-                                        class="block hover:bg-gray-100 border-b border-b-gray-200 px-4 py-6 transition-colors duration-150 ease-in-out text-lg"
+                                        class="flex lg:justify-end items-center gap-2 group-hover:bg-gray-100 border-b border-b-gray-200 px-4 py-6 transition-colors duration-150 ease-in-out text-lg outline-none focus:ring"
                                     >
-                                        <?php echo esc_html($title); ?>
+                                        <span class="group-hover:underline underline-offset-6"><?php echo esc_html($title); ?></span>
+                                        <span class="group-hover:translate-x-1 transition-transform duration-150 ease-in-out pointer-events-none">
+                                            <?php echo get_icon('arrow-right'); ?>
+                                        </span>
                                     </a>
                                 </li>
                             <?php endif; ?>
