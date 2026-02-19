@@ -1,0 +1,47 @@
+{
+    "name": "acf/container",
+    "title": "Container",
+    "description": "Contain content with a custom background and text color.",
+    "icon": "editor-contract",
+    "keywords": ["container", "content"],
+    "acf": {
+        "mode": "preview",
+		"renderTemplate": "container.php"
+    },
+    "supports": {
+        "align": "false",
+        "color": {
+            "text": true,
+            "background": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "style": {
+            "type": "object",
+            "default": {
+                "spacing": {
+                    "margin": {
+                        "top": "var:preset|spacing|96",
+                        "bottom": "var:preset|spacing|96"
+                    },
+                    "padding": {
+                        "top": "var:preset|spacing|48",
+                        "bottom": "var:preset|spacing|48"
+                    }
+                }
+            }
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "cobalt"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "white"
+        }
+    }
+}

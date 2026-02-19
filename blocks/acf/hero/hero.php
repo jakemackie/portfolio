@@ -43,7 +43,7 @@ $subtext = get_field("block_hero_subtext");
                 <?php if ($front_image_id): ?>
                     <figure class="m-0! relative w-full lg:w-3/4">
 
-                        <div class="relative aspect-3/2 grayscale-100 hover:grayscale-0 shadow-lg shadow-black/40 transition duration-500 ease-in-out overflow-hidden group">
+                        <div class="relative aspect-3/2 grayscale-100 hover:grayscale-0 shadow-sm shadow-black/30 transition duration-500 ease-in-out overflow-hidden group">
                             <?php
                                 echo wp_get_attachment_image(
                                     attachment_id: $front_image_id,

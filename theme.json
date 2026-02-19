@@ -18,6 +18,7 @@
 			"palette": [
 				{ "slug": "transparent", "color": "transparent", "name": "None" },
 				{ "slug": "white", "color": "#FFFFFF", "name": "White" },
+				{ "slug": "light-gray", "color": "#F5F5F5", "name": "Light Gray" },
 				{ "slug": "black", "color": "#000000", "name": "Black" },
 				{ "slug": "cobalt", "color": "#0E18C8", "name": "Cobalt" },
 				{ "slug": "indigo", "color": "#2A1BFF", "name": "Indigo" },
