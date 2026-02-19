@@ -33,11 +33,13 @@ $template = [
     ]
 ];
 
+$background_image_id = get_field("block_bordered_content_background_image_id");
+
 ?>
 
 <section <?php echo block_classes(['class' => 'm-4 lg:container lg:mx-auto rounded-2xl']); ?>>
     <InnerBlocks
-        class="px-8 grid grid-cols-1 lg:grid-cols-2 gap-5.5 lg:gap-64 items-center"
+        class="px-16"
         allowedBlocks='<?php echo esc_attr(wp_json_encode(["core/paragraph", "core/heading"])); ?>'
         template='<?php echo esc_attr(wp_json_encode($template)); ?>'
     />

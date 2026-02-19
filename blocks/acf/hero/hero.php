@@ -104,7 +104,7 @@ $subtext = get_field("block_hero_subtext");
                                         href="<?php echo esc_url($url); ?>"
                                         class="flex lg:justify-end items-center gap-2 group-hover:bg-gray-100 border-b border-b-gray-200 px-4 py-6 transition-colors duration-150 ease-in-out text-lg outline-none focus:ring"
                                     >
-                                        <span class="group-focus-within:underline group-hover:underline underline-offset-6"><?php echo esc_html($title); ?></span>
+                                        <span class="group-focus-within:underline underline-offset-6"><?php echo esc_html($title); ?></span>
                                         <span class="group-focus-within:translate-x-1 group-hover:translate-x-1 transition-transform duration-150 ease-in-out pointer-events-none">
                                             <?php echo get_icon('arrow-right'); ?>
                                         </span>

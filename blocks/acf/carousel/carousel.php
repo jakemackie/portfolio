@@ -37,7 +37,7 @@ if (empty($image_ids)) {
             <div class="swiper js-carousel rounded-2xl overflow-hidden">
                 <div class="swiper-wrapper">
                     <?php foreach ($image_ids as $image_id) : ?>
-                        <div class="swiper-slide aspect-3/2 rounded-2xl overflow-hidden">
+                        <div class="relative swiper-slide aspect-3/2 rounded-2xl overflow-hidden">
                             <?php
                             echo wp_get_attachment_image(
                                 attachment_id: $image_id,
@@ -48,6 +48,8 @@ if (empty($image_ids)) {
                                 ]
                             );
                             ?>
+
+                            <div class="absolute inset-0 bg-linear-to-b from-transparent to-black/50 size-full"></div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -55,7 +57,5 @@ if (empty($image_ids)) {
                 <div class="swiper-pagination"></div>
             </div>
         </div>
-
     <?php endif; ?>
-
 </section>

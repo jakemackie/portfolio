@@ -1,12 +1,12 @@
 {
-    "name": "acf/quote",
-    "title": "Quote",
-    "description": "A block for displaying quotes.",
+    "name": "acf/bordered-content",
+    "title": "Bordered Content",
+    "description": "A block for displaying bordered content.",
     "icon": "format-quote",
-    "keywords": ["quote"],
+    "keywords": ["bordered", "content"],
     "acf": {
         "mode": "preview",
-		"renderTemplate": "quote.php"
+		"renderTemplate": "bordered-content.php"
     },
     "supports": {
         "align": "false",

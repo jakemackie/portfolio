@@ -1,0 +1,22 @@
+{
+    "key": "block_bordered_content",
+    "title": "Bordered Content",
+    "fields": [
+        {
+            "key": "block_bordered_content_background_image_id_key",
+            "name": "block_bordered_content_background_image_id",
+            "label": "Background Image",
+            "type": "image",
+            "instructions": "Select a background image for the bordered content block."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/bordered-content"
+            }
+        ]
+    ]
+}

@@ -1,42 +1,48 @@
 <footer class="mt-24 border-t border-gray-200">
-    <section class="container mx-auto grid-design">
-        
-        <!-- Top row -->
-        <div class="col-span-full grid gap-8 py-12 md:grid-cols-3">
-            
-            <!-- Brand -->
-            <div class="space-y-2">
-                <p class="text-lg font-medium">Jake Mackie</p>
-                <p class="text-sm text-gray-500">
-                    Design & development for the web.
-                </p>
-            </div>
+  <section class="container mx-auto grid gap-12 py-12">
 
-            <!-- Navigation -->
-            <nav>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:underline">Work</a></li>
-                    <li><a href="#" class="hover:underline">About</a></li>
-                    <li><a href="#" class="hover:underline">Contact</a></li>
-                </ul>
-            </nav>
+    <!-- Top row -->
+    <div class="grid gap-8 md:grid-cols-3 items-start">
 
-            <!-- Social -->
-            <div>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:underline">LinkedIn</a></li>
-                    <li><a href="#" class="hover:underline">GitHub</a></li>
-                    <li><a href="#" class="hover:underline">Email</a></li>
-                </ul>
-            </div>
+      <!-- Back to top -->
+      <div>
+        <a href="#top" class="text-sm text-gray-500 hover:underline">
+          ↑ Back to top
+        </a>
+      </div>
 
-        </div>
+      <!-- Pages -->
+      <nav>
+        <p class="mb-2 text-xs uppercase tracking-wide text-gray-400">Pages</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:underline">Home</a></li>
+          <li><a href="#" class="hover:underline">Projects</a></li>
+          <li><a href="#" class="hover:underline">Writing</a></li>
+          <li><a href="#" class="hover:underline">About</a></li>
+          <li><a href="#" class="hover:underline">Contact</a></li>
+          <li><a href="#" class="hover:underline">404</a></li>
+        </ul>
+      </nav>
 
-        <!-- Bottom row -->
-        <div class="col-span-full flex flex-col gap-2 border-t border-gray-200 py-6 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
-            <p>© 2026 Jake Mackie</p>
-            <p>Built with WordPress & Tailwind</p>
-        </div>
+      <!-- Online -->
+      <div>
+        <p class="mb-2 text-xs uppercase tracking-wide text-gray-400">Online</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:underline">LinkedIn</a></li>
+          <li><a href="#" class="hover:underline">read.cv</a></li>
+          <li><a href="#" class="hover:underline">X (Twitter)</a></li>
+        </ul>
+      </div>
 
-    </section>
+    </div>
+
+
+    <!-- Bottom row -->
+    <div class="flex flex-col gap-4 pt-8 md:flex-row md:items-end md:justify-between">
+      <a href="<?php echo home_url(); ?>">
+        <p class="text-4xl font-medium tracking-tight">Jake Mackie®</p>
+      </a>
+    </div>
+
+  </section>
 </footer>

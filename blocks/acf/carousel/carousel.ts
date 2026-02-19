@@ -1,5 +1,5 @@
 import Swiper from 'swiper'
-import { Pagination } from 'swiper/modules'
+import { Pagination, Autoplay } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -8,12 +8,15 @@ document.querySelectorAll<HTMLElement>('.js-carousel').forEach((el) => {
     const paginationEl = el.querySelector<HTMLElement>('.swiper-pagination')
 
     new Swiper(el, {
-        modules: [Pagination],
+        modules: [Pagination, Autoplay],
 
         slidesPerView: 1,
         spaceBetween: 24,
-        grabCursor: true,
-        watchOverflow: true,
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            pauseOnMouseEnter: true,
+        },
 
         breakpoints: {
             768: { slidesPerView: 2 },
