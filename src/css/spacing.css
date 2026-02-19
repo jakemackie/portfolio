@@ -6,8 +6,9 @@
 :root {
 	--spacing-16: clamp(8px, 1.5vw, 16px);
 	--spacing-32: clamp(16px, 3vw, 32px);
+	--spacing-48: clamp(24px, 4.5vw, 48px);
 	--spacing-64: clamp(32px, 6vw, 64px);
 	--spacing-96: clamp(48px, 9vw, 96px);
-	--spacing-112: clamp(56px, 10.5vw, 112px);
+	--spacing-128: clamp(64px, 10.5vw, 128px);
 	--spacing-224: clamp(112px, 21vw, 224px);
 }

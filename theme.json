@@ -45,24 +45,29 @@
 					"name": "Small (32px)"
 				},
 				{
+					"slug": "48",
+					"size": "var(--spacing-48)",
+					"name": "Medium (48px)"
+				},
+				{
 					"slug": "64",
 					"size": "var(--spacing-64)",
-					"name": "Medium (64px)"
+					"name": "Large (64px)"
 				},
 				{
 					"slug": "96",
 					"size": "var(--spacing-96)",
-					"name": "Large (96px)"
+					"name": "XL (96px)"
 				},
 				{
-					"slug": "112",
-					"size": "var(--spacing-112)",
-					"name": "Extra Large (112px)"
+					"slug": "128",
+					"size": "var(--spacing-128)",
+					"name": "2XL (128px)"
 				},
 				{
 					"slug": "224",
 					"size": "var(--spacing-224)",
-					"name": "Huge (224px)"
+					"name": "3XL (224px)"
 				}
 			]
 		},

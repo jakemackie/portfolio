@@ -5,7 +5,7 @@
  */
 
 .grid-design {
-	@apply grid grid-cols-4 lg:grid-cols-12 gap-5.5 lg:gap-11;
+	@apply grid grid-cols-4 lg:grid-cols-12 gap-6 lg:gap-11;
 }
 
 .container {

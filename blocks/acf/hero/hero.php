@@ -89,7 +89,7 @@ $subtext = get_field("block_hero_subtext");
                     );
                 ?>
 
-                <div class="col-span-full lg:col-span-5 h-full flex flex-col gap-8">
+                <div class="col-span-full lg:col-span-5 h-full flex flex-col gap-4">
                     <ul class="flex flex-col list-none!">
 
                         <?php foreach ($links as $link): ?>

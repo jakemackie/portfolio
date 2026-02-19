@@ -26,9 +26,8 @@
             "type": "object",
             "default": {
                 "spacing": {
-                    "padding": {
-                        "top": "var:preset|spacing|32",
-                        "bottom": "var:preset|spacing|32"
+                    "margin": {
+                        "top": "var:preset|spacing|48"
                     }
                 }
             }
