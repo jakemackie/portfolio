@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="./image.png" width="600px">
+    <img src="https://github.com/jakemackie/portfolio/blob/main/screenshot.png" width="600px">
 </div>
 
 - WordPress
