@@ -6,7 +6,7 @@
             "key": "block_experience_post_ids_key",
             "name": "block_experience_post_ids",
             "label": "Experience Posts",
-            "type": "relationship",
+            "type": "post_object",
             "post_type": ["experience"],
             "return_format": "id",
             "multiple": 1,
