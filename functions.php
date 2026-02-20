@@ -22,3 +22,14 @@ function get_icon(string $name) {
     }
     return '';
 }
+
+function get_allowed_blocks() {
+    return [
+        // Core
+        "core/paragraph", 
+        "core/heading",
+
+        // Custom
+        "acf/experience"
+    ];
+}

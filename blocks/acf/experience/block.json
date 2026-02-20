@@ -1,0 +1,35 @@
+{
+    "name": "acf/experience",
+    "title": "Experience",
+    "description": "A block for displaying experience.",
+    "icon": "format-quote",
+    "keywords": ["experience", "work", "career"],
+    "acf": {
+        "mode": "preview",
+		"renderTemplate": "experience.php"
+    },
+    "supports": {
+        "align": "false",
+        "color": {
+            "background": true,
+            "text": false
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "style": {
+            "type": "object",
+            "default": {
+                "spacing": {
+                    "padding": {
+                        "top": "var:preset|spacing|64",
+                        "bottom": "var:preset|spacing|64"
+                    }
+                }
+            }
+        }
+    }
+}

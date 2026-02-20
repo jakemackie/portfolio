@@ -1,0 +1,25 @@
+{
+    "key": "block_experience",
+    "title": "Experience",
+    "fields": [
+        {
+            "key": "block_experience_post_ids_key",
+            "name": "block_experience_post_ids",
+            "label": "Experience Posts",
+            "type": "relationship",
+            "post_type": ["experience"],
+            "return_format": "id",
+            "multiple": 1,
+            "ajax": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/experience"
+            }
+        ]
+    ]
+}

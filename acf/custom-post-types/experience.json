@@ -1,0 +1,99 @@
+{
+  "key": "cpt_experience_key",
+  "title": "Experience",
+  "fields": [
+    {
+      "key": "cpt_experience_badge_text_key",
+      "name": "cpt_experience_badge_text",
+      "label": "Badge Text",
+      "type": "text",
+      "instructions": "e.g. Top Rated Freelancer"
+    },
+    {
+      "key": "cpt_experience_company_name_key",
+      "name": "cpt_experience_company_name",
+      "label": "Company / Platform",
+      "type": "text",
+      "required": 1
+    },
+    {
+      "key": "cpt_experience_location_key",
+      "name": "cpt_experience_location",
+      "label": "Location",
+      "type": "text"
+    },
+    {
+      "key": "cpt_experience_start_year_key",
+      "name": "cpt_experience_start_year",
+      "label": "Start Year",
+      "type": "number",
+      "required": 1
+    },
+    {
+      "key": "cpt_experience_is_current_key",
+      "name": "cpt_experience_is_current",
+      "label": "Currently Working Here?",
+      "type": "true_false",
+      "ui": 1
+    },
+    {
+      "key": "cpt_experience_end_year_key",
+      "name": "cpt_experience_end_year",
+      "label": "End Year",
+      "type": "number",
+      "conditional_logic": [
+        [
+          {
+            "field": "cpt_experience_is_current_key",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "cpt_experience_description_key",
+      "name": "cpt_experience_description",
+      "label": "Description",
+      "type": "textarea",
+      "rows": 3
+    },
+    {
+      "key": "cpt_experience_achievements_key",
+      "name": "cpt_experience_achievements",
+      "label": "Key Achievements",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Add Achievement",
+      "sub_fields": [
+        {
+          "key": "cpt_experience_achievement_bullet_key",
+          "name": "cpt_experience_achievement_bullet",
+          "label": "Achievement",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "key": "cpt_experience_skills_key",
+      "name": "cpt_experience_skills",
+      "label": "Skills / Tech Stack",
+      "type": "taxonomy",
+      "taxonomy": "skill",
+      "field_type": "multi_select",
+      "add_term": 1,
+      "save_terms": 1,
+      "load_terms": 1,
+      "return_format": "id"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "experience"
+      }
+    ]
+  ]
+}

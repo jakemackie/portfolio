@@ -21,7 +21,7 @@ $template = [
 <section <?php echo block_classes(); ?>>
     <InnerBlocks
         class="container"
-        allowedBlocks='<?php echo esc_attr(wp_json_encode(["core/paragraph", "core/heading"])); ?>'
+        allowedBlocks='<?php echo esc_attr(wp_json_encode(get_allowed_blocks())); ?>'
         template='<?php echo esc_attr(wp_json_encode($template)); ?>'
     />
 </section>
