@@ -20,14 +20,14 @@ $skills = get_field("cpt_experience_skills", $post_id);
 
 ?>
 
-<article class="col-span-full lg:col-span-6 flex flex-col gap-5 p-8 rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all hover:shadow-md">
+<article class="col-span-full lg:col-span-6 flex flex-col gap-5 p-8 bg-white">
     
     <?php if ($badge_text): ?>
         <span 
             role="status"
-            class="w-fit px-3 py-1 bg-[#F0F2FF] text-[#6366F1] rounded-full text-xs font-bold flex items-center gap-1.5"
+            class="text-xs font-semibold opacity-50"
         >
-            <span aria-hidden="true">⭐</span> <?php echo esc_html($badge_text); ?>
+            <?php echo esc_html($badge_text); ?>
         </span>
     <?php endif; ?>
 
@@ -36,7 +36,7 @@ $skills = get_field("cpt_experience_skills", $post_id);
             <?php echo esc_html($title); ?>
         </h4>
         
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-neutral-600 text-sm">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-neutral-700 text-sm">
             <span class="flex items-center gap-1.5">
                 <?php echo get_icon('briefcase'); ?>
                 <span class="font-medium"><?php echo esc_html($company_name); ?></span>
@@ -73,8 +73,8 @@ $skills = get_field("cpt_experience_skills", $post_id);
             <h5 class="text-sm font-bold tracking-wider text-neutral-900">Key Achievements:</h5>
             <ul class="list-none p-0 m-0 space-y-2">
                 <?php foreach ($achievements as $row): ?>
-                    <li class="flex items-center gap-4 text-neutral-600 leading-snug">
-                        <span class="mt-0.5 size-1.5 rounded-full bg-blue-400 shrink-0"></span>
+                    <li class="flex items-center gap-2 text-neutral-600 leading-snug">
+                        <span class="mt-0.5 size-1.5 rounded-full bg-neutral-400 shrink-0"></span>
                         <?php echo esc_html($row['cpt_experience_achievement_bullet']); ?>
                     </li>
                 <?php endforeach; ?>
@@ -87,7 +87,7 @@ $skills = get_field("cpt_experience_skills", $post_id);
             <?php foreach($skills as $skill_id): ?>
                 <li>
                     <span 
-                        class="inline-block px-3 py-1 bg-neutral-100 text-neutral-700 rounded-md text-xs font-medium border border-neutral-200"
+                        class="inline-block px-3 py-1 bg-neutral-100 text-neutral-700 rounded-sm text-xs font-medium border border-neutral-200"
                     >
                         <?php echo esc_html(get_term_field('name', $skill_id, 'skill')); ?>
                     </span>

@@ -12,9 +12,17 @@
 @theme {
 	/* Colors */
 	--color-transparent: transparent;
-	--color-black: #000000;
 	--color-white: #FFFFFF;
+	--color-light-gray: #F5F5F5;
+	--color-black: #000000;
 	--color-cobalt: #0E18C8;
+	--color-indigo: #2A1BFF;
+	--color-violet: #5B00FF;
+	--color-hyper-pink: #FF006E;
+	--color-acid: #B4FF00;
+	--color-signal-red: #D6002F;
+	--color-teal: #005F5B;
+
 
 	/* Font families */
 	--font-sans: "Inter", system-ui, -apple-system, sans-serif;
