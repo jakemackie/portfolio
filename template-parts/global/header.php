@@ -26,7 +26,6 @@
             ">
                 <li>
                     <a href="#" class="flex items-center py-4 pl-6 pr-4 text-white mix-blend-difference outline-none focus:bg-white/10">
-                        <span class="mr-4 block shrink-0 size-2 bg-blue-500 ring-2 ring-blue-200 rounded-full pointer-events-none"></span>
                         Work
                     </a>
                 </li>

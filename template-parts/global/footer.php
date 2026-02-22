@@ -38,11 +38,10 @@
 
 
     <!-- Bottom row -->
-    <div class="flex flex-col gap-4 pt-8 md:flex-row md:items-end md:justify-between">
+    <div class="flex flex-col md:flex-row md:items-center flex-wrap gap-4 pt-8">
       <a href="<?php echo home_url(); ?>">
-        <p class="text-4xl font-medium tracking-tight">Jake Mackie®</p>
+        <span class="text-4xl font-medium tracking-tight">Jake Mackie®</span>
       </a>
     </div>
-
   </section>
 </footer>

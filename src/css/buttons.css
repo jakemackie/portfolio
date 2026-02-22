@@ -1,0 +1,26 @@
+/* Shared properties */
+.btn,
+.btn-primary,
+.btn-secondary {
+    /* Added 'relative overflow-hidden isolate' for the effect */
+    @apply relative overflow-hidden isolate size-fit flex justify-center items-center gap-2 px-5 py-3 border-2 border-transparent rounded-full fill-transparent stroke-current hover:fill-current no-underline outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-colors duration-200 ease-in-out;
+
+    /* The circular fill logic */
+    @apply before:content-[''] before:absolute before:inset-0 before:aspect-square before:rounded-full before:scale-0 before:transition-transform before:duration-500 before:ease-out before:-z-10 before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2;
+}
+
+/* Hover trigger for the circle */
+.btn:hover::before,
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+    @apply scale-[2.5];
+}
+
+/* Design Buttons */
+.btn-primary {
+    @apply bg-cobalt text-white border-transparent hover:border-gray-300 before:bg-black;
+}
+
+.btn-secondary {
+    @apply bg-acid text-black hover:text-white border-transparent hover:border-gray-300 before:bg-hyper-pink;
+}
