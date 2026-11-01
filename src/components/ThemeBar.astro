@@ -1,0 +1,82 @@
+---
+import { getPortfolio } from '../lib/content';
+
+const { themes } = await getPortfolio();
+const path = Astro.url.pathname.replace(/\.html$/, '');
+const match = path.match(/^\/theme\/(\d+)(\/.*)?$/);
+const current = match?.[1];
+const rest = (match?.[2] ?? '').replace(/\/$/, '');
+---
+
+<nav class="theme-bar" aria-label="Switch theme">
+  <a class="all" href="/" aria-label="All themes" title="All themes">All</a>
+  {
+    themes.map((theme) => (
+      <a
+        href={`/theme/${theme.id}${rest}`}
+        aria-current={theme.id === current ? 'true' : undefined}
+        aria-label={`Theme ${theme.id}, ${theme.name}`}
+        title={theme.name}
+      >
+        {theme.id}
+      </a>
+    ))
+  }
+</nav>
+<script is:inline>
+  if (window.self !== window.top) document.documentElement.classList.add('in-frame');
+</script>
+
+<style>
+  .theme-bar {
+    position: fixed;
+    inset-block-start: 50%;
+    inset-inline-end: 6px;
+    translate: 0 -50%;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 3px;
+    background: #17181a;
+    color: #f3f2ee;
+    border-radius: 10px;
+    font: 500 13px/1 system-ui, sans-serif;
+    box-shadow: 0 1px 2px #0003, 0 6px 20px #0003;
+    outline: 1px solid #ffffff24;
+  }
+  a {
+    display: grid;
+    place-items: center;
+    inline-size: 28px;
+    block-size: 28px;
+    border-radius: 7px;
+    color: inherit;
+    text-decoration: none;
+  }
+  .all {
+    font-size: 11px;
+    color: #c9c8c2;
+  }
+  a:hover {
+    background: #ffffff1f;
+    color: #fff;
+  }
+  a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 1px;
+  }
+  a[aria-current] {
+    background: #f3f2ee;
+    color: #17181a;
+  }
+  :global(html.in-frame) .theme-bar {
+    display: none;
+  }
+  @media print {
+    .theme-bar {
+      display: none;
+    }
+  }
+</style>

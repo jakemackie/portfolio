@@ -1,0 +1,46 @@
+- id: languages
+  order: 1
+  label: Languages
+  items: [PHP, JavaScript, TypeScript, "C#", Python, SQL, HTML, CSS]
+- id: wordpress
+  order: 2
+  label: WordPress
+  items:
+    - Custom themes
+    - Gutenberg Block API
+    - Advanced Custom Fields
+    - WP REST API
+    - Template hierarchy
+    - WordPress Coding Standards
+- id: frameworks
+  order: 3
+  label: Frameworks
+  items: [React, Next.js, Vue, Astro, Hono, Node.js, .NET, Tailwind CSS]
+- id: cloud
+  order: 4
+  label: Cloud and data
+  items:
+    - Cloudflare Workers
+    - D1
+    - R2
+    - Docker
+    - REST APIs
+    - Webhooks (GitHub, Discord)
+- id: delivery
+  order: 5
+  label: Delivery
+  items:
+    - Git
+    - npm
+    - Pull requests and code review
+    - GitHub Actions CI/CD
+    - Automated testing with Vitest
+- id: practice
+  order: 6
+  label: Practice
+  items:
+    - Responsive and accessible UI
+    - Performance optimisation
+    - Component-based design
+    - Agile
+    - Figma handoff

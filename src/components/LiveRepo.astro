@@ -1,0 +1,15 @@
+---
+import type { Repo } from '../lib/content';
+import { formatMonth } from '../lib/content';
+import RepoPulse from './RepoPulse.astro';
+
+interface Props {
+  repo: Repo;
+}
+
+const { repo } = Astro.props;
+---
+
+<RepoPulse server:defer repo={repo.fullName} stars={repo.stars} pushedAt={repo.pushedAt.toISOString()}>
+  <span slot="fallback">{repo.stars} {repo.stars === 1 ? 'star' : 'stars'}, last push {formatMonth(repo.pushedAt)}</span>
+</RepoPulse>

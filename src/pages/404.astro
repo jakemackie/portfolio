@@ -1,0 +1,31 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <BaseHead title="Page not found" themeColor="#f3f2ee" colorScheme="light dark" />
+    <style>
+      body {
+        display: grid;
+        place-content: center;
+        min-block-size: 100vh;
+        margin: 0;
+        padding: 16px;
+        font-family: system-ui, sans-serif;
+        text-align: center;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Page not found</h1>
+      <p><a href="/">Back to the themes</a></p>
+    </main>
+  </body>
+</html>

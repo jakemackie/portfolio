@@ -1,0 +1,31 @@
+---
+import Icon from '../../../components/Icon.astro';
+import { getPortfolio } from '../../../lib/content';
+import Layout from '../../../themes/cobalt/Layout.astro';
+
+const { profile } = await getPortfolio();
+---
+
+<Layout title="Contact">
+  <Fragment slot="hero">
+    <h1 class="heading">Let's <em>talk</em></h1>
+    <p class="hero-sub">{profile.availability}</p>
+    <a class="mail-big" href={`mailto:${profile.email}`}>{profile.email}</a>
+  </Fragment>
+
+  <section class="section">
+    <div class="card-list two">
+      {
+        profile.links.map((link) => (
+          <a class="panel" href={link.url} style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+            <span>
+              <strong style="font-weight:500;display:block">{link.label}</strong>
+              <span class="small-meta">{link.handle}</span>
+            </span>
+            <Icon name="arrow-up-right" size={18} />
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

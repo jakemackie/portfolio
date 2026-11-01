@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jake-mackie-portfolio",
+  "compatibility_date": "2026-10-30",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "observability": { "enabled": true }
+  // Optional secret for the live GitHub island: `npx wrangler secret put GITHUB_TOKEN`
+}

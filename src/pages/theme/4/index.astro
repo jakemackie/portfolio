@@ -1,0 +1,97 @@
+---
+import ContributionGrid from '../../../components/ContributionGrid.astro';
+import Icon from '../../../components/Icon.astro';
+import { formatNumber, formatRange, formatStat, getPortfolio } from '../../../lib/content';
+import Layout from '../../../themes/noir/Layout.astro';
+
+const { profile, projects, experience, highlights, activity, clients } = await getPortfolio();
+const [first, ...last] = profile.name.split(' ');
+---
+
+<Layout tall>
+  <Fragment slot="stage">
+    <div class="hero">
+      <div>
+        <p class="hello">Hi, I'm</p>
+        <h1 class="name"><strong>{first}</strong> {last.join(' ')}</h1>
+        <span class="ring" aria-hidden="true"></span>
+        <a class="big-pill" href="/theme/4/contact">Get in touch</a>
+      </div>
+      <div class="hero-text">
+        <p>{profile.role} in Cornwall. {profile.intro}</p>
+        <p>
+          Lately I've been building <a href="/theme/4/projects/dispatch">Dispatch</a>, a serverless Discord app on Cloudflare
+          Workers. {profile.availability}
+        </p>
+      </div>
+    </div>
+  </Fragment>
+
+  <div class="section cols">
+    <section>
+      <h2 class="h">Projects</h2>
+      <p class="h-sub">A few things I've been building</p>
+      {
+        projects.map((project) => (
+          <a class="card" href={`/theme/4/projects/${project.slug}`}>
+            <strong>{project.title}</strong>
+            <span class="desc">{project.tagline}</span>
+            <Icon name="arrow-up-right" />
+          </a>
+        ))
+      }
+    </section>
+    <section>
+      <h2 class="h">Experience</h2>
+      <p class="h-sub">Where I've been working</p>
+      <ul class="notes">
+        {
+          experience.map((job) => (
+            <li>
+              <Icon name="note" />
+              <a class="note-title" href="/theme/4/experience">{job.role}, {job.company}</a>
+              <small>{formatRange(job.start, job.end)}</small>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+
+  <section class="section">
+    <h2 class="h">Numbers</h2>
+    <p class="h-sub">From the last few years</p>
+    <ul class="stats">
+      {
+        highlights.map((highlight) => (
+          <li class="stat">
+            <strong>{formatStat(highlight)}</strong>
+            <span>{highlight.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2 class="h">Activity</h2>
+    <p class="h-sub">{formatNumber(activity.lastYearTotal)} GitHub contributions in the last year</p>
+    <div class="graph"><ContributionGrid /></div>
+  </section>
+
+  <section class="section">
+    <h2 class="h">Clients</h2>
+    <p class="h-sub">Three of the 25+ I worked with at Hiyield</p>
+    <div class="cols" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:8px">
+      {
+        clients.map((client) => (
+          <a class="card" href={client.url} style="margin:0">
+            <strong>{client.name}</strong>
+            <span class="desc">{client.summary}</span>
+            <Icon name="arrow-up-right" />
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

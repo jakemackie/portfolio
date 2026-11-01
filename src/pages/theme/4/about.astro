@@ -1,0 +1,56 @@
+---
+import Icon from '../../../components/Icon.astro';
+import { getPortfolio } from '../../../lib/content';
+import Layout from '../../../themes/noir/Layout.astro';
+
+const { profile, skills, education } = await getPortfolio();
+---
+
+<Layout title="About">
+  <Fragment slot="stage">
+    <h1 class="title"><strong>About</strong> me</h1>
+    <p class="title-sub">{profile.summary}</p>
+  </Fragment>
+
+  <div class="section cols">
+    <section>
+      <h2 class="h">Profile</h2>
+      <p class="h-sub">{profile.availability}</p>
+      <div class="body-text">
+        {profile.about.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </section>
+    <section>
+      <h2 class="h">Skills</h2>
+      <p class="h-sub">What I work with</p>
+      {
+        skills.map((group) => (
+          <div class="card" style="padding-inline-end:16px">
+            <strong>{group.label}</strong>
+            <span class="desc">{group.items.join(', ')}</span>
+          </div>
+        ))
+      }
+    </section>
+  </div>
+
+  <section class="section">
+    <h2 class="h">Education</h2>
+    <p class="h-sub">From school to a Level 4 Distinction</p>
+    <ul class="notes">
+      {
+        education.map((school) => (
+          <li>
+            <Icon name="note" />
+            <span class="note-title">{school.institution}</span>
+            <small>
+              {school.from} – {school.to}.{' '}
+              {school.awards.map((award) => `${award.title}${award.grade ? `: ${award.grade}` : ''}`).join(', ')}.{' '}
+              {school.verifyUrl && <a class="link" href={school.verifyUrl}>Verify with City &amp; Guilds</a>}
+            </small>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

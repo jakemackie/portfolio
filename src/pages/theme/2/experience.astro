@@ -1,0 +1,60 @@
+---
+import { formatRange, getPortfolio, tenure } from '../../../lib/content';
+import Layout from '../../../themes/heat/Layout.astro';
+
+const { experience, clients } = await getPortfolio();
+const lead = experience.find((job) => job.kind === 'engineering')!;
+const others = experience.filter((job) => job.kind !== 'engineering');
+---
+
+<Layout title="Experience" heading="Experience">
+  <section class="section two">
+    <dl class="meta">
+      <dt>Dates</dt>
+      <dd>{formatRange(lead.start, lead.end)}, {tenure(lead.start, lead.end)}</dd>
+      <dt>Where</dt>
+      <dd>{lead.location}</dd>
+      <dt>Team</dt>
+      <dd>{lead.context}</dd>
+    </dl>
+    <div>
+      <h2 class="big-row-title">{lead.company}</h2>
+      <p style="margin-block:8px 24px;color:var(--soft)">{lead.role}</p>
+      <p class="statement" style="font-size:clamp(1.5rem,2.8vw,2.75rem);max-inline-size:32ch">{lead.summary}</p>
+      <ul class="lines body-text" style="margin-block-start:32px">
+        {lead.highlights.map((point) => <li>{point}</li>)}
+      </ul>
+      <p style="margin-block-start:16px;font-size:14px;color:var(--soft)">{lead.stack.join(', ')}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="eyebrow">Selected clients, 3 of 25+</h2>
+    <div class="big-rows">
+      {
+        clients.map((client) => (
+          <a class="big-row" href={client.url}>
+            <span class="big-row-title sm">{client.name}</span>
+            <span class="big-row-meta">{client.sector}</span>
+            <span class="big-row-tag">{client.summary}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="eyebrow">Earlier</h2>
+    <div class="big-rows">
+      {
+        others.map((job) => (
+          <div class="big-row">
+            <span class="big-row-title sm">{job.company}</span>
+            <span class="big-row-meta">{formatRange(job.start, job.end)}</span>
+            <span class="big-row-tag">{job.role}. {job.summary}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

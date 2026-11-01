@@ -1,0 +1,58 @@
+---
+import { getPortfolio } from '../../../lib/content';
+import Layout from '../../../themes/swiss/Layout.astro';
+
+const { profile, skills, education } = await getPortfolio();
+---
+
+<Layout title="About">
+  <div class="page-head">
+    <h1 class="display">About</h1>
+  </div>
+
+  <section class="section split">
+    <h2 class="side" style="font-size:14px">Profile</h2>
+    <div class="main">
+      <p class="lead">{profile.intro}</p>
+    </div>
+    <div class="half body-text">
+      {profile.about.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>Skills</h2></div>
+    <div class="rows">
+      {
+        skills.map((group) => (
+          <div class="row">
+            <span>{group.label}</span>
+            <span style="grid-column:2/-1">{group.items.join(', ')}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>Education</h2></div>
+    <div class="rows">
+      {
+        education.map((school) => (
+          <div class="row">
+            <span>{school.from} – {school.to}</span>
+            <div style="grid-column:2/-1">
+              <h3 class="display sm">{school.institution}</h3>
+              <ul style="margin-block-start:12px">
+                {school.awards.map((award) => (
+                  <li>{award.title}{award.grade && `: ${award.grade}`}{award.note && `. ${award.note}`}</li>
+                ))}
+              </ul>
+              {school.verifyUrl && <p style="margin-block-start:8px"><a href={school.verifyUrl} style="text-decoration:underline">Verify with City &amp; Guilds</a></p>}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

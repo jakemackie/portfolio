@@ -1,0 +1,46 @@
+- id: hiyield
+  company: Hiyield
+  role: Full-Stack WordPress Developer (Apprentice)
+  kind: engineering
+  start: 2024-06-01
+  end: 2026-07-31
+  location: Truro (hybrid)
+  context: B Corp digital agency, WordPress team
+  summary: Shipped features across 25+ client websites in a small Agile team, from new builds to ongoing support and improvements.
+  highlights:
+    - Turned Figma designs into 50+ reusable Gutenberg blocks in PHP, JavaScript and Tailwind CSS, so clients could build and edit pages without a developer.
+    - Built flexible content models with Advanced Custom Fields, the WP REST API and the template hierarchy, cutting one-off templates in favour of configurable components.
+    - Delivered production work through Git branches, pull requests and peer code review, and kept to WordPress Coding Standards.
+    - Contributed to GitHub Actions CI/CD pipelines, and brought in AI-assisted tooling to speed up implementation, debugging and review.
+  stack:
+    - PHP
+    - JavaScript
+    - Tailwind CSS
+    - Gutenberg
+    - Advanced Custom Fields
+    - WP REST API
+    - GitHub Actions
+- id: rcht
+  company: Royal Cornwall Hospitals NHS Trust
+  role: IT Work Placement
+  kind: placement
+  start: 2023-02-01
+  end: 2024-02-29
+  location: Truro (hybrid)
+  context: Cornwall IT Services (CITS)
+  summary: Year-long placement with Cornwall IT Services, the IT provider for the NHS in Cornwall, working in system administration.
+- id: sainsburys
+  company: Sainsbury's
+  role: Retail Assistant
+  kind: earlier
+  start: 2023-03-01
+  end: 2024-05-31
+  summary: Stock control, customer enquiries and shop-floor standards, working with colleagues to keep the store running smoothly.
+- id: tesco
+  company: Tesco
+  role: Dotcom Personal Shopper (part-time)
+  kind: earlier
+  start: 2022-06-01
+  end: 2022-12-31
+  location: Penzance
+  summary: Picked and prepared online orders against delivery slots, and helped with customer enquiries.

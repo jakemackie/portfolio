@@ -1,0 +1,23 @@
+- id: jake
+  name: Jake Mackie
+  role: Full-Stack Developer
+  location: Penzance, Cornwall
+  coordinates:
+    lat: 50.1186
+    lon: -5.5372
+  email: jakemackie31@gmail.com
+  availability: "Based in Penzance and open to work: on-site, hybrid or remote."
+  summary: Full-stack developer in Cornwall. Two years shipping production WordPress for 25+ clients, plus my own products on Cloudflare and .NET.
+  intro: I turn Figma designs into fast, accessible sites, and build the reusable blocks that let content teams run them without a developer.
+  about:
+    - I'm a full-stack developer based in Penzance. I spent two years at Hiyield, a B Corp digital agency in Truro, on a small Agile WordPress team, shipping and maintaining production sites for more than 25 clients, from charities to B2B tech firms.
+    - "Most of that work was turning Figma designs into reusable Gutenberg blocks in PHP, JavaScript and Tailwind CSS. I built more than 50 of them. The aim was always the same: a content team should be able to build and edit a page without waiting on a developer."
+    - Outside work I ship my own products. Dispatch is a serverless Discord app on Cloudflare Workers that turns community bug reports into structured GitHub issues. ReSkate Trainer Updater is a .NET desktop app with signed update manifests, automatic rollback and a release pipeline behind it.
+    - I came through the apprenticeship route, starting with a BTEC and T Level at Truro and Penwith College, and finished the Level 4 Software Developer apprenticeship with a Distinction on every graded component. Before that I spent a year on placement with Cornwall IT Services, the IT provider for the NHS in Cornwall.
+  links:
+    - label: GitHub
+      handle: jakemackie
+      url: https://github.com/jakemackie
+    - label: LinkedIn
+      handle: in/jakemackie
+      url: https://www.linkedin.com/in/jakemackie

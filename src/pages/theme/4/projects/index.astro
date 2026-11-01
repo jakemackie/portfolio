@@ -1,0 +1,45 @@
+---
+import Icon from '../../../../components/Icon.astro';
+import { getPortfolio } from '../../../../lib/content';
+import Layout from '../../../../themes/noir/Layout.astro';
+
+const { projects, otherRepos } = await getPortfolio();
+---
+
+<Layout title="Projects">
+  <Fragment slot="stage">
+    <h1 class="title"><strong>Projects</strong></h1>
+    <p class="title-sub">Serverless apps, a desktop updater and a pull request pipeline, all public on GitHub.</p>
+  </Fragment>
+
+  <div class="section cols">
+    <section>
+      <h2 class="h">Featured</h2>
+      <p class="h-sub">With full write-ups</p>
+      {
+        projects.map((project) => (
+          <a class="card" href={`/theme/4/projects/${project.slug}`}>
+            <strong>{project.title}</strong>
+            <span class="desc">{project.tagline}</span>
+            <Icon name="arrow-up-right" />
+          </a>
+        ))
+      }
+    </section>
+    <section>
+      <h2 class="h">More on GitHub</h2>
+      <p class="h-sub">Smaller repositories</p>
+      <ul class="notes">
+        {
+          otherRepos.map((repo) => (
+            <li>
+              <Icon name="github" />
+              <a class="note-title" href={repo.url}>{repo.name}</a>
+              <small>{repo.language && `${repo.language}. `}{repo.description}</small>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</Layout>

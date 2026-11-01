@@ -1,0 +1,44 @@
+---
+import { Font } from 'astro:assets';
+import BaseHead from '../../components/BaseHead.astro';
+import ThemeBar from '../../components/ThemeBar.astro';
+import { getPortfolio, themeNav } from '../../lib/content';
+import './theme.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const { profile } = await getPortfolio();
+const nav = themeNav('1', Astro.url.pathname).filter((link) => link.label !== 'Home');
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <BaseHead {title} {description} themeColor="#dcdbd8" />
+    <Font cssVariable="--font-inter-tight" preload />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="top">
+      <a href="/theme/1">{profile.name}</a>
+      <p>Open to work,<br />previously at Hiyield</p>
+      <p>Based in Penzance<br />United Kingdom</p>
+      <nav aria-label="Main">
+        {nav.map((link, index) => <><a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>{index < nav.length - 1 ? ', ' : ''}</>)}
+      </nav>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="bottom">
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      <p>{profile.location}</p>
+      <p>{profile.links.map((link, index) => <>{index > 0 && ', '}<a href={link.url}>{link.label}</a></>)}</p>
+    </footer>
+    <ThemeBar />
+  </body>
+</html>

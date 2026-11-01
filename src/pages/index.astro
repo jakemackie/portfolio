@@ -1,0 +1,204 @@
+---
+import { Font } from 'astro:assets';
+import BaseHead from '../components/BaseHead.astro';
+import { getPortfolio, themeNav } from '../lib/content';
+
+const { profile, themes } = await getPortfolio();
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <BaseHead title="Choose a theme" themeColor="#f3f2ee" colorScheme="light dark" />
+    <Font cssVariable="--font-inter-tight" preload />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="who">{profile.name}, {profile.role.toLowerCase()}</p>
+        <h1>One portfolio, four ways of telling it.</h1>
+        <p class="lede">
+          Every version uses the same content collections, so only the design changes. Open one and use the
+          switcher on the right edge to compare the same page across themes.
+        </p>
+      </header>
+
+      <ol class="themes">
+        {
+          themes.map((theme) => (
+            <li class="theme">
+              <a class="preview" href={`/theme/${theme.id}`} aria-label={`Open theme ${theme.id}, ${theme.name}`}>
+                <iframe src={`/theme/${theme.id}`} title="" tabindex="-1" loading="lazy" aria-hidden="true" />
+              </a>
+              <div class="meta">
+                <h2>
+                  <span class="num">{theme.id}</span> <a href={`/theme/${theme.id}`}>{theme.name}</a>
+                </h2>
+                <p class="concept">{theme.concept}</p>
+                <p class="note">{theme.note}</p>
+                <ul class="pages">
+                  {
+                    themeNav(theme.id, '').map((page) => (
+                      <li>
+                        <a href={page.href}>{page.label}</a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </main>
+
+    <script>
+      // Fit each 1280px wide live preview to its card.
+      const observer = new ResizeObserver((entries) => {
+        for (const { target, contentRect } of entries) {
+          (target as HTMLElement).style.setProperty('--preview-scale', String(contentRect.width / 1280));
+        }
+      });
+      document.querySelectorAll('.preview').forEach((preview) => observer.observe(preview));
+    </script>
+
+    <style is:global>
+      :root {
+        --bg: #f3f2ee;
+        --fg: #17181a;
+        --muted: #5d5e5a;
+        --line: #d5d3cb;
+        --frame: #fff;
+        color-scheme: light dark;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #141516;
+          --fg: #f1f0ec;
+          --muted: #a5a5a0;
+          --line: #333537;
+          --frame: #000;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--font-inter-tight), system-ui, sans-serif;
+        line-height: 1.5;
+      }
+      main {
+        max-inline-size: 1240px;
+        margin-inline: auto;
+        padding: clamp(32px, 6vw, 72px) clamp(16px, 4vw, 40px) 96px;
+      }
+      header {
+        max-inline-size: 44rem;
+        margin-block-end: clamp(32px, 5vw, 64px);
+      }
+      .who {
+        margin: 0 0 12px;
+        color: var(--muted);
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 5.5vw, 3.75rem);
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+        font-weight: 700;
+        text-wrap: balance;
+      }
+      .lede {
+        margin: 20px 0 0;
+        font-size: 1.125rem;
+        color: var(--muted);
+        text-wrap: pretty;
+      }
+      .themes {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+        gap: clamp(32px, 4vw, 48px) clamp(20px, 3vw, 32px);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .preview {
+        display: block;
+        position: relative;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        background: var(--frame);
+        border-radius: 8px;
+        outline: 1px solid var(--line);
+        transition: outline-color 0.15s;
+      }
+      .preview:hover {
+        outline: 2px solid var(--fg);
+      }
+      .preview:focus-visible {
+        outline: 3px solid var(--fg);
+        outline-offset: 2px;
+      }
+      .preview iframe {
+        position: absolute;
+        inset: 0 auto auto 0;
+        inline-size: 1280px;
+        block-size: 800px;
+        border: 0;
+        transform-origin: 0 0;
+        
+        scale: var(--preview-scale, 0.45);
+        pointer-events: none;
+      }
+      .meta {
+        padding-block-start: 16px;
+      }
+      h2 {
+        margin: 0;
+        font-size: 1.375rem;
+        letter-spacing: -0.015em;
+      }
+      h2 a {
+        color: inherit;
+        text-decoration: none;
+      }
+      h2 a:hover {
+        text-decoration: underline;
+      }
+      .num {
+        color: var(--muted);
+        font-weight: 400;
+        margin-inline-end: 4px;
+      }
+      .concept {
+        margin: 2px 0 0;
+        font-weight: 500;
+      }
+      .note {
+        margin: 6px 0 0;
+        color: var(--muted);
+        max-inline-size: 34rem;
+        text-wrap: pretty;
+      }
+      .pages {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 14px;
+        margin: 12px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .pages a {
+        color: inherit;
+        text-underline-offset: 3px;
+        text-decoration-color: var(--line);
+      }
+      .pages a:hover {
+        text-decoration-color: currentColor;
+      }
+    </style>
+  </body>
+</html>

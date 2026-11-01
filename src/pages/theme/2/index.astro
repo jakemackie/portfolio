@@ -1,0 +1,71 @@
+---
+import Icon from '../../../components/Icon.astro';
+import { formatRange, formatStat, getPortfolio } from '../../../lib/content';
+import Layout from '../../../themes/heat/Layout.astro';
+
+const { profile, highlights, projects, experience } = await getPortfolio();
+const roles = experience.filter((job) => job.kind !== 'earlier');
+const [first, ...last] = profile.name.split(' ');
+---
+
+<Layout>
+  <Fragment slot="band">
+    <div class="band-side">
+      <p>{profile.intro} {profile.availability}</p>
+      <a class="pill" href="/theme/2/contact">Get in touch <Icon name="arrow-right" /></a>
+    </div>
+    <h1 class="giant">{first} <span class="fade">{last.join(' ')}</span></h1>
+  </Fragment>
+
+  <section class="section">
+    <h2 class="eyebrow">Selected projects</h2>
+    <div class="big-rows">
+      {
+        projects.map((project) => (
+          <a class="big-row" href={`/theme/2/projects/${project.slug}`}>
+            <span class="big-row-title">{project.title}</span>
+            <span class="big-row-meta">{project.platform}, {project.year}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="statement">{profile.summary}</p>
+    <p style="margin-block-start:24px"><a class="link" href="/theme/2/about">More about me</a></p>
+  </section>
+
+  <section class="section">
+    <ul class="stats">
+      {
+        highlights.map((highlight) => (
+          <li>
+            <p class="stat-value">{formatStat(highlight)}</p>
+            <p class="stat-label">{highlight.label}</p>
+            <p class="stat-detail">{highlight.detail}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2 class="eyebrow">Experience</h2>
+    <div class="big-rows">
+      {
+        roles.map((job) => (
+          <a class="big-row" href="/theme/2/experience">
+            <span class="big-row-title sm">{job.company}</span>
+            <span class="big-row-meta">{job.role}<br />{formatRange(job.start, job.end)}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <a class="closing" href="/theme/2/contact">
+    <p>{profile.availability}</p>
+    <strong>Let's chat</strong>
+  </a>
+</Layout>

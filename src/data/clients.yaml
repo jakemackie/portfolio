@@ -1,0 +1,24 @@
+- id: friends-of-the-lake-district
+  order: 1
+  name: Friends of the Lake District
+  url: https://www.friendsofthelakedistrict.org.uk
+  domain: friendsofthelakedistrict.org.uk
+  sector: Charity
+  summary: Reusable blocks and content tools for campaigns, advocacy pages and member resources, so staff can publish without developer help.
+  engagement: hiyield
+- id: skentel
+  order: 2
+  name: Skentel
+  url: https://www.skentel.net
+  domain: skentel.net
+  sector: IoT remote monitoring
+  summary: Page-building components that present a complex service range consistently.
+  engagement: hiyield
+- id: leftbrain
+  order: 3
+  name: LeftBrain
+  url: https://www.leftbrain.io
+  domain: leftbrain.io
+  sector: B2B technology
+  summary: A component-based content structure for service pages, case studies and thought-leadership content.
+  engagement: hiyield

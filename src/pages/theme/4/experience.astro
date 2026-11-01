@@ -1,0 +1,67 @@
+---
+import Icon from '../../../components/Icon.astro';
+import { formatRange, getPortfolio, tenure } from '../../../lib/content';
+import Layout from '../../../themes/noir/Layout.astro';
+
+const { experience, clients } = await getPortfolio();
+const lead = experience.find((job) => job.kind === 'engineering')!;
+const others = experience.filter((job) => job.kind !== 'engineering');
+---
+
+<Layout title="Experience">
+  <Fragment slot="stage">
+    <h1 class="title"><strong>Experience</strong></h1>
+    <p class="title-sub">{lead.summary}</p>
+  </Fragment>
+
+  <div class="section cols">
+    <section>
+      <h2 class="h">{lead.company}</h2>
+      <p class="h-sub">{lead.role}</p>
+      <ul class="notes">
+        {lead.highlights.map((point) => <li><Icon name="note" /><span>{point}</span></li>)}
+      </ul>
+    </section>
+    <section>
+      <h2 class="h">Details</h2>
+      <p class="h-sub">{formatRange(lead.start, lead.end)}, {tenure(lead.start, lead.end)}</p>
+      <div class="card" style="padding-inline-end:16px">
+        <dl class="meta">
+          <dt>Team</dt>
+          <dd>{lead.context}</dd>
+          <dt>Where</dt>
+          <dd>{lead.location}</dd>
+          <dt>Stack</dt>
+          <dd>{lead.stack.join(', ')}</dd>
+        </dl>
+      </div>
+      <h2 class="h" style="margin-block-start:32px">Clients</h2>
+      <p class="h-sub">Three of 25+</p>
+      {
+        clients.map((client) => (
+          <a class="card" href={client.url}>
+            <strong>{client.name}</strong>
+            <span class="desc">{client.sector}. {client.summary}</span>
+            <Icon name="arrow-up-right" />
+          </a>
+        ))
+      }
+    </section>
+  </div>
+
+  <section class="section">
+    <h2 class="h">Earlier</h2>
+    <p class="h-sub">Before and alongside the apprenticeship</p>
+    <ul class="notes">
+      {
+        others.map((job) => (
+          <li>
+            <Icon name="note" />
+            <span class="note-title">{job.role}, {job.company}</span>
+            <small>{formatRange(job.start, job.end)}. {job.summary}</small>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

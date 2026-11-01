@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import Icon from '../../../../components/Icon.astro';
+import LiveRepo from '../../../../components/LiveRepo.astro';
+import { getPortfolio, projectPaths, type Project } from '../../../../lib/content';
+import Layout from '../../../../themes/noir/Layout.astro';
+
+export const getStaticPaths = projectPaths;
+
+const { project } = Astro.props as { project: Project };
+const { Content } = await render(project);
+const { projects } = await getPortfolio();
+const view = projects.find((p) => p.slug === project.id)!;
+const next = projects[(projects.indexOf(view) + 1) % projects.length]!;
+---
+
+<Layout title={view.title} description={view.tagline}>
+  <Fragment slot="stage">
+    <h1 class="title"><strong>{view.title}</strong></h1>
+    <p class="title-sub">{view.tagline}</p>
+  </Fragment>
+
+  {
+    view.images.length > 0 && (
+      <div class:list={['section', 'shots', { two: view.images.length > 1 }]}>
+        {view.images.map((image) => (
+          <Image src={image.src} alt={image.alt} widths={[500, 900, 1300]} sizes="(min-width: 760px) 520px, 100vw" />
+        ))}
+      </div>
+    )
+  }
+
+  <div class="section cols">
+    <section>
+      <h2 class="h">The project</h2>
+      <p class="h-sub">{view.platform}, {view.year}</p>
+      <div class="prose"><Content /></div>
+    </section>
+    <section>
+      <h2 class="h">Details</h2>
+      <p class="h-sub">Stack and links</p>
+      <div class="card" style="padding-inline-end:16px">
+        <dl class="meta">
+          <dt>Built with</dt>
+          <dd>{view.stack.join(', ')}</dd>
+          {
+            view.repoData && (
+              <>
+                <dt>Source</dt>
+                <dd><a href={view.repoData.url}>{view.repoData.fullName}</a></dd>
+                <dt>On GitHub now</dt>
+                <dd><LiveRepo repo={view.repoData} /></dd>
+              </>
+            )
+          }
+          {
+            view.live && (
+              <>
+                <dt>Live</dt>
+                <dd><a href={view.live}>{new URL(view.live).host}</a></dd>
+              </>
+            )
+          }
+        </dl>
+      </div>
+      <ul class="notes" style="margin-block-start:16px">
+        {view.points.map((point) => <li><Icon name="note" /><span>{point}</span></li>)}
+      </ul>
+      <a class="card" href={`/theme/4/projects/${next.slug}`} style="margin-block-start:24px">
+        <span class="desc" style="margin:0">Next project</span>
+        <strong>{next.title}</strong>
+        <Icon name="arrow-up-right" />
+      </a>
+    </section>
+  </div>
+</Layout>
