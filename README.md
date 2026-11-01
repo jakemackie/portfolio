@@ -9,6 +9,7 @@ Astro 7 on Cloudflare Workers, with all content in Zod collections.
 | `/experience` | Roles and selected clients |
 | `/projects`, `/projects/[slug]` | Project list and write-ups |
 | `/education` | The Level 4 Distinction, with the badge and a link to verify it |
+| `/resume` | The CV, `public/jake-mackie-cv.pdf`, to download or open |
 | `/contact` | Email and links |
 
 ## Commands

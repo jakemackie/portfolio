@@ -79,6 +79,7 @@ const pages = [
   { path: '/experience', label: 'Experience' },
   { path: '/projects', label: 'Projects' },
   { path: '/education', label: 'Education' },
+  { path: '/resume', label: 'Resume' },
   { path: '/contact', label: 'Contact' },
 ];
 

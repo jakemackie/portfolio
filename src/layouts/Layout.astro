@@ -40,7 +40,7 @@ const isHome = pagePath(Astro.url.pathname) === '/';
       document.addEventListener('click', (e) => {
         const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
         if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-        if (a.target || a.origin !== location.origin || a.pathname === location.pathname) return;
+        if (a.target || a.hasAttribute('download') || a.origin !== location.origin || a.pathname === location.pathname) return;
         const r = a.getBoundingClientRect();
         const x = e.detail ? e.clientX : r.left + r.width / 2;
         const y = e.detail ? e.clientY : r.top + r.height / 2;
