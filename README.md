@@ -1,16 +1,15 @@
 # Jake Mackie's portfolio
 
-Astro 7 on Cloudflare Workers. One set of content collections, four separately designed themes.
+Astro 7 on Cloudflare Workers, with all content in Zod collections.
 
 | Route | What it is |
 | --- | --- |
-| `/` | Theme chooser with live previews |
-| `/theme/1` | Swiss: grey paper and huge uppercase type |
-| `/theme/2` | Heat: a gradient hero with a full-width name |
-| `/theme/3` | Cobalt: a blue studio landing page |
-| `/theme/4` | Noir: near-black with a soft orb and pill nav |
-
-Each theme has `/about`, `/experience`, `/projects`, `/projects/[slug]` and `/contact`.
+| `/` | Home |
+| `/about` | Profile and skills |
+| `/experience` | Roles and selected clients |
+| `/projects`, `/projects/[slug]` | Project list and write-ups |
+| `/education` | The Level 4 Distinction, with the badge and a link to verify it |
+| `/contact` | Email and links |
 
 ## Commands
 
@@ -24,14 +23,17 @@ npm run deploy         # build, then wrangler deploy
 
 ## Editing content
 
-Everything the themes show comes from the collections in `src/content.config.ts`, validated with Zod.
+Everything on the site comes from the collections in `src/content.config.ts`.
 
 | Collection | Source |
 | --- | --- |
-| `profile`, `highlights`, `experience`, `clients`, `skills`, `education`, `themes` | `src/data/*.yaml` |
+| `profile`, `highlights`, `experience`, `clients`, `skills`, `education` | `src/data/*.yaml` |
 | `projects` | `src/content/projects/*.md`, with images from `src/assets/projects` |
+| `credentials` | `src/content/credentials/*.md`, with the badge from `src/assets/credentials` |
 | `repos`, `activity` | GitHub, through the loaders in `src/loaders/github.ts` |
 | `repoStats` (live) | GitHub at request time, defined in `src/live.config.ts` |
+
+The look lives in `src/layouts/Layout.astro` and `src/styles/theme.css`.
 
 ## GitHub data
 
@@ -46,12 +48,6 @@ Project pages also show live stars and last push through a server island (`src/c
 ```bash
 npx wrangler secret put GITHUB_TOKEN
 ```
-
-## Themes
-
-A theme is a folder of styles in `src/themes/<name>` plus a folder of real routes in `src/pages/theme/<n>`. Keeping routes separate means each page only loads its own theme's CSS.
-
-To keep one theme: move its pages up to `src/pages`, delete the other themes and `ThemeBar`, and update the canonical URL logic in `src/components/BaseHead.astro`.
 
 ## Deployment notes
 

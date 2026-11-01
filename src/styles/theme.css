@@ -417,6 +417,83 @@ a.big-row:hover {
   color: var(--hot);
 }
 
+/* Education */
+.credential {
+  display: grid;
+  gap: 32px clamp(24px, 5vw, 80px);
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .credential {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+}
+
+.badge {
+  inline-size: min(100%, 320px);
+  justify-self: center;
+}
+
+.credential-note {
+  margin-block-start: 16px;
+  max-inline-size: 52ch;
+  font-size: 18px;
+  color: #dcd8cd;
+}
+
+.pill.on-dark {
+  margin-block-start: 24px;
+  padding: 8px 12px 8px 16px;
+  transition: background-color 0.15s ease;
+}
+
+.pill.on-dark:hover {
+  background: #ffffff;
+}
+
+.credential-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 16px 24px;
+  margin-block-start: 32px;
+  padding-block-start: 24px;
+  border-block-start: 1px solid var(--line);
+}
+
+.credential-meta dt {
+  margin-block-start: 0;
+}
+
+.home-credential {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  padding-block: 24px;
+  border-block: 1px solid var(--line);
+  transition: color 0.15s ease;
+}
+
+.home-credential:hover {
+  color: var(--hot);
+}
+
+.home-credential strong {
+  display: block;
+  font-size: clamp(1.5rem, 3.2vw, 3rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.home-credential span {
+  display: block;
+  margin-block-start: 6px;
+  font-size: 14px;
+  color: var(--soft);
+}
+
 /* Closing band */
 .closing {
   display: block;

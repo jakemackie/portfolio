@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry, render } from 'astro:content';
+import Icon from '../components/Icon.astro';
+import { formatDate, getPortfolio } from '../lib/content';
+import Layout from '../layouts/Layout.astro';
+
+const entry = await getEntry('credentials', 'level-4-software-developer');
+if (!entry) throw new Error('The Level 4 credential entry is missing');
+const credential = entry.data;
+const { Content } = await render(entry);
+const { education } = await getPortfolio();
+---
+
+<Layout
+  title="Education"
+  description="How I earned a Distinction in the Level 4 Software Developer apprenticeship, with a link to verify the certificate."
+  heading="Education"
+>
+  <section class="section credential">
+    <Image class="badge" src={credential.badge} alt={credential.badgeAlt} width={320} height={320} />
+    <div>
+      <p class="eyebrow" style="margin-block-end:12px">Apprenticeship, {credential.awarded.getUTCFullYear()}</p>
+      <h2 class="statement">{credential.title}, with a {credential.grade}</h2>
+      <p class="credential-note">{credential.statement}</p>
+      <a class="pill on-dark" href={credential.verifyUrl}>Verify the certificate <Icon name="arrow-up-right" /></a>
+      <dl class="meta credential-meta">
+        <div>
+          <dt>Grade</dt>
+          <dd>{credential.grade}</dd>
+        </div>
+        <div>
+          <dt>Awarded</dt>
+          <dd>{formatDate(credential.awarded)}</dd>
+        </div>
+        <div>
+          <dt>Awarding body</dt>
+          <dd>{credential.issuer}</dd>
+        </div>
+        <div>
+          <dt>Training provider</dt>
+          <dd>{credential.provider}</dd>
+        </div>
+        <div>
+          <dt>Qualification code</dt>
+          <dd>{credential.code}</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section two">
+    <h2 class="eyebrow">The two years behind it</h2>
+    <div class="prose"><Content /></div>
+  </section>
+
+  <section class="section">
+    <h2 class="eyebrow">Full history</h2>
+    <div class="big-rows">
+      {
+        education.map((school) => (
+          <div class="big-row">
+            <h3 class="big-row-title sm">{school.institution}</h3>
+            <span class="big-row-meta">{school.from} – {school.to}</span>
+            <ul class="big-row-tag">
+              {school.awards.map((award) => (
+                <li>{award.title}{award.grade && `: ${award.grade}`}{award.note && `. ${award.note}`}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

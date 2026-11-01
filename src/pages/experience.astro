@@ -1,6 +1,6 @@
 ---
-import { formatRange, getPortfolio, tenure } from '../../../lib/content';
-import Layout from '../../../themes/heat/Layout.astro';
+import { formatRange, getPortfolio, tenure } from '../lib/content';
+import Layout from '../layouts/Layout.astro';
 
 const { experience, clients } = await getPortfolio();
 const lead = experience.find((job) => job.kind === 'engineering')!;

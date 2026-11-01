@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import { render } from 'astro:content';
-import LiveRepo from '../../../../components/LiveRepo.astro';
-import { getPortfolio, projectPaths, type Project } from '../../../../lib/content';
-import Layout from '../../../../themes/heat/Layout.astro';
+import LiveRepo from '../../components/LiveRepo.astro';
+import { getPortfolio, projectPaths, type Project } from '../../lib/content';
+import Layout from '../../layouts/Layout.astro';
 
 export const getStaticPaths = projectPaths;
 
@@ -62,7 +62,7 @@ const next = projects[(projects.indexOf(view) + 1) % projects.length]!;
     </div>
   </section>
 
-  <a class="closing" href={`/theme/2/projects/${next.slug}`}>
+  <a class="closing" href={`/projects/${next.slug}`}>
     <p>Next project</p>
     <strong>{next.title}</strong>
   </a>

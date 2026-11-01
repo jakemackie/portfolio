@@ -9,7 +9,6 @@ const profile = defineCollection({
     name: z.string(),
     role: z.string(),
     location: z.string(),
-    coordinates: z.object({ lat: z.number(), lon: z.number() }),
     email: z.email(),
     availability: z.string().optional(),
     summary: z.string(),
@@ -89,17 +88,6 @@ const education = defineCollection({
   }),
 });
 
-const themes = defineCollection({
-  loader: file('src/data/themes.yaml'),
-  schema: z.object({
-    order: z.number().int(),
-    name: z.string(),
-    concept: z.string(),
-    note: z.string(),
-    mode: z.enum(['light', 'dark']),
-  }),
-});
-
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
   schema: ({ image }) =>
@@ -112,7 +100,6 @@ const projects = defineCollection({
       platform: z.string(),
       stack: z.array(z.string()).min(1),
       repo: reference('repos').optional(),
-      extraRepos: z.array(reference('repos')).default([]),
       live: z.url().optional(),
       points: z.array(z.string()).min(1),
       images: z.array(z.object({ src: image(), alt: z.string() })).default([]),
@@ -120,7 +107,7 @@ const projects = defineCollection({
 });
 
 /** Public repositories. Live with GITHUB_TOKEN set, otherwise from the committed snapshot. */
-export const repoSchema = z.object({
+const repoSchema = z.object({
   name: z.string(),
   fullName: z.string(),
   description: z.string().nullable(),
@@ -131,6 +118,25 @@ export const repoSchema = z.object({
   topics: z.array(z.string()),
   createdAt: z.coerce.date(),
   pushedAt: z.coerce.date(),
+});
+
+/** The Level 4 credential: its details as frontmatter, and the story of getting it as the body. */
+const credentials = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/credentials' }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      achievement: z.string(),
+      grade: z.string(),
+      issuer: z.string(),
+      provider: z.string(),
+      code: z.string(),
+      awarded: z.coerce.date(),
+      statement: z.string(),
+      verifyUrl: z.url(),
+      badge: image(),
+      badgeAlt: z.string(),
+    }),
 });
 
 const repos = defineCollection({ loader: githubReposLoader(), schema: repoSchema });
@@ -153,8 +159,8 @@ export const collections = {
   clients,
   skills,
   education,
-  themes,
   projects,
+  credentials,
   repos,
   activity,
 };

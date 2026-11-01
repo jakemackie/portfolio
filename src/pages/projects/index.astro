@@ -1,0 +1,23 @@
+---
+import { getPortfolio } from '../../lib/content';
+import Layout from '../../layouts/Layout.astro';
+
+const { projects } = await getPortfolio();
+---
+
+<Layout title="Projects" heading="Projects">
+  <section class="section">
+    <div class="big-rows">
+      {
+        projects.map((project) => (
+          <a class="big-row" href={`/projects/${project.slug}`}>
+            <span class="big-row-title">{project.title}</span>
+            <span class="big-row-meta">{project.platform}, {project.year}</span>
+            <span class="big-row-tag">{project.tagline}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+</Layout>

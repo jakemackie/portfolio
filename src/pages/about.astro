@@ -1,0 +1,41 @@
+---
+import { getPortfolio } from '../lib/content';
+import Layout from '../layouts/Layout.astro';
+
+const { profile, skills } = await getPortfolio();
+---
+
+<Layout title="About" heading="About">
+  <section class="section">
+    <p class="statement">{profile.intro}</p>
+  </section>
+
+  <section class="section two">
+    <h2 class="eyebrow">Profile</h2>
+    <div class="body-text">
+      {profile.about.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </section>
+
+  <section class="section two">
+    <h2 class="eyebrow">Skills</h2>
+    <ul class="lines">
+      {
+        skills.map((group) => (
+          <li>
+            <strong style="font-weight:500">{group.label}</strong>
+            <p style="color:var(--soft)">{group.items.join(', ')}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section two">
+    <h2 class="eyebrow">Education</h2>
+    <div>
+      <p class="statement" style="font-size:clamp(1.5rem,2.8vw,2.75rem);max-inline-size:28ch">Level 4 Software Developer apprenticeship, with a Distinction.</p>
+      <p style="margin-block-start:16px"><a class="link" href="/education">Read about my education</a></p>
+    </div>
+  </section>
+</Layout>

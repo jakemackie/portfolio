@@ -11,9 +11,7 @@ interface Props {
 const { profile } = await getPortfolio();
 const { title, description = profile.summary, themeColor, colorScheme = 'light' } = Astro.props;
 const fullTitle = title ? `${title} · ${profile.name}` : `${profile.name} · ${profile.role}`;
-// Every theme repeats the same content, so all of them point search engines at theme 1.
-const path = Astro.url.pathname.replace(/\.html$/, '').replace(/^\/theme\/\d+/, '/theme/1');
-const canonical = new URL(path, Astro.site);
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, ''), Astro.site);
 ---
 
 <meta charset="utf-8" />
