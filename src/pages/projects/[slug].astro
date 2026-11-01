@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { render } from 'astro:content';
 import LiveRepo from '../../components/LiveRepo.astro';
 import { getPortfolio, projectPaths, type Project } from '../../lib/content';
+import { breadcrumbSchema, personRef } from '../../lib/seo';
 import Layout from '../../layouts/Layout.astro';
 
 export const getStaticPaths = projectPaths;
@@ -12,9 +13,36 @@ const { Content } = await render(project);
 const { projects } = await getPortfolio();
 const view = projects.find((p) => p.slug === project.id)!;
 const next = projects[(projects.indexOf(view) + 1) % projects.length]!;
+
+const site = Astro.site!;
+const path = `/projects/${view.slug}`;
+const schema = [
+  {
+    '@type': 'SoftwareSourceCode',
+    name: view.title,
+    description: view.description,
+    url: new URL(path, site).href,
+    author: personRef(site),
+    dateCreated: String(view.year),
+    keywords: view.stack,
+    ...(view.repoData && { codeRepository: view.repoData.url, programmingLanguage: view.repoData.language }),
+  },
+  breadcrumbSchema(site, [
+    { name: 'Home', path: '/' },
+    { name: 'Projects', path: '/projects' },
+    { name: view.title, path },
+  ]),
+];
 ---
 
-<Layout title={view.title} description={view.tagline} heading={view.title} blurb={view.tagline}>
+<Layout
+  title={`${view.title}: ${view.platform}`}
+  description={view.description}
+  heading={view.title}
+  blurb={view.tagline}
+  parent={{ label: 'Projects', href: '/projects' }}
+  {schema}
+>
   <section class="section">
     <p class="statement">{view.tagline}</p>
   </section>

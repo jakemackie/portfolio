@@ -7,12 +7,14 @@
     "preview": "astro build && wrangler dev",
     "deploy": "astro build && wrangler deploy",
     "sync:github": "node scripts/sync-github.mjs",
+    "og": "astro build && node scripts/generate-og.mjs",
     "types": "wrangler types",
     "astro": "astro"
   },
   "type": "module",
   "dependencies": {
     "@astrojs/cloudflare": "^14.4.3",
+    "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.4.4"
   },
   "devDependencies": {

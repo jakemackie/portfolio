@@ -2,6 +2,7 @@
 import { Font } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import { getPortfolio, siteNav } from '../lib/content';
+import { pagePath } from '../lib/seo';
 import '../styles/theme.css';
 
 interface Props {
@@ -13,17 +14,24 @@ interface Props {
   blurb?: string;
   /** Skip the email and social links in the footer, for pages that already show them. */
   bareFoot?: boolean;
+  /** Keep the page out of search results. */
+  noindex?: boolean;
+  /** Extra JSON-LD nodes for this page. */
+  schema?: Record<string, unknown>[];
+  /** Section this page sits under, shown after the name in the header. */
+  parent?: { label: string; href: string };
 }
 
-const { title, description, heading, blurb, bareFoot } = Astro.props;
+const { title, description, heading, blurb, bareFoot, noindex, schema, parent } = Astro.props;
 const { profile } = await getPortfolio();
 const nav = siteNav(Astro.url.pathname);
+const isHome = pagePath(Astro.url.pathname) === '/';
 ---
 
 <!doctype html>
 <html lang="en-GB">
   <head>
-    <BaseHead {title} {description} themeColor="#e5401c" colorScheme="dark" />
+    <BaseHead {title} {description} {noindex} {schema} themeColor="#e5401c" colorScheme="dark" />
     <Font cssVariable="--font-geist" preload />
     <script is:inline>
       document.documentElement.classList.add('js');
@@ -60,7 +68,7 @@ const nav = siteNav(Astro.url.pathname);
     <div class="menu" id="menu" role="dialog" aria-label="Site menu" inert>
       <nav aria-label="Main">
         <ul>
-          <li style="--i:0"><a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}><span class="menu-num">00</span><span class="menu-text">Home</span></a></li>
+          <li style="--i:0"><a href="/" aria-current={isHome ? 'page' : undefined}><span class="menu-num">00</span><span class="menu-text">Home</span></a></li>
           {nav.map((link, i) => (
             <li style={`--i:${i + 1}`}><a href={link.href} aria-current={link.active ? 'page' : undefined}><span class="menu-num">{String(i + 1).padStart(2, '0')}</span><span class="menu-text">{link.label}</span></a></li>
           ))}
@@ -76,6 +84,7 @@ const nav = siteNav(Astro.url.pathname);
     <div class:list={['band', heading ? 'short' : 'full']}>
       <header class="top">
         <a class="logo" href="/">{profile.name}</a>
+        {parent && <a class="crumb" href={parent.href}>/ {parent.label}</a>}
       </header>
       <slot name="band" />
       {

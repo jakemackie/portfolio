@@ -1,6 +1,7 @@
 ---
 title: Dispatch
 tagline: Bug reports from Discord, straight to GitHub.
+description: A serverless Discord app on Cloudflare Workers that turns community bug reports into structured GitHub issues, with triage, upvotes and reputation.
 order: 1
 featured: true
 year: 2026

@@ -1,11 +1,20 @@
 ---
 import { getPortfolio } from '../lib/content';
+import { personRef } from '../lib/seo';
 import Layout from '../layouts/Layout.astro';
 
 const { profile } = await getPortfolio();
+const schema = [{ '@type': 'ContactPage', url: new URL('/contact', Astro.site).href, mainEntity: personRef(Astro.site!) }];
 ---
 
-<Layout title="Contact" heading="Let's chat" blurb="Open to work: on-site, hybrid or remote." bareFoot>
+<Layout
+  title="Contact a Full-Stack Developer in Cornwall"
+  description="Get in touch with Jake Mackie, a full-stack developer based in Penzance, Cornwall, and open to on-site, hybrid or remote work. Email, GitHub and LinkedIn."
+  heading="Let's chat"
+  blurb="Open to work: on-site, hybrid or remote."
+  bareFoot
+  {schema}
+>
   <section class="section" style="padding-block-end:clamp(32px,6vw,72px)">
     <p class="eyebrow">{profile.availability}</p>
     <a class="contact-big" href={`mailto:${profile.email}`}>{profile.email}</a>

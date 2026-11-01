@@ -1,6 +1,7 @@
 ---
 title: Hide My Message
 tagline: Encrypted messages that only the recipient can read.
+description: An installable web app for sending encrypted messages. AES-GCM runs in the browser, and the key stays in the URL fragment, away from the server.
 order: 4
 featured: false
 year: 2025

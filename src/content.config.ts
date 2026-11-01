@@ -94,6 +94,8 @@ const projects = defineCollection({
     z.object({
       title: z.string(),
       tagline: z.string(),
+      /** The meta description, so keep it short enough for search results to show in full. */
+      description: z.string().max(160),
       order: z.number().int(),
       featured: z.boolean().default(false),
       year: z.number().int(),

@@ -49,8 +49,20 @@ Project pages also show live stars and last push through a server island (`src/c
 npx wrangler secret put GITHUB_TOKEN
 ```
 
+## Social banners
+
+Each page has a 1200x630 banner in `public/og`, drawn from its built heading and blurb with the site's own stylesheet. Banners are committed, because rendering them needs Chrome (set `CHROME_PATH` if it isn't in the usual place). Re-run this after changing a heading or blurb, or adding a project, otherwise the new page's `og:image` will 404:
+
+```bash
+npm run og
+```
+
+## Search
+
+Canonicals, `robots.txt`, the sitemap and JSON-LD all derive from `site` in `astro.config.ts`. Titles and descriptions are set per page, and project descriptions live in frontmatter. The structured data is in `src/lib/seo.ts`.
+
 ## Deployment notes
 
-- Set `site` in `astro.config.ts` to the real domain.
+- `site` in `astro.config.ts` must be the production domain, currently `jakemackie.dev`.
 - `compatibility_date` in `wrangler.jsonc` cannot be newer than the installed `workerd` supports.
 - `persistState: false` on the adapter is there because nothing here uses local bindings, and Miniflare's state database cannot open under very long Windows paths.

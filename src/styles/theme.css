@@ -198,6 +198,10 @@ img {
   z-index: 1;
 }
 
+.crumb {
+  margin-inline: -18px auto;
+}
+
 .band-side {
   position: relative;
   z-index: 2;

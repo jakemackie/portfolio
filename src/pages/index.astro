@@ -28,7 +28,7 @@ const credential = (await getEntry('credentials', 'level-4-software-developer'))
       {
         projects.map((project) => (
           <a class="big-row reveal" href={`/projects/${project.slug}`}>
-            <span class="big-row-title">{project.title}</span>
+            <h3 class="big-row-title">{project.title}</h3>
             <span class="big-row-meta">{project.platform}, {project.year}</span>
           </a>
         ))
@@ -61,7 +61,7 @@ const credential = (await getEntry('credentials', 'level-4-software-developer'))
       {
         roles.map((job) => (
           <a class="big-row reveal" href="/experience">
-            <span class="big-row-title sm">{job.company}</span>
+            <h3 class="big-row-title sm">{job.company}</h3>
             <span class="big-row-meta">{job.role}<br />{formatRange(job.start, job.end)}</span>
           </a>
         ))

@@ -1,11 +1,19 @@
 ---
 import { getPortfolio } from '../lib/content';
+import { personRef } from '../lib/seo';
 import Layout from '../layouts/Layout.astro';
 
 const { profile, skills } = await getPortfolio();
+const schema = [{ '@type': 'ProfilePage', url: new URL('/about', Astro.site).href, mainEntity: personRef(Astro.site!) }];
 ---
 
-<Layout title="About" heading="About" blurb="A full-stack developer in Penzance who likes accessible, well-built sites.">
+<Layout
+  title="About a Full-Stack Developer in Cornwall"
+  description="Jake Mackie is a full-stack developer in Penzance, Cornwall, who builds accessible WordPress sites, reusable Gutenberg blocks and serverless apps."
+  heading="About"
+  blurb="A full-stack developer in Penzance who likes accessible, well-built sites."
+  {schema}
+>
   <section class="section">
     <p class="statement">{profile.intro}</p>
   </section>

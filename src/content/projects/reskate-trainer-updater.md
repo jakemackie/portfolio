@@ -1,6 +1,7 @@
 ---
 title: ReSkate Trainer Updater
 tagline: One-click installs and updates for a game mod, with nothing left half-finished.
+description: A Windows desktop app in C# and .NET that installs and updates a game mod in one click, with signed manifests, SHA-256 checks and automatic rollback.
 order: 2
 featured: true
 year: 2026

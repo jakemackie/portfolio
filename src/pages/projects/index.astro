@@ -5,13 +5,18 @@ import Layout from '../../layouts/Layout.astro';
 const { projects } = await getPortfolio();
 ---
 
-<Layout title="Projects" heading="Projects" blurb="Things I have built on my own, from bots to desktop tools.">
+<Layout
+  title="Software Projects: Bots, Apps and Tools"
+  description="Software projects by Jake Mackie, including a serverless Discord bug reporter, a signed Windows game-mod updater and an encrypted messaging web app."
+  heading="Projects"
+  blurb="Things I have built on my own, from bots to desktop tools."
+>
   <section class="section">
     <div class="big-rows">
       {
         projects.map((project) => (
           <a class="big-row" href={`/projects/${project.slug}`}>
-            <span class="big-row-title">{project.title}</span>
+            <h2 class="big-row-title">{project.title}</h2>
             <span class="big-row-meta">{project.platform}, {project.year}</span>
             <span class="big-row-tag">{project.tagline}</span>
           </a>
