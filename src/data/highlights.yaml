@@ -3,13 +3,13 @@
   value: 25
   suffix: "+"
   label: client websites
-  detail: Shipped or maintained at a digital agency, from charities to B2B tech firms.
+  detail: Worked on at a digital agency, from charities to B2B tech firms.
 - id: blocks
   order: 2
   value: 50
   suffix: "+"
   label: Gutenberg blocks
-  detail: Reusable blocks built from Figma designs and used across commercial sites.
+  detail: Reusable blocks built from Figma designs for client sites.
 - id: contributions
   order: 3
   value: 6800
@@ -22,4 +22,4 @@
   value: 4
   prefix: "Level "
   label: apprenticeship, with Distinction
-  detail: A Distinction on every graded component of the Software Developer apprenticeship.
+  detail: Graded Distinction in the Software Developer end-point assessment.

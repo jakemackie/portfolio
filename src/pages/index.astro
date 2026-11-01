@@ -17,7 +17,10 @@ const credential = (await getEntry('credentials', 'level-4-software-developer'))
       <p>{profile.intro} {profile.availability}</p>
       <a class="pill" href="/contact">Get in touch <Icon name="arrow-right" /></a>
     </div>
-    <h1 class="giant">{first} <span class="fade">{last.join(' ')}</span></h1>
+    <h1 class="giant" aria-label={profile.name}>
+      <span class="word" aria-hidden="true" style="--w:0">{first}</span>{' '}
+      <span class="word fade" aria-hidden="true" style="--w:1">{last.join(' ')}</span>
+    </h1>
   </Fragment>
 
   <section class="section">
@@ -25,7 +28,7 @@ const credential = (await getEntry('credentials', 'level-4-software-developer'))
     <div class="big-rows">
       {
         projects.map((project) => (
-          <a class="big-row" href={`/projects/${project.slug}`}>
+          <a class="big-row reveal" href={`/projects/${project.slug}`}>
             <span class="big-row-title">{project.title}</span>
             <span class="big-row-meta">{project.platform}, {project.year}</span>
           </a>
@@ -35,7 +38,7 @@ const credential = (await getEntry('credentials', 'level-4-software-developer'))
   </section>
 
   <section class="section">
-    <p class="statement">{profile.summary}</p>
+    <p class="statement reveal">{profile.summary}</p>
     <p style="margin-block-start:24px"><a class="link" href="/about">More about me</a></p>
   </section>
 
@@ -43,7 +46,7 @@ const credential = (await getEntry('credentials', 'level-4-software-developer'))
     <ul class="stats">
       {
         highlights.map((highlight) => (
-          <li>
+          <li class="reveal">
             <p class="stat-value">{formatStat(highlight)}</p>
             <p class="stat-label">{highlight.label}</p>
             <p class="stat-detail">{highlight.detail}</p>
@@ -58,7 +61,7 @@ const credential = (await getEntry('credentials', 'level-4-software-developer'))
     <div class="big-rows">
       {
         roles.map((job) => (
-          <a class="big-row" href="/experience">
+          <a class="big-row reveal" href="/experience">
             <span class="big-row-title sm">{job.company}</span>
             <span class="big-row-meta">{job.role}<br />{formatRange(job.start, job.end)}</span>
           </a>
@@ -84,6 +87,6 @@ const credential = (await getEntry('credentials', 'level-4-software-developer'))
 
   <a class="closing" href="/contact">
     <p>{profile.availability}</p>
-    <strong>Let's chat</strong>
+    <strong>Let's chat <Icon name="arrow-up-right" size={64} stroke={1.25} /></strong>
   </a>
 </Layout>

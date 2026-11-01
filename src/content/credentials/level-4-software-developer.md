@@ -16,7 +16,7 @@ I joined Hiyield as an apprentice in June 2024, straight from my T Level at Trur
 
 ## Learning on real work
 
-The apprenticeship focused on full-stack web development, modern development workflows and commercial software practices. At Hiyield those were the job: shipping features across more than 25 client websites, building over 50 reusable Gutenberg blocks from Figma designs, and getting work into production through Git branches, pull requests and peer code review.
+The apprenticeship focused on full-stack web development, modern development workflows and commercial software practices. At Hiyield those were the job: working on more than 25 client websites, building over 50 reusable Gutenberg blocks from Figma designs, and getting work into production through Git branches, pull requests and peer code review.
 
 ## How it was assessed
 
@@ -24,4 +24,4 @@ An apprenticeship finishes with an end-point assessment, set against the nationa
 
 ## What it gave me
 
-It was a great way to build technical skills and professional experience at the same time, and I'm grateful to everyone who supported me along the way.
+It let me build technical skills and professional experience at the same time, and I'm grateful to everyone who supported me along the way.

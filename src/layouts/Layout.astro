@@ -9,13 +9,13 @@ interface Props {
   description?: string;
   /** Big word at the foot of the gradient band. */
   heading?: string;
+  /** Skip the email and social links in the footer, for pages that already show them. */
+  bareFoot?: boolean;
 }
 
-const { title, description, heading } = Astro.props;
+const { title, description, heading, bareFoot } = Astro.props;
 const { profile } = await getPortfolio();
-const nav = siteNav(Astro.url.pathname).filter((link) => link.label !== 'Home');
-const links = nav.filter((link) => link.label !== 'Contact');
-const contact = nav.find((link) => link.label === 'Contact')!;
+const nav = siteNav(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -23,18 +23,33 @@ const contact = nav.find((link) => link.label === 'Contact')!;
   <head>
     <BaseHead {title} {description} themeColor="#e5401c" colorScheme="dark" />
     <Font cssVariable="--font-geist" preload />
+    <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu">
+      <span class="burger-label" data-open="Menu" data-close="Close"></span>
+      <span class="burger-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+    <div class="menu" id="menu" role="dialog" aria-label="Site menu" inert>
+      <nav aria-label="Main">
+        <ul>
+          <li style="--i:0"><a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}><span class="menu-num">00</span><span class="menu-text">Home</span></a></li>
+          {nav.map((link, i) => (
+            <li style={`--i:${i + 1}`}><a href={link.href} aria-current={link.active ? 'page' : undefined}><span class="menu-num">{String(i + 1).padStart(2, '0')}</span><span class="menu-text">{link.label}</span></a></li>
+          ))}
+        </ul>
+      </nav>
+      <div class="menu-foot">
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        <ul>
+          {profile.links.map((link) => <li><a href={link.url}>{link.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
     <div class:list={['band', heading ? 'short' : 'full']}>
       <header class="top">
         <a class="logo" href="/">{profile.name}</a>
-        <nav aria-label="Main">
-          <ul>
-            {links.map((link) => <li><a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a></li>)}
-            <li><a class="chat" href={contact.href} aria-current={contact.active ? 'page' : undefined}>Let's chat</a></li>
-          </ul>
-        </nav>
       </header>
       <slot name="band" />
       {heading && <h1 class="band-heading">{heading}</h1>}
@@ -43,10 +58,79 @@ const contact = nav.find((link) => link.label === 'Contact')!;
       <slot />
     </main>
     <footer class="foot">
-      <a href={`mailto:${profile.email}`}>{profile.email}</a>
-      <ul>
-        {profile.links.map((link) => <li><a href={link.url}>{link.label}</a></li>)}
-      </ul>
+      {
+        bareFoot ? (
+          <span>{profile.name}, {profile.location}</span>
+        ) : (
+          <>
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            <ul>
+              {profile.links.map((link) => <li><a href={link.url}>{link.label}</a></li>)}
+            </ul>
+          </>
+        )
+      }
     </footer>
+    <script>
+      const burger = document.querySelector<HTMLButtonElement>('.burger')!;
+      const menu = document.querySelector<HTMLElement>('.menu')!;
+      const label = burger.querySelector<HTMLElement>('.burger-label')!;
+      const setOpen = (open: boolean) => {
+        burger.setAttribute('aria-expanded', String(open));
+        document.documentElement.toggleAttribute('data-menu', open);
+        menu.inert = !open;
+        if (open) menu.querySelector<HTMLElement>('a')?.focus({ preventScroll: true });
+      };
+      burger.addEventListener('click', () => setOpen(burger.getAttribute('aria-expanded') !== 'true'));
+      menu.addEventListener('click', (e) => {
+        if ((e.target as HTMLElement).closest('a')) setOpen(false);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+          setOpen(false);
+          burger.focus();
+        }
+      });
+      label.setAttribute('aria-hidden', 'true');
+      burger.setAttribute('aria-label', 'Menu');
+
+      // Scroll reveals and stat count-ups.
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const targets = document.querySelectorAll<HTMLElement>('.reveal');
+      if (reduce || !('IntersectionObserver' in window)) {
+        targets.forEach((el) => el.classList.add('in'));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              const el = entry.target as HTMLElement;
+              el.classList.add('in');
+              io.unobserve(el);
+              const value = el.querySelector<HTMLElement>('.stat-value');
+              if (value) countUp(value);
+            }
+          },
+          { threshold: 0.2 },
+        );
+        targets.forEach((el) => io.observe(el));
+      }
+
+      function countUp(el: HTMLElement) {
+        const text = el.textContent ?? '';
+        const match = text.match(/[\d,]+/);
+        if (!match) return;
+        const end = Number(match[0].replace(/,/g, ''));
+        const [before, after] = text.split(match[0]);
+        const start = performance.now();
+        const tick = (now: number) => {
+          const t = Math.min((now - start) / 1400, 1);
+          const eased = 1 - Math.pow(1 - t, 4);
+          el.textContent = `${before}${Math.round(end * eased).toLocaleString('en-GB')}${after}`;
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    </script>
   </body>
 </html>

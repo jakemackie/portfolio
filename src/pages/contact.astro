@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 const { profile } = await getPortfolio();
 ---
 
-<Layout title="Contact" heading="Let's chat">
+<Layout title="Contact" heading="Let's chat" bareFoot>
   <section class="section" style="padding-block-end:clamp(32px,6vw,72px)">
     <p class="eyebrow">{profile.availability}</p>
     <a class="contact-big" href={`mailto:${profile.email}`}>{profile.email}</a>

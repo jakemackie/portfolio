@@ -1,4 +1,4 @@
-# Jake Mackie's portfolio
+# Portfolio
 
 Astro 7 on Cloudflare Workers, with all content in Zod collections.
 

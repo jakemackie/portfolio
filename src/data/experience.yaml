@@ -6,12 +6,12 @@
   end: 2026-07-31
   location: Truro (hybrid)
   context: B Corp digital agency, WordPress team
-  summary: Shipped features across 25+ client websites in a small Agile team, from new builds to ongoing support and improvements.
+  summary: Worked on features across 25+ client websites in a small Agile team, from new builds to ongoing support.
   highlights:
     - Turned Figma designs into 50+ reusable Gutenberg blocks in PHP, JavaScript and Tailwind CSS, so clients could build and edit pages without a developer.
-    - Built flexible content models with Advanced Custom Fields, the WP REST API and the template hierarchy, cutting one-off templates in favour of configurable components.
-    - Delivered production work through Git branches, pull requests and peer code review, and kept to WordPress Coding Standards.
-    - Contributed to GitHub Actions CI/CD pipelines, and brought in AI-assisted tooling to speed up implementation, debugging and review.
+    - Built flexible content models with Advanced Custom Fields, the WP REST API and the template hierarchy, moving away from one-off templates towards configurable components.
+    - Worked through Git branches, pull requests and peer code review, following WordPress Coding Standards.
+    - Contributed to GitHub Actions CI/CD pipelines, and used AI-assisted tooling for implementation, debugging and review.
   stack:
     - PHP
     - JavaScript
