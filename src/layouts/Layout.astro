@@ -9,11 +9,13 @@ interface Props {
   description?: string;
   /** Big word at the foot of the gradient band. */
   heading?: string;
+  /** One short line under the heading. */
+  blurb?: string;
   /** Skip the email and social links in the footer, for pages that already show them. */
   bareFoot?: boolean;
 }
 
-const { title, description, heading, bareFoot } = Astro.props;
+const { title, description, heading, blurb, bareFoot } = Astro.props;
 const { profile } = await getPortfolio();
 const nav = siteNav(Astro.url.pathname);
 ---
@@ -23,7 +25,31 @@ const nav = siteNav(Astro.url.pathname);
   <head>
     <BaseHead {title} {description} themeColor="#e5401c" colorScheme="dark" />
     <Font cssVariable="--font-geist" preload />
-    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script is:inline>
+      document.documentElement.classList.add('js');
+
+      // Remember where the visitor clicked so the next page can open outwards from that point.
+      document.addEventListener('click', (e) => {
+        const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
+        if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        if (a.target || a.origin !== location.origin || a.pathname === location.pathname) return;
+        const r = a.getBoundingClientRect();
+        const x = e.detail ? e.clientX : r.left + r.width / 2;
+        const y = e.detail ? e.clientY : r.top + r.height / 2;
+        try {
+          sessionStorage.setItem('vt-origin', Math.round(x) + 'px ' + Math.round(y) + 'px');
+        } catch {}
+      });
+
+      addEventListener('pagereveal', (e) => {
+        if (!e.viewTransition) return;
+        try {
+          const origin = sessionStorage.getItem('vt-origin');
+          sessionStorage.removeItem('vt-origin');
+          if (origin) document.documentElement.style.setProperty('--vt-origin', origin);
+        } catch {}
+      });
+    </script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -52,7 +78,18 @@ const nav = siteNav(Astro.url.pathname);
         <a class="logo" href="/">{profile.name}</a>
       </header>
       <slot name="band" />
-      {heading && <h1 class="band-heading">{heading}</h1>}
+      {
+        heading && (
+          <h1 class="band-heading" aria-label={heading}>
+            {heading.split(' ').map((word, i) => (
+              <>
+                <span class="word" aria-hidden="true" style={`--w:${i}`}>{word}</span>{' '}
+              </>
+            ))}
+          </h1>
+        )
+      }
+      {heading && blurb && <p class="band-blurb">{blurb}</p>}
     </div>
     <main id="main">
       <slot />
@@ -83,7 +120,14 @@ const nav = siteNav(Astro.url.pathname);
       };
       burger.addEventListener('click', () => setOpen(burger.getAttribute('aria-expanded') !== 'true'));
       menu.addEventListener('click', (e) => {
-        if ((e.target as HTMLElement).closest('a')) setOpen(false);
+        const link = (e.target as HTMLElement).closest('a');
+        if (!link) return;
+        // Leave the menu open when navigating away so the page transition starts from it.
+        const leaving = link.origin === location.origin && link.pathname !== location.pathname;
+        if (!leaving) setOpen(false);
+      });
+      addEventListener('pageshow', (e) => {
+        if (e.persisted) setOpen(false);
       });
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {

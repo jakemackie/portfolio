@@ -14,7 +14,7 @@ const view = projects.find((p) => p.slug === project.id)!;
 const next = projects[(projects.indexOf(view) + 1) % projects.length]!;
 ---
 
-<Layout title={view.title} description={view.tagline} heading={view.title}>
+<Layout title={view.title} description={view.tagline} heading={view.title} blurb={view.tagline}>
   <section class="section">
     <p class="statement">{view.tagline}</p>
   </section>
