@@ -1,6 +1,7 @@
 ---
 import { Font } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
+import Icon from '../components/Icon.astro';
 import { getPortfolio, siteNav } from '../lib/content';
 import { pagePath } from '../lib/seo';
 import '../styles/theme.css';
@@ -18,13 +19,13 @@ interface Props {
   noindex?: boolean;
   /** Extra JSON-LD nodes for this page. */
   schema?: Record<string, unknown>[];
-  /** Section this page sits under, shown after the name in the header. */
-  parent?: { label: string; href: string };
 }
 
-const { title, description, heading, blurb, bareFoot, noindex, schema, parent } = Astro.props;
+const { title, description, heading, blurb, bareFoot, noindex, schema } = Astro.props;
 const { profile } = await getPortfolio();
 const nav = siteNav(Astro.url.pathname);
+// The section this page is in or under, shown after the name in the header.
+const section = nav.find((link) => link.active);
 const isHome = pagePath(Astro.url.pathname) === '/';
 ---
 
@@ -35,6 +36,85 @@ const isHome = pagePath(Astro.url.pathname) === '/';
     <Font cssVariable="--font-geist" preload />
     <script is:inline>
       document.documentElement.classList.add('js');
+
+      // The clock and the sky follow the time in London, wherever the visitor is. Asking for the
+      // Europe/London zone leaves the switch between GMT and BST to the browser's time zone data.
+      {
+        const NIGHT_FROM = 19;
+        const NIGHT_UNTIL = 7;
+        const SKY_COLOURS = { day: '#e5401c', night: '#040614' };
+        const root = document.documentElement;
+        const format = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Europe/London',
+          hour: '2-digit',
+          minute: '2-digit',
+          hourCycle: 'h23',
+          timeZoneName: 'short',
+        });
+        const calm = matchMedia('(prefers-reduced-motion: reduce)');
+
+        const setSky = (sky) => {
+          root.dataset.sky = sky;
+          document.querySelector('meta[name="theme-color"]')?.setAttribute('content', SKY_COLOURS[sky]);
+          const icon = document.querySelector('link[rel="icon"]');
+          const href = sky === 'night' ? '/favicon-night.svg' : '/favicon.svg';
+          if (icon && icon.getAttribute('href') !== href) icon.setAttribute('href', href);
+        };
+
+        // How far the device's clock is from the server's, so a wrong clock can't show the wrong time.
+        // Remembered for the visit, so only the first page asks.
+        let drift = null;
+        try {
+          const saved = sessionStorage.getItem('clock-drift');
+          if (saved !== null) drift = Number(saved) || 0;
+        } catch {}
+
+        const checkDrift = async () => {
+          if (drift !== null) return;
+          try {
+            const response = await fetch(location.href, { method: 'HEAD', cache: 'no-store' });
+            const date = Date.parse(response.headers.get('date'));
+            // An Age header means a cache may have kept an old Date.
+            if (Number.isNaN(date) || response.headers.has('age')) return;
+            const gap = date - Date.now();
+            // The header is only accurate to the second, so leave clocks that are nearly right alone.
+            drift = Math.abs(gap) > 30000 ? gap : 0;
+            sessionStorage.setItem('clock-drift', String(drift));
+            tick();
+          } catch {}
+        };
+
+        const tick = () => {
+          const now = new Date(Date.now() + (drift ?? 0));
+          const parts = Object.fromEntries(format.formatToParts(now).map((part) => [part.type, part.value]));
+          const hour = Number(parts.hour);
+          const sky = hour >= NIGHT_FROM || hour < NIGHT_UNTIL ? 'night' : 'day';
+
+          const time = document.querySelector('.clock-time');
+          if (time) {
+            const text = `${parts.hour}:${parts.minute}`;
+            if (time.textContent !== text) time.textContent = text;
+            const zone = document.querySelector('.clock-zone');
+            if (zone.textContent !== parts.timeZoneName) zone.textContent = parts.timeZoneName;
+          }
+
+          if (root.dataset.sky === sky) return;
+          // Only a change while the page is open animates: dusk and dawn open outwards from the clock.
+          const clock = document.querySelector('.clock');
+          if (root.dataset.sky && clock && document.startViewTransition && !calm.matches && !document.hidden) {
+            const r = clock.getBoundingClientRect();
+            root.style.setProperty('--vt-origin', `${Math.round(r.left + r.width / 2)}px ${Math.round(r.top + r.height / 2)}px`);
+            document.startViewTransition(() => setSky(sky));
+          } else {
+            setSky(sky);
+          }
+        };
+
+        tick();
+        addEventListener('DOMContentLoaded', tick);
+        addEventListener('load', checkDrift);
+        setInterval(tick, 1000);
+      }
 
       // Remember where the visitor clicked so the next page can open outwards from that point.
       document.addEventListener('click', (e) => {
@@ -61,6 +141,10 @@ const isHome = pagePath(Astro.url.pathname) === '/';
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
+    <p class="clock" title={`My local time in ${profile.location}`}>
+      <span class="clock-mood" aria-hidden="true"><Icon name="sun" stroke={2} /><i>z</i><i>z</i><i>z</i></span>
+      <span class="clock-time"></span> <span class="clock-zone"></span>
+    </p>
     <button class="burger" type="button" aria-expanded="false" aria-controls="menu">
       <span class="burger-label" data-open="Menu" data-close="Close"></span>
       <span class="burger-icon" aria-hidden="true"><i></i><i></i></span>
@@ -84,7 +168,7 @@ const isHome = pagePath(Astro.url.pathname) === '/';
     <div class:list={['band', heading ? 'short' : 'full']}>
       <header class="top">
         <a class="logo" href="/">{profile.name}</a>
-        {parent && <a class="crumb" href={parent.href}>/ {parent.label}</a>}
+        {section && <a class="crumb" href={section.href}>/ {section.label}</a>}
       </header>
       <slot name="band" />
       {

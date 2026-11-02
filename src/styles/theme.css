@@ -40,7 +40,8 @@
   }
 }
 
-::view-transition-group(burger) {
+::view-transition-group(burger),
+::view-transition-group(clock) {
   animation-duration: 0.6s;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -53,9 +54,50 @@
   --line: #f4f1e81f;
   --hot: #f2501f;
   --on-heat: #14110c;
+  --on-sky: var(--on-heat);
+  --sky-title: var(--on-sky);
+  --body: #dcd8cd;
+  --cream: #f6f2e6;
+  --cream-hover: #ffffff;
+  --underline: #f4f1e866;
+  --sky-1: #e9b52c;
+  --sky-2: #f07a1e;
+  --sky-3: #e5341a;
+  --sky-4: #f0691d;
+  --sky-5: #ee7d1e;
+  --sky-6: #d9b62e;
+  --sky-7: #c4c736;
+  --sky-sweep: linear-gradient(100deg, var(--sky-3) 0%, var(--sky-4) 38%, var(--sky-6) 74%, var(--sky-7) 100%);
+  --sky-fade: linear-gradient(90deg, #d32a14 0%, #7a2c10 45%, #6c5a14 100%);
   --gutter: clamp(16px, 2.8vw, 40px);
   --vt-origin: calc(100% - 80px) 36px;
   color-scheme: dark;
+}
+
+/* Night in London: the same gradients and motion, in the colours of a night sky. Set in Layout.astro. */
+:root[data-sky="night"] {
+  --ground: #06080f;
+  --raised: #0c0f1b;
+  --fg: #aab2c6;
+  --soft: #767e94;
+  --line: #aab2c61f;
+  --hot: #7390cf;
+  --on-heat: #06080f;
+  --on-sky: #98a0b5;
+  --sky-title: #5f6985;
+  --body: #9099ae;
+  --cream: #aab2c6;
+  --cream-hover: #bcc3d5;
+  --underline: #aab2c659;
+  --sky-1: #101a38;
+  --sky-2: #0b1330;
+  --sky-3: #040614;
+  --sky-4: #091029;
+  --sky-5: #0a122c;
+  --sky-6: #0c1231;
+  --sky-7: #0d1533;
+  /* As by day: solid, starting almost on the sky's own colour so it melts in, and burning through by the end. */
+  --sky-fade: linear-gradient(90deg, #161f45 0%, #2a3a78 45%, #5a76c4 100%);
 }
 
 * {
@@ -130,8 +172,8 @@ img {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  color: var(--on-heat);
-  background: #e5341a;
+  color: var(--on-sky);
+  background: var(--sky-3);
 }
 
 /* An oversized layer so the rings can swell and sway without exposing an edge. */
@@ -145,14 +187,14 @@ img {
   will-change: transform;
   background-image:
     radial-gradient(101% 126% at 12% 91%,
-      #e9b52c 0%,
-      #f07a1e 16%,
-      #e5341a 30%,
-      #f0691d 42%,
-      #e5341a 52%,
-      #ee7d1e 62%,
-      #d9b62e 76%,
-      #c4c736 92%);
+      var(--sky-1) 0%,
+      var(--sky-2) 16%,
+      var(--sky-3) 30%,
+      var(--sky-4) 42%,
+      var(--sky-3) 52%,
+      var(--sky-5) 62%,
+      var(--sky-6) 76%,
+      var(--sky-7) 92%);
 }
 
 .band > * {
@@ -221,7 +263,7 @@ img {
   gap: 8px;
   margin-block-start: 16px;
   padding: 8px 8px 8px 16px;
-  background: #f6f2e6;
+  background: var(--cream);
   color: var(--on-heat);
   border-radius: 999px;
   font-size: 14px;
@@ -237,6 +279,7 @@ img {
 }
 
 .giant {
+  color: var(--sky-title);
   padding-inline: clamp(8px, 1.2vw, 16px);
   font-size: 17.6vw;
   font-weight: 500;
@@ -262,11 +305,20 @@ img {
   }
 }
 
-.giant .fade {
-  background: linear-gradient(90deg, #d32a14 0%, #7a2c10 45%, #6c5a14 100%);
+.giant .fade,
+[data-sky="night"] .giant .word {
+  /* Tight tracking pulls the box in past the last letter, which would slice it where the fill stops. */
+  margin-inline-end: -0.06em;
+  padding-inline-end: 0.06em;
+  background: var(--sky-fade);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+}
+
+/* By night the first name dims into the dark band it runs towards, so it leads into the fade. */
+[data-sky="night"] .giant .word:not(.fade) {
+  background-image: linear-gradient(90deg, #5f6985 0%, #465172 50%, #262f54 100%);
 }
 
 .band-heading .word {
@@ -276,6 +328,7 @@ img {
 }
 
 .band-heading {
+  color: var(--sky-title);
   margin-block-start: auto;
   padding-inline: clamp(8px, 1.2vw, 16px);
   font-size: clamp(3.5rem, 14vw, 15rem);
@@ -420,6 +473,215 @@ a.big-row:hover .big-row-title {
   grid-column: 1 / -1;
 }
 
+/* Screenshots as a single stack: the cards behind peek out, and hovering fans them to invite a click. */
+.gallery-stack {
+  --step: 3%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  inline-size: 100%;
+  max-inline-size: 620px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: inherit;
+  cursor: zoom-in;
+}
+
+.gallery-card {
+  position: relative;
+  grid-area: 1 / 1;
+  align-self: start;
+  z-index: calc(var(--n) - var(--i));
+  inline-size: calc(100% - (var(--n) - 1) * var(--step));
+  margin-block-start: calc(var(--i) * var(--step));
+  margin-inline-start: calc(var(--i) * var(--step));
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 12px 32px #00000099;
+  transition: translate 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-stack:hover .gallery-card,
+.gallery-stack:focus-visible .gallery-card {
+  translate: calc((var(--i) * 3 - 1) * 4px) calc((var(--i) * 3 - 1) * 4px);
+}
+
+.gallery-card img {
+  border-radius: 8px;
+}
+
+.gallery-hint {
+  position: absolute;
+  inset-block-end: 8px;
+  inset-inline-end: 8px;
+  display: grid;
+  place-items: center;
+  inline-size: 28px;
+  block-size: 28px;
+  border-radius: 50%;
+  background: var(--on-heat);
+  color: var(--cream);
+  transition: scale 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-stack:hover .gallery-hint,
+.gallery-stack:focus-visible .gallery-hint {
+  scale: 1.2;
+}
+
+/* Keep the scrollbar's space, so the page behind doesn't shift when the modal opens. */
+html:has(.gallery-modal[open]) {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}
+
+.gallery-modal {
+  inline-size: min(960px, 100vw - 2 * var(--gutter));
+  max-inline-size: none;
+  max-block-size: calc(100dvh - 2 * var(--gutter));
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--raised);
+  color: var(--fg);
+  overflow: hidden;
+  opacity: 0;
+  scale: 0.97;
+  transition:
+    opacity 0.25s ease,
+    scale 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    display 0.25s allow-discrete,
+    overlay 0.25s allow-discrete;
+}
+
+.gallery-modal[open] {
+  display: block;
+  opacity: 1;
+  scale: 1;
+}
+
+.gallery-modal::backdrop {
+  background: #000000b8;
+  opacity: 0;
+  transition:
+    opacity 0.25s ease,
+    display 0.25s allow-discrete,
+    overlay 0.25s allow-discrete;
+}
+
+.gallery-modal[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .gallery-modal[open] {
+    opacity: 0;
+    scale: 0.97;
+  }
+
+  .gallery-modal[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+.gallery-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 12px 10px 20px;
+  border-block-start: 4px solid transparent;
+  border-image: var(--sky-sweep) 1;
+  font-weight: 500;
+}
+
+.gallery-track {
+  display: flex;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.gallery-slide {
+  flex: 0 0 100%;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 12px;
+  margin: 0;
+  padding-inline: 20px;
+  scroll-snap-align: center;
+}
+
+.gallery-slide img {
+  inline-size: auto;
+  max-inline-size: 100%;
+  /* Leaves room for the page margin, the header, the caption and the controls. */
+  max-block-size: calc(100dvh - 2 * var(--gutter) - 210px);
+  border-radius: 6px;
+}
+
+.gallery-slide figcaption {
+  max-inline-size: 70ch;
+  font-size: 14px;
+  color: var(--soft);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.gallery-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 20px 14px;
+}
+
+.gallery-count {
+  min-inline-size: 5ch;
+  font-size: 14px;
+  color: var(--soft);
+  text-align: center;
+}
+
+.gallery-button {
+  display: grid;
+  place-items: center;
+  inline-size: 40px;
+  block-size: 40px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: none;
+  color: var(--fg);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.gallery-button:hover {
+  background: var(--fg);
+  color: var(--on-heat);
+}
+
+.gallery-button .flip {
+  rotate: 180deg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-card,
+  .gallery-hint,
+  .gallery-modal,
+  .gallery-modal::backdrop {
+    transition: none;
+  }
+}
+
 .two {
   display: grid;
   gap: 32px clamp(24px, 4vw, 64px);
@@ -435,7 +697,7 @@ a.big-row:hover .big-row-title {
   max-inline-size: 62ch;
   font-size: 18px;
   line-height: 1.5;
-  color: #dcd8cd;
+  color: var(--body);
 }
 
 .body-text p + p {
@@ -446,7 +708,7 @@ a.big-row:hover .big-row-title {
   max-inline-size: 62ch;
   font-size: 18px;
   line-height: 1.5;
-  color: #dcd8cd;
+  color: var(--body);
 }
 
 .prose p,
@@ -502,13 +764,32 @@ a.big-row:hover .big-row-title {
 }
 
 .meta a,
+.prose a,
 .link {
   text-decoration: underline;
-  text-decoration-color: #f4f1e866;
+  text-decoration-color: var(--underline);
+  text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 
+/* A heading-sized link, where an underline would scale into a thick bar. */
+.title-link {
+  transition: color 0.2s;
+}
+
+.title-link svg {
+  inline-size: 0.42em;
+  block-size: 0.42em;
+  margin-inline-start: 0.08em;
+  vertical-align: 0.42em;
+}
+
+.title-link:hover {
+  color: var(--hot);
+}
+
 .meta a:hover,
+.prose a:hover,
 .link:hover {
   color: var(--hot);
 }
@@ -535,7 +816,7 @@ a.big-row:hover .big-row-title {
   margin-block-start: 16px;
   max-inline-size: 52ch;
   font-size: 18px;
-  color: #dcd8cd;
+  color: var(--body);
 }
 
 .pill.on-dark {
@@ -545,7 +826,7 @@ a.big-row:hover .big-row-title {
 }
 
 .pill.on-dark:hover {
-  background: #ffffff;
+  background: var(--cream-hover);
 }
 
 .credential-meta {
@@ -595,8 +876,8 @@ a.big-row:hover .big-row-title {
   display: block;
   margin-block-start: clamp(56px, 8vw, 112px);
   padding: clamp(32px, 6vw, 72px) var(--gutter) clamp(16px, 2vw, 24px);
-  color: var(--on-heat);
-  background: linear-gradient(100deg, #e5341a 0%, #f0691d 38%, #d9b62e 74%, #c4c736 100%);
+  color: var(--on-sky);
+  background: var(--sky-sweep);
 }
 
 .closing p {
@@ -605,6 +886,7 @@ a.big-row:hover .big-row-title {
 }
 
 .closing strong {
+  color: var(--sky-title);
   display: block;
   margin-block-start: 8px;
   font-size: clamp(2.5rem, 11vw, 12rem);
@@ -672,6 +954,133 @@ a.big-row:hover .big-row-title {
 }
 
 /* Menu */
+/* The time in London, beside the menu pill. */
+.clock {
+  view-transition-name: clock;
+  position: fixed;
+  inset-block-start: 14px;
+  inset-inline-end: calc(var(--gutter) + 107px);
+  z-index: 40;
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px 10px 12px;
+  border-radius: 999px;
+  background: var(--on-heat);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.js .clock {
+  display: inline-flex;
+}
+
+.clock-zone {
+  opacity: 0.6;
+}
+
+/* A little sun by day, and sleepy z's drifting out of the pill by night. */
+.clock-mood {
+  position: relative;
+  flex: none;
+  inline-size: 16px;
+  block-size: 16px;
+}
+
+.clock-mood svg {
+  display: block;
+  color: #f5b83d;
+  animation: sun-turn 16s linear infinite;
+}
+
+.clock-mood i {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 3px;
+  display: none;
+  color: var(--hot);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1;
+  opacity: 0;
+  animation: z-drift 3.6s ease-in infinite;
+}
+
+.clock-mood i:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+.clock-mood i:nth-child(4) {
+  animation-delay: 2.4s;
+}
+
+[data-sky="night"] .clock-mood svg {
+  display: none;
+}
+
+[data-sky="night"] .clock-mood i {
+  display: block;
+}
+
+@keyframes sun-turn {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes z-drift {
+  0% {
+    opacity: 0;
+    transform: translate(0, 2px) scale(0.6);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(12px, -24px) scale(1.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clock-mood svg {
+    animation: none;
+  }
+
+  .clock-mood i {
+    animation: none;
+    opacity: 1;
+    transform: translate(calc(var(--z, 0) * 5px), calc(var(--z, 0) * -5px)) scale(calc(0.7 + var(--z, 0) * 0.15));
+  }
+
+  .clock-mood i:nth-child(3) {
+    --z: 1;
+  }
+
+  .clock-mood i:nth-child(4) {
+    --z: 2;
+  }
+}
+
+@media (max-width: 599px) {
+  .clock-zone {
+    display: none;
+  }
+}
+
+/* Narrow phones have no room for the clock beside the section name. */
+@media (max-width: 429px) {
+  .crumb {
+    display: none;
+  }
+}
+
 .burger {
   view-transition-name: burger;
   position: fixed;
@@ -685,7 +1094,8 @@ a.big-row:hover .big-row-title {
   border: 0;
   border-radius: 999px;
   background: var(--on-heat);
-  color: #f6f2e6;
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--cream);
   font: inherit;
   font-size: 14px;
   font-weight: 500;

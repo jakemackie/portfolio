@@ -1,6 +1,6 @@
 // Renders a 1200x630 social banner for every built page into public/og, using the
 // site's own stylesheet so the banners stay in step with the hero. Run `npm run og`
-// after changing a page's heading or blurb, or adding a project.
+// after changing a page's heading or blurb, or adding a project or client.
 
 import { spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';
@@ -187,7 +187,8 @@ try {
     console.log(`${out}  ${Math.round(size / 1024)} KB`);
   }
   // iOS home-screen icon, on an opaque square because iOS rounds the corners itself.
-  await sharp('public/favicon.svg', { density: 600 })
+  const icon = (await readFile('public/favicon.svg', 'utf8')).replace(/ rx="[^"]+"/, '');
+  await sharp(Buffer.from(icon), { density: 600 })
     .resize(180, 180)
     .flatten({ background: '#17181a' })
     .png()

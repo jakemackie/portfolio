@@ -6,6 +6,16 @@
   sector: Charity
   summary: Reusable blocks and content tools for campaigns, advocacy pages and member resources, so staff can publish without developer help.
   engagement: hiyield
+  images:
+    - src: ../assets/clients/friends-of-the-lake-district-home.jpg
+      alt: "The Friends of the Lake District home page: two walkers on a Cumbrian hillside, under the headline Protecting Cumbria's landscapes, for nature, for people, for ever."
+    - src: ../assets/clients/friends-of-the-lake-district-inner.jpg
+      alt: The Our Work page on the Friends of the Lake District website, with volunteers planting hedgerow trees behind the headline.
+  tagline: The website of the independent charity protecting Cumbria's landscapes.
+  description: WordPress work for Friends of the Lake District, a Cumbrian landscape charity. Gutenberg blocks in PHP and Tailwind CSS, driven by Advanced Custom Fields.
+  about:
+    - Friends of the Lake District is an independent charity and membership organisation dedicated to protecting Cumbria's landscapes. It began at a public rally in Keswick in 1934, and its campaigning led to the creation of the Lake District National Park in 1951. It also represents the Campaign to Protect Rural England in Cumbria.
+    - The website is where that work reaches people. It carries campaigns on issues such as fairer housing and the visitor levy, news, volunteer workparties and events, the land the charity looks after, and the routes to join, donate, volunteer or visit the shop.
 - id: skentel
   order: 2
   name: Skentel
@@ -14,11 +24,31 @@
   sector: IoT remote monitoring
   summary: Page-building components that present a complex service range consistently.
   engagement: hiyield
+  images:
+    - src: ../assets/clients/skentel-home.jpg
+      alt: The Skentel home page, with a green network globe beside the headline Clever connectivity for sustainable futures.
+    - src: ../assets/clients/skentel-inner.jpg
+      alt: The Skentel case studies page, with links to each sector above photos of leisure and hospitality customers.
+  tagline: The website of a Cornish remote monitoring company.
+  description: WordPress work for Skentel, a remote monitoring company in Cornwall. Gutenberg blocks in PHP and Tailwind CSS, driven by Advanced Custom Fields.
+  about:
+    - Skentel designs, installs and manages remote monitoring systems, helping organisations save the time, cost and resources spent travelling out to remote assets. Based in Bodmin, Cornwall, it has worked in remote monitoring since 2009, and rebranded from Ver Fácil in 2025.
+    - Each system combines sensor devices, secure connectivity from cellular and LoRaWAN to direct-to-satellite, and a cloud platform. The website explains this to customers in leisure and hospitality, agriculture and the environment, and energy and facilities management, through sector pages, a walkthrough of the process and technology, case studies and resources.
 - id: leftbrain
   order: 3
   name: LeftBrain
   url: https://www.leftbrain.io
   domain: leftbrain.io
-  sector: B2B technology
+  sector: Cyber security and IT
   summary: A component-based content structure for service pages, case studies and thought-leadership content.
   engagement: hiyield
+  images:
+    - src: ../assets/clients/leftbrain-home.jpg
+      alt: The LeftBrain home page, with the headline Cyber security built for hybrid, fast-moving teams above a photo of the team.
+    - src: ../assets/clients/leftbrain-inner.jpg
+      alt: The LeftBrain services page, with the headline One expert team, Security and IT, fully integrated, beside a photo of a team meeting.
+  tagline: The website of a UK cyber security consultancy for fast-moving teams.
+  description: WordPress work for LeftBrain, a UK cyber security consultancy. Gutenberg blocks in PHP and Tailwind CSS, driven by Advanced Custom Fields.
+  about:
+    - LeftBrain is a UK cyber security consultancy and workplace IT provider for hybrid, fast-moving teams, with particular expertise in FinTech, MarTech, MedTech, creative agencies and professional services. It is an NCSC Assured Cyber Security Consultancy, an Apple Premium Technical Partner and a certified B Corp.
+    - The website covers certification projects such as Cyber Essentials, ISO 27001 and SOC 2, and ongoing services including 24/7 threat detection and response and modern workplace IT. Alongside those sit case studies, blog posts, webinars and industry news.

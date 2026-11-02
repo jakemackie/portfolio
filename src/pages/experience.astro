@@ -1,5 +1,6 @@
 ---
 import { formatRange, getPortfolio, tenure } from '../lib/content';
+import Icon from '../components/Icon.astro';
 import Layout from '../layouts/Layout.astro';
 
 const { experience, clients } = await getPortfolio();
@@ -23,7 +24,7 @@ const others = experience.filter((job) => job.kind !== 'engineering');
       <dd>{lead.context}</dd>
     </dl>
     <div>
-      <h2 class="big-row-title">{lead.company}</h2>
+      <h2 class="big-row-title"><a class="title-link" href={lead.url}>{lead.company}<Icon name="arrow-up-right" /></a></h2>
       <p style="margin-block:8px 24px;color:var(--soft)">{lead.role}</p>
       <p class="statement" style="font-size:clamp(1.5rem,2.8vw,2.75rem);max-inline-size:32ch">{lead.summary}</p>
       <ul class="lines body-text" style="margin-block-start:32px">
@@ -38,7 +39,7 @@ const others = experience.filter((job) => job.kind !== 'engineering');
     <div class="big-rows">
       {
         clients.map((client) => (
-          <a class="big-row" href={client.url}>
+          <a class="big-row" href={`/experience/${client.slug}`}>
             <h3 class="big-row-title sm">{client.name}</h3>
             <span class="big-row-meta">{client.sector}</span>
             <span class="big-row-tag">{client.summary}</span>

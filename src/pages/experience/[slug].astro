@@ -1,0 +1,78 @@
+---
+import Gallery from '../../components/Gallery.astro';
+import { clientPaths, getPortfolio, referralUrl } from '../../lib/content';
+import { breadcrumbSchema, personRef } from '../../lib/seo';
+import Layout from '../../layouts/Layout.astro';
+
+export const getStaticPaths = clientPaths;
+
+const { clients, experience } = await getPortfolio();
+const client = clients.find((c) => c.slug === Astro.params.slug)!;
+const next = clients[(clients.indexOf(client) + 1) % clients.length]!;
+const agency = experience.find((job) => job.id === client.engagement.id)!;
+const stack = ['WordPress', 'PHP', 'Tailwind CSS', 'Gutenberg blocks', 'Advanced Custom Fields'];
+
+const site = Astro.site!;
+const path = `/experience/${client.slug}`;
+const schema = [
+  {
+    '@type': 'CreativeWork',
+    name: `${client.name} website`,
+    description: client.description,
+    url: new URL(path, site).href,
+    contributor: personRef(site),
+    keywords: stack,
+    about: { '@type': 'Organization', name: client.name, url: client.url },
+  },
+  breadcrumbSchema(site, [
+    { name: 'Home', path: '/' },
+    { name: 'Experience', path: '/experience' },
+    { name: client.name, path },
+  ]),
+];
+---
+
+<Layout
+  title={`${client.name}: WordPress Client Work`}
+  description={client.description}
+  heading={client.name}
+  blurb={client.tagline}
+  {schema}
+>
+  <section class="section two">
+    <dl class="meta">
+      <dt>Sector</dt>
+      <dd>{client.sector}</dd>
+      <dt>Work</dt>
+      <dd>Frontend and backend, at <a href={agency.url}>{agency.company}</a></dd>
+      <dt>Built with</dt>
+      <dd>{stack.join(', ')}</dd>
+      <dt>Live</dt>
+      <dd><a href={referralUrl(client.url)}>{client.domain}</a></dd>
+    </dl>
+    <div>
+      <p class="statement" style="font-size:clamp(1.5rem,2.8vw,2.75rem);max-inline-size:32ch">{client.tagline}</p>
+      {
+        client.images.length > 0 && (
+          <div style="margin-block-start:32px">
+            <Gallery title={client.name} images={client.images} />
+          </div>
+        )
+      }
+      <h2 class="eyebrow" style="margin-block-start:48px">The site</h2>
+      <div class="prose">
+        {client.about.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <h2 class="eyebrow" style="margin-block-start:48px">My work</h2>
+      <div class="prose">
+        <p>I built custom Gutenberg blocks for this site in PHP and Tailwind CSS, covering both frontend and backend development, with each block pulling its content from Advanced Custom Fields.</p>
+        <p>{client.summary}</p>
+      </div>
+    </div>
+  </section>
+
+  <a class="closing" href={`/experience/${next.slug}`}>
+    <p>Next client</p>
+    <strong>{next.name}</strong>
+  </a>
+</Layout>

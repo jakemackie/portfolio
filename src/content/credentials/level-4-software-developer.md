@@ -12,7 +12,7 @@ badge: ../../assets/credentials/level-4-software-developer.png
 badgeAlt: City & Guilds digital badge for the Level 4 Software Developer end-point assessment, graded Distinction, code 9600-12.
 ---
 
-I joined Hiyield as an apprentice in June 2024, straight from my T Level at Truro and Penwith College. For the next two years I trained with Baltic Apprenticeships while working on the WordPress team, so nothing I learned stayed theoretical for long.
+I joined [Hiyield](https://hiyield.co.uk/?utm_source=jakemackie.dev&utm_medium=referral&utm_campaign=portfolio) as an apprentice in June 2024, straight from my T Level at Truro and Penwith College. For the next two years I trained with Baltic Apprenticeships while working on the WordPress team, so nothing I learned stayed theoretical for long.
 
 ## Learning on real work
 

@@ -21,7 +21,7 @@ const schema = [{ '@type': 'ProfilePage', url: new URL('/about', Astro.site).hre
   <section class="section two">
     <h2 class="eyebrow">Profile</h2>
     <div class="body-text">
-      {profile.about.map((paragraph) => <p>{paragraph}</p>)}
+      {profile.about.map((paragraph) => <p set:html={paragraph} />)}
     </div>
   </section>
 

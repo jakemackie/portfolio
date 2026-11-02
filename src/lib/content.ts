@@ -35,7 +35,7 @@ async function load() {
     experience: experience
       .map(({ id, data }) => ({ id, ...data }))
       .sort((a, b) => b.start.getTime() - a.start.getTime()),
-    clients: clients.sort(byOrder).map(({ data }) => data),
+    clients: clients.sort(byOrder).map(({ id, data }) => ({ ...data, slug: id })),
     skills: skills.sort(byOrder).map(({ data }) => data),
     education: education.sort(byOrder).map(({ data }) => data),
     projects: projects.sort(byOrder).map((entry) => ({
@@ -53,6 +53,20 @@ export const getPortfolio = () => (cached ??= load());
 export async function projectPaths() {
   const projects = await getCollection('projects');
   return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
+
+export async function clientPaths() {
+  const clients = await getCollection('clients');
+  return clients.map((client) => ({ params: { slug: client.id } }));
+}
+
+/** An outbound link tagged so the site it points to can see the visit came from this one. */
+export function referralUrl(url: string) {
+  const tagged = new URL(url);
+  tagged.searchParams.set('utm_source', 'jakemackie.dev');
+  tagged.searchParams.set('utm_medium', 'referral');
+  tagged.searchParams.set('utm_campaign', 'portfolio');
+  return tagged.href;
 }
 
 const monthYear = new Intl.DateTimeFormat('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' });

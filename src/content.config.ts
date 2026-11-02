@@ -36,6 +36,7 @@ const experience = defineCollection({
   loader: file('src/data/experience.yaml'),
   schema: z.object({
     company: z.string(),
+    url: z.url().optional(),
     role: z.string(),
     kind: z.enum(['engineering', 'placement', 'earlier']),
     start: z.coerce.date(),
@@ -50,15 +51,21 @@ const experience = defineCollection({
 
 const clients = defineCollection({
   loader: file('src/data/clients.yaml'),
-  schema: z.object({
-    order: z.number().int(),
-    name: z.string(),
-    url: z.url(),
-    domain: z.string(),
-    sector: z.string(),
-    summary: z.string(),
-    engagement: reference('experience'),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      order: z.number().int(),
+      name: z.string(),
+      url: z.url(),
+      domain: z.string(),
+      sector: z.string(),
+      summary: z.string(),
+      engagement: reference('experience'),
+      tagline: z.string(),
+      /** The meta description, so keep it short enough for search results to show in full. */
+      description: z.string().max(160),
+      about: z.array(z.string()).min(1),
+      images: z.array(z.object({ src: image(), alt: z.string() })).default([]),
+    }),
 });
 
 const skills = defineCollection({
