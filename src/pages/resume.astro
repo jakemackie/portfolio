@@ -15,7 +15,7 @@ const file = '/jake-mackie-cv.pdf';
 >
   <section class="section">
     <p class="statement">{profile.summary}</p>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-block-start:8px">
+    <div class="pill-row" style="display:flex;flex-wrap:wrap;gap:12px;margin-block-start:8px">
       <a class="pill on-dark" href={file} download={`${profile.name} - CV.pdf`}>Download PDF <Icon name="arrow-down" /></a>
       <a class="pill on-dark" href={file} target="_blank" rel="noopener">Open in browser <Icon name="arrow-up-right" /></a>
     </div>

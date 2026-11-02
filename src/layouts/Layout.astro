@@ -160,10 +160,11 @@ const isHome = pagePath(Astro.url.pathname) === '/';
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
-    <p class="clock" title={`My local time in ${profile.location}`}>
+    <button class="clock" type="button" aria-describedby="clock-tip">
       <span class="clock-mood" aria-hidden="true"><Icon name="sun" stroke={2} /><i>z</i><i>z</i><i>z</i></span>
       <span class="clock-time"></span> <span class="clock-zone"></span>
-    </p>
+      <span class="clock-tip" id="clock-tip" role="tooltip">This is my time in {profile.location}, not yours. The site's colours follow it through the day.</span>
+    </button>
     <button class="burger" type="button" aria-expanded="false" aria-controls="menu">
       <span class="burger-label" data-open="Menu" data-close="Close"></span>
       <span class="burger-icon" aria-hidden="true"><i></i><i></i></span>
@@ -250,6 +251,22 @@ const isHome = pagePath(Astro.url.pathname) === '/';
       });
       label.setAttribute('aria-hidden', 'true');
       burger.setAttribute('aria-label', 'Menu');
+
+      // Escape hides the clock's tooltip until the pointer or focus leaves and comes back.
+      const clock = document.querySelector<HTMLElement>('.clock')!;
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        clock.toggleAttribute('data-quiet', true);
+        clock.removeAttribute('data-open');
+      });
+      for (const type of ['pointerleave', 'blur']) clock.addEventListener(type, () => clock.removeAttribute('data-quiet'));
+      // On touch, a tap on the clock toggles the tooltip and a tap anywhere else closes it. This listens
+      // for pointerdown because iOS Safari doesn't send clicks on plain page content up to the document.
+      document.addEventListener('pointerdown', (e) => {
+        if (e.pointerType !== 'touch') return;
+        const onClock = e.target instanceof Node && clock.contains(e.target);
+        clock.toggleAttribute('data-open', onClock && !clock.hasAttribute('data-open'));
+      });
 
       // Scroll reveals and stat count-ups.
       const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;

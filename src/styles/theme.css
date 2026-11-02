@@ -848,6 +848,16 @@ img {
   font-weight: 500;
 }
 
+/* Chrome paints a visited link's own colour wrong when it comes from the sky animation on :root, leaving
+   cream text on the cream pill. An inherited colour paints correctly, so link pills sit in a .pill-row. */
+.pill-row {
+  color: var(--on-heat);
+}
+
+a.pill {
+  color: inherit;
+}
+
 .pill svg {
   transition: transform 0.15s ease;
 }
@@ -1561,13 +1571,16 @@ html:has(.gallery-modal[open]) {
   align-items: center;
   gap: 6px;
   padding: 10px 16px 10px 12px;
+  border: 0;
   border-radius: 999px;
   background: var(--on-heat);
   box-shadow: inset 0 0 0 1px var(--line);
   color: var(--cream);
+  font: inherit;
   font-size: 14px;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
+  cursor: help;
 }
 
 .js .clock {
@@ -1576,6 +1589,51 @@ html:has(.gallery-modal[open]) {
 
 .clock-zone {
   opacity: 0.6;
+}
+
+/* Says whose time this is. Shown on hover, on keyboard focus, and until the next tap on touch screens. */
+.clock-tip {
+  position: absolute;
+  inset-block-start: calc(100% + 8px);
+  inset-inline-end: 0;
+  inline-size: 264px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--cream);
+  color: var(--on-heat);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.32;
+  text-align: start;
+  text-wrap: pretty;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s;
+}
+
+/* Bridges the gap to the pill, so the pointer can move onto the tooltip without losing it. */
+.clock-tip::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 100%;
+  block-size: 8px;
+}
+
+.clock[data-open] .clock-tip,
+.clock:focus-visible:not([data-quiet]) .clock-tip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Touch screens fake a hover on a long press, so a tap sets data-open there instead. */
+@media (hover: hover) {
+  .clock:hover:not([data-quiet]) .clock-tip {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 /* A little sun by day, and sleepy z's drifting out of the pill by night. */
@@ -1674,6 +1732,11 @@ html:has(.gallery-modal[open]) {
 @media (max-width: 429px) {
   .crumb {
     display: none;
+  }
+
+  /* Lines the tooltip up with the menu pill's edge, or it would run off the left of the screen. */
+  .clock-tip {
+    inset-inline-end: -107px;
   }
 }
 

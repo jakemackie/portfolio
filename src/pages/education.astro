@@ -24,7 +24,9 @@ const { education } = await getPortfolio();
       <p class="eyebrow" style="margin-block-end:12px">Apprenticeship, {credential.awarded.getUTCFullYear()}</p>
       <h2 class="statement">{credential.title}, with a {credential.grade}</h2>
       <p class="credential-note">{credential.statement}</p>
-      <a class="pill on-dark" href={credential.verifyUrl}>Verify the certificate <Icon name="arrow-up-right" /></a>
+      <div class="pill-row">
+        <a class="pill on-dark" href={credential.verifyUrl}>Verify the certificate <Icon name="arrow-up-right" /></a>
+      </div>
       <dl class="meta credential-meta">
         <div>
           <dt>Grade</dt>
