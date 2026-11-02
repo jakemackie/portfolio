@@ -2,6 +2,7 @@
 import { Font } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Icon from '../components/Icon.astro';
+import Stars from '../components/Stars.astro';
 import { getPortfolio, siteNav } from '../lib/content';
 import { pagePath } from '../lib/seo';
 import '../styles/theme.css';
@@ -166,6 +167,7 @@ const isHome = pagePath(Astro.url.pathname) === '/';
       </div>
     </div>
     <div class:list={['band', heading ? 'short' : 'full']}>
+      <Stars />
       <header class="top">
         <a class="logo" href="/">{profile.name}</a>
         {section && <a class="crumb" href={section.href}>/ {section.label}</a>}

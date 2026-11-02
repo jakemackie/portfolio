@@ -202,6 +202,50 @@ img {
   z-index: 1;
 }
 
+/* Night only: faint stars between the gradient and the text. */
+.stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: none;
+  pointer-events: none;
+}
+
+[data-sky="night"] .stars {
+  display: block;
+}
+
+.stars-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.stars i {
+  position: absolute;
+  inset-inline-start: var(--x);
+  inset-block-start: var(--y);
+  inline-size: var(--s);
+  block-size: var(--s);
+  border-radius: 50%;
+  background: #cfd8f0;
+  opacity: var(--low);
+  animation: twinkle var(--t) ease-in-out var(--d) infinite alternate;
+}
+
+@keyframes twinkle {
+  to {
+    opacity: var(--high);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stars i {
+    animation: none;
+    opacity: var(--high);
+  }
+}
+
 @keyframes breathe {
   0% {
     transform: translate3d(-3%, 2%, 0) scale(0.88);
@@ -452,25 +496,6 @@ a.big-row:hover .big-row-title {
   max-inline-size: 28ch;
   font-size: 14px;
   color: var(--soft);
-}
-
-.shots {
-  display: grid;
-  gap: 16px;
-}
-
-@media (min-width: 760px) {
-  .shots {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.shots img {
-  border-radius: 8px;
-}
-
-.shots > :only-child {
-  grid-column: 1 / -1;
 }
 
 /* Screenshots as a single stack: the cards behind peek out, and hovering fans them to invite a click. */
@@ -812,6 +837,14 @@ html:has(.gallery-modal[open]) {
   justify-self: center;
 }
 
+/* Stacked above the text, where it only needs to introduce it. */
+@media (max-width: 859px) {
+  .badge {
+    inline-size: 96px;
+    justify-self: start;
+  }
+}
+
 .credential-note {
   margin-block-start: 16px;
   max-inline-size: 52ch;
@@ -873,11 +906,19 @@ html:has(.gallery-modal[open]) {
 
 /* Closing band */
 .closing {
+  position: relative;
   display: block;
+  overflow: hidden;
   margin-block-start: clamp(56px, 8vw, 112px);
   padding: clamp(32px, 6vw, 72px) var(--gutter) clamp(16px, 2vw, 24px);
   color: var(--on-sky);
   background: var(--sky-sweep);
+}
+
+.closing p,
+.closing strong {
+  position: relative;
+  z-index: 1;
 }
 
 .closing p {
@@ -939,6 +980,27 @@ html:has(.gallery-modal[open]) {
   color: var(--hot);
 }
 
+/* Needs JavaScript, so it stays hidden without it. The email link above always works. */
+.pill.copy-email {
+  display: none;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.js .pill.copy-email {
+  display: inline-flex;
+}
+
+.copy-done,
+[data-copied] .copy-idle {
+  display: none;
+}
+
+[data-copied] .copy-done {
+  display: block;
+}
+
 /* Scroll reveals */
 .js .reveal {
   opacity: 0;
@@ -960,7 +1022,8 @@ html:has(.gallery-modal[open]) {
   position: fixed;
   inset-block-start: 14px;
   inset-inline-end: calc(var(--gutter) + 107px);
-  z-index: 40;
+  /* Above the open menu, beside the pill that closes it. */
+  z-index: 60;
   display: none;
   align-items: center;
   gap: 6px;

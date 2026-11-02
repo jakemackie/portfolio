@@ -65,6 +65,12 @@ const clients = defineCollection({
       description: z.string().max(160),
       about: z.array(z.string()).min(1),
       images: z.array(z.object({ src: image(), alt: z.string() })).default([]),
+      caseStudy: z
+        .object({
+          title: z.string(),
+          body: z.array(z.string()).min(1),
+        })
+        .optional(),
     }),
 });
 

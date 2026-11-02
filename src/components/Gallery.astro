@@ -13,7 +13,7 @@ const { title, images } = Astro.props;
 ---
 
 <div class="gallery" data-gallery>
-  <button class="gallery-stack" type="button" style={`--n:${images.length}`} aria-haspopup="dialog" aria-label={`View ${images.length} screenshots of the ${title} website`}>
+  <button class="gallery-stack" type="button" style={`--n:${images.length}`} aria-haspopup="dialog" aria-label={`View ${images.length} screenshots of ${title}`}>
     {
       images.map((image, i) => (
         <span class="gallery-card" style={`--i:${i}`}>

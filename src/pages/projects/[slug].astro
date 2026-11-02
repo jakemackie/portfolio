@@ -1,7 +1,8 @@
 ---
-import { Image } from 'astro:assets';
 import { render } from 'astro:content';
+import Gallery from '../../components/Gallery.astro';
 import LiveRepo from '../../components/LiveRepo.astro';
+import Stars from '../../components/Stars.astro';
 import { getPortfolio, projectPaths, type Project } from '../../lib/content';
 import { breadcrumbSchema, personRef } from '../../lib/seo';
 import Layout from '../../layouts/Layout.astro';
@@ -42,20 +43,6 @@ const schema = [
   blurb={view.tagline}
   {schema}
 >
-  <section class="section">
-    <p class="statement">{view.tagline}</p>
-  </section>
-
-  {
-    view.images.length > 0 && (
-      <div class="section shots" style="padding-block-start:40px">
-        {view.images.map((image) => (
-          <Image src={image.src} alt={image.alt} widths={[500, 900, 1300]} sizes="(min-width: 760px) 50vw, 100vw" />
-        ))}
-      </div>
-    )
-  }
-
   <section class="section two">
     <dl class="meta">
       <dt>Type</dt>
@@ -82,7 +69,15 @@ const schema = [
       }
     </dl>
     <div>
-      <div class="prose"><Content /></div>
+      <p class="statement" style="font-size:clamp(1.5rem,2.8vw,2.75rem);max-inline-size:32ch">{view.tagline}</p>
+      {
+        view.images.length > 0 && (
+          <div style="margin-block-start:32px">
+            <Gallery title={view.title} images={view.images} />
+          </div>
+        )
+      }
+      <div class="prose" style="margin-block-start:48px"><Content /></div>
       <ul class="lines" style="margin-block-start:32px;max-inline-size:62ch">
         {view.points.map((point) => <li>{point}</li>)}
       </ul>
@@ -90,6 +85,7 @@ const schema = [
   </section>
 
   <a class="closing" href={`/projects/${next.slug}`}>
+    <Stars count={18} />
     <p>Next project</p>
     <strong>{next.title}</strong>
   </a>

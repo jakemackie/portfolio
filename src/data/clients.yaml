@@ -11,6 +11,14 @@
       alt: "The Friends of the Lake District home page: two walkers on a Cumbrian hillside, under the headline Protecting Cumbria's landscapes, for nature, for people, for ever."
     - src: ../assets/clients/friends-of-the-lake-district-inner.jpg
       alt: The Our Work page on the Friends of the Lake District website, with volunteers planting hedgerow trees behind the headline.
+  caseStudy:
+    title: The home page hero
+    body:
+      - I built almost all of this site, including the hero block at the top of the home page. It's a small block, but it shows how I work, from a Figma design through to content the client can edit.
+      - The Figma design was tailored to Tailwind's values, so I could match it 1:1 without translating anything. Details outside the standard scale, like the angled gradient over the photo, went in as exact arbitrary values.
+      - The block is built in PHP with its content in Advanced Custom Fields, so it's edited in the WordPress CMS rather than in code.
+      - On phones the hero swaps to a separate portrait photo rather than cropping the landscape one, so the people stay in frame. The cost is a second image to prepare, and in return the design holds up at both sizes.
+      - We entered content in a pre-live environment to demo the site to the client, and they were happy with it.
   tagline: The website of the independent charity protecting Cumbria's landscapes.
   description: WordPress work for Friends of the Lake District, a Cumbrian landscape charity. Gutenberg blocks in PHP and Tailwind CSS, driven by Advanced Custom Fields.
   about:

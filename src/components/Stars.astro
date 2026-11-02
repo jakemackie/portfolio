@@ -1,0 +1,130 @@
+---
+interface Props {
+  count?: number;
+}
+
+const { count = 56 } = Astro.props;
+
+// Seeded, so the sky is the same on every page and every build.
+let seed = 193741;
+const random = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const between = (min: number, max: number) => min + random() * (max - min);
+
+// Three depths, far to near. The larger stars sit nearest, and so move the most.
+const layers: string[][] = [[], [], []];
+
+for (let i = 0; i < count; i++) {
+  const bright = random() > 0.8;
+  layers[bright ? 2 : i % 2]!.push(
+    [
+      `--x:${between(0, 100).toFixed(1)}%`,
+      // Mostly above the name, where the sky is open.
+      `--y:${between(0, 88).toFixed(1)}%`,
+      // Whole pixels, because a fractional size can round into a dash on screen.
+      `--s:${bright ? 2 : 1}px`,
+      `--low:${between(0.08, 0.22).toFixed(2)}`,
+      `--high:${(bright ? between(0.6, 0.8) : between(0.3, 0.5)).toFixed(2)}`,
+      `--t:${between(2.5, 6.5).toFixed(1)}s`,
+      // Starts each one partway through, so they never pulse together.
+      `--d:${between(-6.5, 0).toFixed(1)}s`,
+    ].join(';'),
+  );
+}
+---
+
+<div class="stars" aria-hidden="true">
+  {layers.map((stars) => <div class="stars-layer">{stars.map((style) => <i {style}></i>)}</div>)}
+</div>
+
+<script>
+  // How far the farthest layer moves: pixels with the mouse at a screen edge, and per pixel scrolled.
+  // The two nearer layers move two and three times as much.
+  const MOUSE = 5;
+  const SCROLL = 0.03;
+  const EASE_MS = 140;
+
+  const root = document.documentElement;
+  const calm = matchMedia('(prefers-reduced-motion: reduce)');
+  const fields = [...document.querySelectorAll<HTMLElement>('.stars')].map((el) => ({
+    el,
+    layers: [...el.children] as HTMLElement[],
+    inView: false,
+    // The scroll position where this field sits at rest.
+    anchor: 0,
+  }));
+
+  let width = innerWidth;
+  let height = innerHeight;
+  let targetX = 0;
+  let targetY = 0;
+  let x = 0;
+  let y = 0;
+  let frame = 0;
+  let last = 0;
+
+  const render = (now: number) => {
+    frame = 0;
+    const step = 1 - Math.exp(-(last ? now - last : 16) / EASE_MS);
+    x += (targetX - x) * step;
+    y += (targetY - y) * step;
+    for (const field of fields) {
+      if (!field.inView) continue;
+      const scroll = scrollY - field.anchor;
+      field.layers.forEach((layer, i) => {
+        const depth = i + 1;
+        const moveX = -x * depth * MOUSE;
+        const moveY = scroll * depth * SCROLL - y * depth * MOUSE;
+        layer.style.transform = `translate3d(${moveX.toFixed(2)}px,${moveY.toFixed(2)}px,0)`;
+      });
+    }
+    // Keep going only while the stars are still easing towards the mouse.
+    if (Math.abs(targetX - x) + Math.abs(targetY - y) > 0.002) {
+      last = now;
+      request();
+    } else {
+      last = 0;
+    }
+  };
+
+  const request = () => {
+    if (!frame && fields.some((field) => field.inView) && root.dataset.sky === 'night' && !calm.matches) {
+      frame = requestAnimationFrame(render);
+    }
+  };
+
+  addEventListener(
+    'pointermove',
+    (e) => {
+      if (e.pointerType !== 'mouse') return;
+      targetX = (e.clientX / width) * 2 - 1;
+      targetY = (e.clientY / height) * 2 - 1;
+      request();
+    },
+    { passive: true },
+  );
+  root.addEventListener('mouseleave', () => {
+    targetX = targetY = 0;
+    request();
+  });
+  addEventListener('scroll', request, { passive: true });
+  addEventListener('resize', () => {
+    width = innerWidth;
+    height = innerHeight;
+    request();
+  });
+
+  // Nothing runs while a field is off screen. Each one rests when it reaches the middle of the
+  // screen, or at the top of the page if it starts there, so a field far down the page stays in place.
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const field = fields.find((candidate) => candidate.el === entry.target)!;
+        field.inView = entry.isIntersecting;
+        field.anchor = Math.max(0, entry.boundingClientRect.top + scrollY - height / 2);
+      }
+      request();
+    },
+    { rootMargin: '100px' },
+  );
+  fields.forEach((field) => observer.observe(field.el));
+</script>

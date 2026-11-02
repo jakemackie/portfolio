@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
 import Icon from '../components/Icon.astro';
+import Stars from '../components/Stars.astro';
 import { formatRange, formatStat, getPortfolio } from '../lib/content';
 import Layout from '../layouts/Layout.astro';
 
@@ -85,6 +86,7 @@ const credential = (await getEntry('credentials', 'level-4-software-developer'))
   }
 
   <a class="closing" href="/contact">
+    <Stars count={18} />
     <p>{profile.availability}</p>
     <strong>Let's chat <Icon name="arrow-up-right" size={64} stroke={1.25} /></strong>
   </a>

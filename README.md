@@ -40,7 +40,7 @@ The look lives in `src/layouts/Layout.astro` and `src/styles/theme.css`.
 
 The clock pill and the site's colours follow the time in `Europe/London`, whatever the visitor's own zone, so BST and GMT are handled by the browser's time zone data. Night runs from 19:00 to 07:00, set by `NIGHT_FROM` and `NIGHT_UNTIL` in `src/layouts/Layout.astro`, and its palette is the `:root[data-sky="night"]` block in `src/styles/theme.css`. Without JavaScript the site stays in its day colours.
 
-The first page of a visit also compares the device's clock with the `Date` header on a `HEAD` request to the site itself, and corrects for any gap over 30 seconds. If that request fails, the device's clock is used. At night the tab icon swaps to `public/favicon-night.svg`, which is a recolour of `public/favicon.svg`, so regenerate it if the mark changes. Social banners stay in the day colours, because crawlers don't run JavaScript and platforms cache the image.
+The first page of a visit also compares the device's clock with the `Date` header on a `HEAD` request to the site itself, and corrects for any gap over 30 seconds. If that request fails, the device's clock is used. At night the tab icon swaps to `public/favicon-night.svg`, which is a recolour of `public/favicon.svg`, so regenerate it if the mark changes. Social banners stay in the day colours, because crawlers don't run JavaScript and platforms cache the image. The night stars and their mouse and scroll parallax live in `src/components/Stars.astro`.
 
 ## GitHub data
 

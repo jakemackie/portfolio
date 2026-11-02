@@ -14,8 +14,10 @@ points:
   - Admins link a repository by signing in with GitHub, and Dispatch checks they can push to it before accepting the link.
   - Versioned SQL migrations, Vitest tests, and separate beta and production environments.
 images:
-  - src: ../../assets/projects/dispatch-og.png
-    alt: The Dispatch social card, showing the product name and its tagline.
+  - src: ../../assets/projects/dispatch-home.jpg
+    alt: The Dispatch home page, with the headline Bug reports from Discord, straight to GitHub, above an example report in a triage channel.
+  - src: ../../assets/projects/dispatch-features.jpg
+    alt: The features section of the Dispatch site, with columns on useful reports, tracked issues and keeping a community involved.
 ---
 
 Communities find bugs long before maintainers do, but most of those reports die in a Discord channel because nobody in the conversation wants to open a GitHub issue. Dispatch closes that gap. A member runs `/report`, fills in a short form, and a well-structured issue lands in the linked repository. They never have to touch GitHub.
