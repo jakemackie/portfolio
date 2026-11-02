@@ -33,7 +33,7 @@ const isHome = pagePath(Astro.url.pathname) === '/';
 <!doctype html>
 <html lang="en-GB">
   <head>
-    <BaseHead {title} {description} {noindex} {schema} themeColor="#e5401c" colorScheme="dark" />
+    <BaseHead {title} {description} {noindex} {schema} themeColor="#e5341a" colorScheme="dark" />
     <Font cssVariable="--font-geist" preload />
     <script is:inline>
       document.documentElement.classList.add('js');
@@ -43,23 +43,44 @@ const isHome = pagePath(Astro.url.pathname) === '/';
       {
         const NIGHT_FROM = 19;
         const NIGHT_UNTIL = 7;
-        const SKY_COLOURS = { day: '#e5401c', night: '#040614' };
+        // How often, in seconds, the page's colours and the browser's own (tab icon, toolbar) move on.
+        const SKY_STEP = 15;
+        const TAB_STEP = 300;
+        // The colours in favicon.svg, in the order they appear in the file.
+        const ICON_COLOURS = ['sky-1', 'sky-2', 'sky-3', 'sky-4', 'sky-3', 'sky-5', 'sky-6', 'sky-7', 'on-sky'];
         const root = document.documentElement;
         const format = new Intl.DateTimeFormat('en-GB', {
           timeZone: 'Europe/London',
           hour: '2-digit',
           minute: '2-digit',
+          second: '2-digit',
           hourCycle: 'h23',
           timeZoneName: 'short',
         });
-        const calm = matchMedia('(prefers-reduced-motion: reduce)');
 
-        const setSky = (sky) => {
-          root.dataset.sky = sky;
-          document.querySelector('meta[name="theme-color"]')?.setAttribute('content', SKY_COLOURS[sky]);
-          const icon = document.querySelector('link[rel="icon"]');
-          const href = sky === 'night' ? '/favicon-night.svg' : '/favicon.svg';
-          if (icon && icon.getAttribute('href') !== href) icon.setAttribute('href', href);
+        let icon = null;
+        let tabStep = null;
+
+        const paintTab = (step) => {
+          const style = getComputedStyle(root);
+          const colour = (name) => style.getPropertyValue(`--${name}`);
+          // Too early: the stylesheet hasn't arrived, so try again on the next tick.
+          if (!colour('sky-3') || step === tabStep) return;
+          tabStep = step;
+          document.querySelector('meta[name="theme-color"]')?.setAttribute('content', colour('sky-3'));
+          if (icon) {
+            let next = 0;
+            const svg = icon.replace(/#[0-9a-f]{6}/g, () => colour(ICON_COLOURS[next++]));
+            document.querySelector('link[rel="icon"]')?.setAttribute('href', `data:image/svg+xml,${encodeURIComponent(svg)}`);
+          }
+        };
+
+        const loadIcon = async () => {
+          try {
+            icon = await (await fetch('/favicon.svg')).text();
+            tabStep = null;
+            tick();
+          } catch {}
         };
 
         // How far the device's clock is from the server's, so a wrong clock can't show the wrong time.
@@ -89,7 +110,14 @@ const isHome = pagePath(Astro.url.pathname) === '/';
           const now = new Date(Date.now() + (drift ?? 0));
           const parts = Object.fromEntries(format.formatToParts(now).map((part) => [part.type, part.value]));
           const hour = Number(parts.hour);
-          const sky = hour >= NIGHT_FROM || hour < NIGHT_UNTIL ? 'night' : 'day';
+          const seconds = hour * 3600 + Number(parts.minute) * 60 + Number(parts.second);
+
+          // The palette itself is a timeline in theme.css. This only says where along it we are.
+          const skyNow = `${seconds - (seconds % SKY_STEP)}s`;
+          if (root.style.getPropertyValue('--sky-now') !== skyNow) root.style.setProperty('--sky-now', skyNow);
+          // Sets the clock's sun or sleepy z's, and lets the stars run, which are still invisible at either change.
+          root.dataset.sky = hour >= NIGHT_FROM || hour < NIGHT_UNTIL ? 'night' : 'day';
+          paintTab(Math.floor(seconds / TAB_STEP));
 
           const time = document.querySelector('.clock-time');
           if (time) {
@@ -98,22 +126,12 @@ const isHome = pagePath(Astro.url.pathname) === '/';
             const zone = document.querySelector('.clock-zone');
             if (zone.textContent !== parts.timeZoneName) zone.textContent = parts.timeZoneName;
           }
-
-          if (root.dataset.sky === sky) return;
-          // Only a change while the page is open animates: dusk and dawn open outwards from the clock.
-          const clock = document.querySelector('.clock');
-          if (root.dataset.sky && clock && document.startViewTransition && !calm.matches && !document.hidden) {
-            const r = clock.getBoundingClientRect();
-            root.style.setProperty('--vt-origin', `${Math.round(r.left + r.width / 2)}px ${Math.round(r.top + r.height / 2)}px`);
-            document.startViewTransition(() => setSky(sky));
-          } else {
-            setSky(sky);
-          }
         };
 
         tick();
         addEventListener('DOMContentLoaded', tick);
         addEventListener('load', checkDrift);
+        addEventListener('load', loadIcon);
         setInterval(tick, 1000);
       }
 

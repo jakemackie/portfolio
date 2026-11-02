@@ -38,9 +38,13 @@ The look lives in `src/layouts/Layout.astro` and `src/styles/theme.css`.
 
 ## Day and night
 
-The clock pill and the site's colours follow the time in `Europe/London`, whatever the visitor's own zone, so BST and GMT are handled by the browser's time zone data. Night runs from 19:00 to 07:00, set by `NIGHT_FROM` and `NIGHT_UNTIL` in `src/layouts/Layout.astro`, and its palette is the `:root[data-sky="night"]` block in `src/styles/theme.css`. Without JavaScript the site stays in its day colours.
+The clock pill and the site's colours follow the time in `Europe/London`, whatever the visitor's own zone, so BST and GMT are handled by the browser's time zone data. The colours blend continuously through the day, along a 24-hour timeline of `@keyframes` in `src/styles/theme.css`. To change the palette, edit those keyframes: their percentages are the time of day, and each is labelled with its time. New colours must be written in `oklch()`, so that browsers blend them in Oklab. `src/layouts/Layout.astro` moves the paused animation to the current time every 15 seconds by setting `--sky-now`. Without JavaScript the sky rests at 09:00, the original orange and gold.
 
-The first page of a visit also compares the device's clock with the `Date` header on a `HEAD` request to the site itself, and corrects for any gap over 30 seconds. If that request fails, the device's clock is used. At night the tab icon swaps to `public/favicon-night.svg`, which is a recolour of `public/favicon.svg`, so regenerate it if the mark changes. Social banners stay in the day colours, because crawlers don't run JavaScript and platforms cache the image. The night stars and their mouse and scroll parallax live in `src/components/Stars.astro`.
+Text on the sky changes between light and dark at about 06:55 and 18:45, over three minutes each, while the sky is mid-toned. Contrast dips during those few minutes, so if you move those stops, keep the sky around them mid-toned too.
+
+`NIGHT_FROM` and `NIGHT_UNTIL` in `src/layouts/Layout.astro` (19:00 and 07:00) only swap the clock's sun for its sleepy z's and let the stars run. Keep `--stars` at 0 outside those hours.
+
+The first page of a visit also compares the device's clock with the `Date` header on a `HEAD` request to the site itself, and corrects for any gap over 30 seconds. If that request fails, the device's clock is used. The tab icon and toolbar colour follow the sky every five minutes, with the icon recoloured from `public/favicon.svg`. `ICON_COLOURS` in `Layout.astro` lists that file's colours in order, so update it if they change. Social banners and the static favicon stay in the 09:00 colours, because crawlers don't run JavaScript and platforms cache the image. The stars and their mouse and scroll parallax live in `src/components/Stars.astro`.
 
 ## GitHub data
 
